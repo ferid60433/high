@@ -38,7 +38,7 @@
                         <i class="menu-icon icon-address-book"></i><span>Academic</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Class</a></li>
+                        <li><a href="<?=base_url("admin/classes")?>">Classes</a></li>
                         <li><a href="">Section</a></li>
                         <li><a href="">Subject</a></li>
                         <li><a href="">Syllabus</a></li>

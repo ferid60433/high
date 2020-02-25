@@ -3,8 +3,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix">
-                <h4 class="card-title">Users</h4>
-                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/add_user')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/users/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -14,8 +13,8 @@
                                 <th>S/N</th>
                                 <th>Photo</th>
                                 <th>Name</th>
-                                <th>Roll</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -24,11 +23,11 @@
                             <tr>
                                 <td>1.</td>
                                 <td></td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>Mr Chidubem</td>
+                                <td>chidu@svl.com</td>
+                                <td>Accountant</td>
+                                <td><span class="badge badge-info">active</span></td>
+                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/users/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/users/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/users/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

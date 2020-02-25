@@ -6,6 +6,12 @@ $(document).ready(function() {
 			fullName: {
 				required: true
 			},
+			designation: {
+				required: true
+			},
+			dateJoined: {
+				required: true
+			},
 			guardian: {
 				required: true
 			},

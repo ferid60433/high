@@ -2,15 +2,12 @@
 <?php $this->load->view("admin/inc/styles") ?>
 <style>
     .dt-buttons {
-        margin-bottom:5px !important;
+        margin-bottom: 5px !important;
     }
 </style>
-<!-- start page container -->
 <div class="page-container">
     <?php $this->load->view("admin/inc/sidebar") ?>
-    <!-- start page content -->
     <div class="page-content">
-        <!-- start page header -->
         <div class="page-header">
             <div class="search-form">
                 <form action="#" method="GET">
@@ -24,7 +21,6 @@
             </div>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <div class="logo-sm">
                             <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
@@ -34,9 +30,6 @@
                             <i class="fa fa-angle-down"></i>
                         </button>
                     </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
@@ -79,7 +72,9 @@
                                 </ul>
                             </li>
                             <li class="dropdown user-dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?= base_url("assets/img/avatars/user-dropdown.jpg") ?>" alt="" class="rounded-circle"></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="<?= base_url("assets/img/avatars/user-dropdown.jpg") ?>" alt="" class="rounded-circle">
+                                </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Profile</a></li>
                                     <li><a href="#"><span class="badge float-right badge-danger">42</span>Messages</a></li>
@@ -90,13 +85,9 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- /.navbar-collapse -->
                 </div>
-                <!-- /.container-fluid -->
             </nav>
         </div>
-        <!-- end page header -->
-        <!-- start page inner -->
         <div class="page-inner">
-            <!-- start page main wrapper -->
+            <?php if (isset($active) && $active == "dashboard"); else $this->load->view("admin/inc/breadcrumb") ?>
             <div id="main-wrapper">

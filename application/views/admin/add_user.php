@@ -18,12 +18,8 @@
                             <a class="nav-link" id="profile-pills-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact Information</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-pills-tab" data-toggle="tab" href="#level" role="tab" aria-controls="level" aria-selected="false">Class</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" id="finish-pills-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">Account</a>
                         </li>
-
                     </ul>
                     <div class="progress progress-sm m-t-sm">
                         <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
@@ -46,15 +42,19 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Guardian</label>
+                                            <label class="col-sm-2 col-form-label">Role</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user-friends"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-user-plus"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="guardian" name="guardian">
+                                                    <select class="form-control" id="role" name="role">
                                                         <option>Select</option>
-                                                        <option>Mr & Mrs Okunuka</option>
+                                                        <option value="bus assistant">Bus Assistant</option>
+                                                        <option value="moderator">Moderator</option>
+                                                        <option value="receptionist">Receptionist</option>
+                                                        <option value="librarian">Librarian</option>
+                                                        <option value="accountant">Accountant</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -86,27 +86,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Blood Group</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-tint"></i></div>
-                                                    </div>
-                                                    <select class="form-control" name="bloodGroup">
-                                                        <option>Select</option>
-                                                        <option value="A+">A+</option>
-                                                        <option value="A-">A-</option>
-                                                        <option value="B+">B+</option>
-                                                        <option value="B-">B-</option>
-                                                        <option value="O+">O+</option>
-                                                        <option value="O-">O-</option>
-                                                        <option value="AB+">AB+</option>
-                                                        <option value="AB-">AB-</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Passport Photo</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
@@ -125,6 +104,17 @@
                                                         <div class="input-group-text"><i class="fas fa-place-of-worship"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Religion" name="religion">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Joined Date</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control date-picker" placeholder="20/12/2012" name="dateJoined" id="dateJoined">
                                                 </div>
                                             </div>
                                         </div>
@@ -164,106 +154,6 @@
                                                         <div class="input-group-text"><i class="fas fa-map-marker"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Address" id="address" name="address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">State</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-globe"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="State" id="state" name="state">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Country</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-flag-usa"></i></div>
-                                                    </div>
-                                                    <select class="form-control" id="country" name="country">
-                                                        <option>Select</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="level" role="tabpanel">
-                                <div class="row m-b-lg">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Class</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-building"></i></div>
-                                                    </div>
-                                                    <select class="form-control" id="class" name="class">
-                                                        <option>Select</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Section/Arm</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-puzzle-piece"></i></div>
-                                                    </div>
-                                                    <select class="form-control" id="section" name="section">
-                                                        <option>Select</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Admission NO</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">#</div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Admission Number" id="admin_no" name="admin_no">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Roll</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-sort-numeric-up"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Number on Roll" id="roll" name="roll">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Extra Curricular Activities</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-futbol"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Student Activities" name="activities">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Remarks</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-comment"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Remarks" name="remark">
                                                 </div>
                                             </div>
                                         </div>

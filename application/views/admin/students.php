@@ -3,8 +3,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix">
-                <h4 class="card-title">Students</h4>
-                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/add_student')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/students/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -28,7 +27,7 @@
                                 <td>3</td>
                                 <td>bp@svl.com</td>
                                 <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/view_student")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/edit_student")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/del_student")?>">Delete</a></td>
+                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/students/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/students/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/students/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix">
-                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/teachers/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/classes/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -11,21 +11,21 @@
                         <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Photo</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Status</th>
+                                <th>Class</th>
+                                <th>Class Numeric</th>
+                                <th>Teacher in Charge</th>
+                                <th>Note</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td></td>
+                                <td>JSS 1</td>
+                                <td>7</td>
                                 <td>Mrs Chinenye</td>
-                                <td>chi@school.com</td>
-                                <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/teachers/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/teachers/delete")?>">Delete</a></td>
+                                <td>-</td>
+                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/classes/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/classes/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

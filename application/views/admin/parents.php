@@ -3,8 +3,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix">
-                <h4 class="card-title">Parents</h4>
-                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/add_parent')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/parents/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,7 +25,7 @@
                                 <td>Mr & Mrs Pitts</td>
                                 <td>pitts@school.com</td>
                                 <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/view_parent")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/edit_parent")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/del_parent")?>">Delete</a></td>
+                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/parents/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/parents/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/parents/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>
