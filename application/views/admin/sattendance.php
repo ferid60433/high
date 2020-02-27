@@ -5,7 +5,8 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/timetable/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
+                        <button type="button" class="btn btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -32,60 +33,42 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Timetable</a>
+                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All sattendance</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm Timetable (e.g. JSS1 C)</a>
+                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm sattendance (e.g. JSS1 C)</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                SUNDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                MONDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                TUESDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                WEDNESDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                THURSDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                FRIDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                SATURDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="display table datatables_init" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Deadline</th>
+                                                <th>Class</th>
+                                                <th>Uploader</th>
+                                                <th>File</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1.</td>
+                                                <td>Anger Management</td>
+                                                <td>finish ml-auto d-none btn-primary btn-lg</td>
+                                                <td>2020-02-26</td>
+                                                <td>JSS1</td>
+                                                <td>-</td>
+                                                <td>img.jpg</td>
+                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/assignments/download") ?>">Download</a> | <a class="btn btn-outline-warning" href="<?= base_url("admin/assignments/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/assignments/delete") ?>">Delete</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
                                 <table class="table table-striped">
