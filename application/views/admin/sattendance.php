@@ -12,7 +12,7 @@
                         <form>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Class</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10"> 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-school"></i></div>
