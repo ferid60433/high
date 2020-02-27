@@ -51,7 +51,7 @@
                         <i class="menu-icon icon-schedule"></i><span>Attendance</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Students Attendance</a></li>
+                        <li><a href="<?=base_url("admin/sattendance")?>">Students Attendance</a></li>
                         <li><a href="">Teachers Attendance</a></li>
                         <li><a href="">Users Attendance</a></li>
                     </ul>

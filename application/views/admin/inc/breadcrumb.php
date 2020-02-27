@@ -17,9 +17,9 @@
                 <ul class="breadcrumb text-right">
                     <li><a href="<?= base_url("admin") ?>"><i class="fas fa-home"></i> Dashboard</a></li>
                     <?php if (isset($page_mother)) : ?>
-                        <li><a href="<?= base_url("admin/" . strtolower($page_mother)) ?>"><?= $page_mother ?></a></li>
+                        <li><a href="<?= base_url("admin/" . strtolower($page_mother)) ?>"><?= (isset($page_mother_name)) ? $page_mother_name : $page_mother ?></a></li>
                     <?php endif; ?>
-                    <li><?= $page ?></li>
+                    <li><?= (isset($page_name)) ? $page_name : $page  ?></li>
                 </ul>
             </div>
         </div>

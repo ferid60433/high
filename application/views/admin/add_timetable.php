@@ -123,7 +123,18 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-clock"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control date-picker" placeholder="10:45 AM">
+                                                    <input type="text" class="form-control time-picker" placeholder="10:45 AM">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Room</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Classroom">
                                                 </div>
                                             </div>
                                         </div>
