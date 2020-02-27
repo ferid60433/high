@@ -45,57 +45,52 @@
                                     <table class="display table datatables_init" style="width: 100%;">
                                         <thead>
                                             <tr>
-                                                <th>S/N</th>
-                                                <th>Title</th>
-                                                <th>Description</th>
-                                                <th>Deadline</th>
-                                                <th>Class</th>
-                                                <th>Uploader</th>
-                                                <th>File</th>
+                                                <th>#</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Roll</th>
+                                                <th>Email</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1.</td>
-                                                <td>Anger Management</td>
-                                                <td>finish ml-auto d-none btn-primary btn-lg</td>
-                                                <td>2020-02-26</td>
-                                                <td>JSS1</td>
-                                                <td>-</td>
-                                                <td>img.jpg</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/assignments/download") ?>">Download</a> | <a class="btn btn-outline-warning" href="<?= base_url("admin/assignments/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/assignments/delete") ?>">Delete</a></td>
+                                                <td></td>
+                                                <td>John Green</td>
+                                                <td>26</td>
+                                                <td>jg@svl.com</td>
+                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                WEDNESDAY
-                                            </td>
-                                            <td>
-                                                10:30 AM-11:10 AM<br>
-                                                Subject : Basic Tech<br>
-                                                Teacher :<br>
-                                                Room : classroom
-                                                <div>
-                                                    <a href="#" title="Edit" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" title="Delete" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                THURSDAY
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="table-responsive">
+                                    <table class="display table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Roll</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1.</td>
+                                                <td></td>
+                                                <td>John Green</td>
+                                                <td>26</td>
+                                                <td>jg@svl.com</td>
+                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

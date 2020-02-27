@@ -1,7 +1,7 @@
 <style>
     .breadcrumb li:not(:first-child):before {
-        content: " / ";
-        margin: 0 3px 0 3px;
+        content: "/";
+        margin: 0 5px 0 5px;
     }
 
     .breadcrumb {
