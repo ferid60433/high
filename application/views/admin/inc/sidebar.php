@@ -39,11 +39,11 @@
                     </a>
                     <ul>
                         <li><a href="<?=base_url("admin/classes")?>">Classes</a></li>
-                        <li><a href="">Section</a></li>
-                        <li><a href="">Subject</a></li>
-                        <li><a href="">Syllabus</a></li>
-                        <li><a href="">Assignment</a></li>
-                        <li><a href="">Time Table</a></li>
+                        <li><a href="<?=base_url("admin/sections")?>">Sections</a></li>
+                        <li><a href="<?=base_url("admin/subjects")?>">Subjects</a></li>
+                        <li><a href="<?=base_url("admin/syllabus")?>">Syllabus</a></li>
+                        <li><a href="<?=base_url("admin/assignments")?>">Assignments</a></li>
+                        <li><a href="<?=base_url("admin/timetable")?>">Timetable</a></li>
                     </ul>
                 </li>
                 <li>

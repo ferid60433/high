@@ -12,28 +12,53 @@
                 <div id="rootWizardStudent">
                     <form id="wizardFormStudent">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="main" role="tabpanel">
+                            <div class="tab-pane fade show active" id="section" role="tabpanel">
                                 <div class="row m-b-lg">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Class Name</label>
+                                            <label class="col-sm-2 col-form-label">Section Name</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-paper-plane"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Section Name" id="fullName" name="fullName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Category</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-list"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Class Name" id="fullName" name="fullName">
+                                                    <input type="text" class="form-control" placeholder="Category" name="category">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Class Numeric</label>
+                                            <label class="col-sm-2 col-form-label">Capacity</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">#</div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Class Numeric" name="numeric">
+                                                    <input type="text" class="form-control" placeholder="Capacity of Student" name="capacity">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Class</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                                    </div>
+                                                    <select class="form-control" id="class" name="class">
+                                                        <option>Select</option>
+                                                        <option value="bus assistant">JSS1</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>

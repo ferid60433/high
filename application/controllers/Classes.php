@@ -20,11 +20,4 @@ class Classes extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_class', $p);
     }
-    public function view()
-    {
-        $p["title"] = "View Class";
-        $p["page_mother"] = "Classes";
-        $p["page"] = "View";
-        $this->load->view('admin/view_class', $p);
-    }
 }

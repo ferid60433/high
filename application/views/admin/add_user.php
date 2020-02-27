@@ -202,7 +202,7 @@
                             <ul class="pagination wizard">
                                 <li class="previous d-none"><button type="button" class="btn btn-outline-warning">Previous</button></li>
                                 <li class="next ml-auto"><button type="button" class="btn btn-outline-info">Next</button></li>
-                                <button type="submit" class="finish ml-auto d-none btn btn-outline-primary">Finish</button>
+                                <button type="submit" class="finish ml-auto d-none btn btn-primary">Finish</button>
                             </ul>
                         </div>
                     </form>
