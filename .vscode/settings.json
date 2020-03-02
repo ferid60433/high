@@ -3,6 +3,8 @@
         "addsubject",
         "sattendance",
         "schoolvillehigh",
-        "subsattendance"
+        "subsattendance",
+        "tattendance",
+        "uattendance"
     ]
 }

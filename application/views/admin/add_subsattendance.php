@@ -14,7 +14,7 @@
             <div class="card-body">
                 <form class="form-inline row">
                     <div class="col-md-10 row">
-                        <div class="form-group row col-md-4">
+                        <div class="form-group row col-md-3">
                             <label class="col-sm-12 col-form-label">Class</label>
                             <div class="col-sm-12">
                                 <div class="input-group mb-3">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-md-4">
+                        <div class="form-group row col-md-3">
                             <label class="col-sm-12 col-form-label">Section</label>
                             <div class="col-sm-12">
                                 <div class="input-group mb-3">
@@ -42,7 +42,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-md-4">
+                        <div class="form-group row col-md-3">
+                            <label class="col-sm-12 col-form-label">Subject</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                    </div>
+                                    <select class="form-control" id="subject" name="subject">
+                                        <option>Select</option>
+                                        <option value="bus assistant">English</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-md-3">
                             <label class="col-sm-12 col-form-label">Date</label>
                             <div class="col-sm-12">
                                 <div class="input-group mb-3">
@@ -68,6 +82,7 @@
                     Attendance Details<br>
                     Class : JSS 1<br>
                     Section : JSS 1<br>
+                    Subject : English<br>
                     Day : Thursday<br>
                     Date : 27th February 2020
                 </div>
@@ -102,8 +117,16 @@
                                         <label class="form-check-label" for="att1">
                                             Present
                                         </label>
-                                        <input class="form-check-input" type="radio" name="att" id="att2" value="A">
+                                        <input class="form-check-input" type="radio" name="att" id="att2" value="LWE">
                                         <label class="form-check-label" for="att2">
+                                            Late With Excuse
+                                        </label>
+                                        <input class="form-check-input" type="radio" name="att" id="att3" value="L">
+                                        <label class="form-check-label" for="att3">
+                                            Late
+                                        </label>
+                                        <input class="form-check-input" type="radio" name="att" id="att4" value="A">
+                                        <label class="form-check-label" for="att4">
                                             Absent
                                         </label>
                                     </div>
