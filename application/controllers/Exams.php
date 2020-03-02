@@ -20,11 +20,4 @@ class Exams extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_exam', $p);
     }
-    public function view()
-    {
-        $p["title"] = "View Exam";
-        $p["page_mother"] = "Exams";
-        $p["page"] = "View";
-        $this->load->view('admin/view_exam', $p);
-    }
 }

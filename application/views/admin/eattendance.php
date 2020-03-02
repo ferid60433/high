@@ -6,7 +6,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
-                        <button type="button" class="btn btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>

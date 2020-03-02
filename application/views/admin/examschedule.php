@@ -5,8 +5,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
-                        <button type="button" class="btn btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/examschedule/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -33,10 +32,10 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All sattendance</a>
+                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Exam Schedule</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm sattendance (e.g. JSS1 C)</a>
+                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm Exam Schedule (e.g. JSS1 C)</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -46,47 +45,59 @@
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
-                                                <th>Photo</th>
-                                                <th>Name</th>
-                                                <th>Roll</th>
-                                                <th>Email</th>
+                                                <th>Exam Name</th>
+                                                <th>Class</th>
+                                                <th>Section</th>
+                                                <th>Subject</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Room</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1.</td>
-                                                <td></td>
-                                                <td>John Green</td>
-                                                <td>26</td>
-                                                <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td>Second Term Exam</td>
+                                                <td>JSS1</td>
+                                                <td>JSS1</td>
+                                                <td>English</td>
+                                                <td>04 Mar 2019</td>
+                                                <td>10:45AM - 11-45AM</td>
+                                                <td>JSS1A</td>
+                                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
-                            <div class="table-responsive">
+                                <div class="table-responsive">
                                     <table class="display table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
-                                                <th>Photo</th>
-                                                <th>Name</th>
-                                                <th>Roll</th>
-                                                <th>Email</th>
+                                                <th>Exam Name</th>
+                                                <th>Class</th>
+                                                <th>Section</th>
+                                                <th>Subject</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Room</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1.</td>
-                                                <td></td>
-                                                <td>John Green</td>
-                                                <td>26</td>
-                                                <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td>Second Term Exam</td>
+                                                <td>JSS1</td>
+                                                <td>JSS1</td>
+                                                <td>English</td>
+                                                <td>04 Mar 2019</td>
+                                                <td>10:45AM - 11-45AM</td>
+                                                <td>JSS1A</td>
+                                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

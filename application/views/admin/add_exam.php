@@ -16,99 +16,35 @@
                                 <div class="row m-b-lg">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Class</label>
+                                            <label class="col-sm-2 col-form-label">Exam Name</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-book"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="class" name="class">
-                                                        <option>Select</option>
-                                                        <option value="bus assistant">JSS1</option>
-                                                    </select>
+                                                    <input type="text" class="form-control" placeholder="Exam Name">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Teacher</label>
+                                            <label class="col-sm-2 col-form-label">Date</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user-plus"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="teacher" name="teacher">
-                                                        <option>Select</option>
-                                                        <option value="mrs chinenye">Mrs Chinenye</option>
-                                                    </select>
+                                                    <input type="text" class="form-control date-picker" placeholder="Exam Date">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Type</label>
+                                            <label class="col-sm-2 col-form-label">Note</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user-plus"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="type" name="type">
-                                                        <option>Select</option>
-                                                        <option value="mandatory">Mandatory</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Pass Mark</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Pass Mark" id="passMark" name="passMark">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Final Mark</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Final Mark" id="finalMark" name="finalMark">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Subject Name</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-paper-plane"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Subject Name" id="fullName" name="fullName">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Author</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Subject Author" name="author">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Subject Code</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">#</div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Subject Code" name="code">
+                                                    <textarea type="text" class="form-control" placeholder="Note" id="note" name="note"></textarea>
                                                 </div>
                                             </div>
                                         </div>

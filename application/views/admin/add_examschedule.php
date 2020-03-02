@@ -16,35 +16,16 @@
                                 <div class="row m-b-lg">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Title</label>
+                                            <label class="col-sm-2 col-form-label">Select Exam</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Title" id="fullName" name="fullName">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Description</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-book"></i></div>
-                                                    </div>
-                                                    <textarea type="text" class="form-control" placeholder="Description" id="description" name="note"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Deadline</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control date-picker" placeholder="20/12/2012" name="dateJoined" id="dateJoined">
+                                                    <select class="form-control" id="exam" name="exam">
+                                                        <option>Select</option>
+                                                        <option value="bus assistant">Second Term Exam</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,16 +72,46 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">File</label>
+                                            <label class="col-sm-2 col-form-label">Date</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-camera"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
                                                     </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    <input type="text" class="form-control date-picker" placeholder="Exam Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Time From</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-clock"></i></div>
                                                     </div>
+                                                    <input type="text" class="form-control time-picker" placeholder="10:00 AM">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Time To</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-clock"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control time-picker" placeholder="10:45 AM">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Room</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Classroom">
                                                 </div>
                                             </div>
                                         </div>
