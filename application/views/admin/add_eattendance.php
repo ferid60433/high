@@ -136,10 +136,10 @@
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
 <script>
-    $('#markAll').change(function(){
-        if(this.checked){
+    $('#markAll').change(function() {
+        if (this.checked) {
             $('.checkbox').parent().addClass("checked");
-        }else{
+        } else {
             $('.checkbox').parent().removeClass("checked");
         }
     })

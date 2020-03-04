@@ -78,6 +78,8 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="col-md-12 row"><button class="btn btn-primary btn-lg ml-auto mt-2">Promotion To Class JSS2</button></div>
+                    <div class="col-md-12 row"><button class="btn btn-info btn-lg ml-auto mt-2">Enroll To Class JSS1</button></div>
                 </div>
             </div>
         </div>
@@ -92,6 +94,13 @@
                 break;
             default:
                 $(".advance_section").addClass("d-none");
+        }
+    })
+    $('#markAll').change(function() {
+        if (this.checked) {
+            $('.checkbox').parent().addClass("checked");
+        } else {
+            $('.checkbox').parent().removeClass("checked");
         }
     })
 </script>
