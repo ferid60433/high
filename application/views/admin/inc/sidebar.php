@@ -72,9 +72,9 @@
                         <i class="menu-icon icon-checkmark"></i><span>Marks</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Marks</a></li>
-                        <li><a href="">Marks Distribution</a></li>
-                        <li><a href="">Promotions</a></li>
+                        <li><a href="<?=base_url("admin/marks")?>">Marks</a></li>
+                        <li><a href="<?=base_url("admin/marksdis")?>">Marks Distribution</a></li>
+                        <li><a href="<?=base_url("admin/promotion")?>">Promotion</a></li>
                     </ul>
                 </li>
                 <li>

@@ -33,10 +33,10 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All sattendance</a>
+                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Student Attendance</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm sattendance (e.g. JSS1 C)</a>
+                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm Student Attendance (e.g. JSS1 C)</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

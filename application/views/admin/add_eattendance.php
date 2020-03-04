@@ -15,6 +15,20 @@
                 <form class="form-inline row">
                     <div class="col-md-10 row">
                         <div class="form-group row col-md-3">
+                            <label class="col-sm-12 col-form-label">Select Exam</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
+                                    </div>
+                                    <select class="form-control" id="exam" name="exam">
+                                        <option>Select</option>
+                                        <option value="bus assistant">Second Term Exam</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-md-3">
                             <label class="col-sm-12 col-form-label">Class</label>
                             <div class="col-sm-12">
                                 <div class="input-group mb-3">
@@ -56,17 +70,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-md-3">
-                            <label class="col-sm-12 col-form-label">Date</label>
-                            <div class="col-sm-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
-                                    </div>
-                                    <input type="text" class="form-control date-picker" id="date" name="date">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="form-group row col-md-2">
                         <button type="submit" class="btn btn-primary btn-lg">Attendance</button>
@@ -79,12 +82,11 @@
         <div class="card card-white">
             <div class="card-body">
                 <div class="alert alert-dark mb-0 text-center" role="alert">
-                    Attendance Details<br>
+                    Exam Attendance Details<br>
+                    Exam : Second Term Exam<br>
                     Class : JSS 1<br>
                     Section : JSS 1<br>
-                    Subject : English<br>
-                    Day : Thursday<br>
-                    Date : 27th February 2020
+                    Subject : Agricultire
                 </div>
             </div>
         </div>
@@ -101,7 +103,12 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Roll</th>
-                                <th>Attendance</th>
+                                <th>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="markAll">
+                                        Action
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,31 +120,27 @@
                                 <td>3</td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="att" id="att1" value="P">
-                                        <label class="form-check-label" for="att1">
+                                        <input class="form-check-input checkbox" type="checkbox" id="gc1">
+                                        <label class="form-check-label" for="gc1">
                                             Present
-                                        </label>
-                                        <input class="form-check-input" type="radio" name="att" id="att2" value="LWE">
-                                        <label class="form-check-label" for="att2">
-                                            Late With Excuse
-                                        </label>
-                                        <input class="form-check-input" type="radio" name="att" id="att3" value="L">
-                                        <label class="form-check-label" for="att3">
-                                            Late
-                                        </label>
-                                        <input class="form-check-input" type="radio" name="att" id="att4" value="A">
-                                        <label class="form-check-label" for="att4">
-                                            Absent
                                         </label>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="col-md-12"><button class="btn btn-primary btn-lg float-right mt-2">Submit</button></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<script>
+    $('#markAll').change(function(){
+        if(this.checked){
+            $('.checkbox').parent().addClass("checked");
+        }else{
+            $('.checkbox').parent().removeClass("checked");
+        }
+    })
+</script>

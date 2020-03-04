@@ -3,6 +3,8 @@
         "addsubject",
         "eattendance",
         "examschedule",
+        "markdis",
+        "marksdis",
         "sattendance",
         "schoolvillehigh",
         "subsattendance",
