@@ -64,7 +64,7 @@
                             <th>Time</th>
                             <th>Reply</th>
                         </thead>
-                        <?php if ($msg_view == "Conversations") : ?>
+                        <?php if ($msg_view == "Conversations" || $msg_view == "Sent") : ?>
                             <tbody>
                                 <tr onclick="window.location='<?= base_url('admin/messages/view') ?>'">
                                     <td>

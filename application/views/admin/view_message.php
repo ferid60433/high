@@ -15,8 +15,15 @@
 
     #message_window {
         height: 350px;
-        overflow:hidden;
-        overflow-y:scroll;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    .bubble_r:before {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
     }
 
     .bubble_r {
@@ -36,7 +43,7 @@
         text-align: right;
         margin-top: 10px;
         border-radius: 5px;
-        margin-right:10px;
+        margin-right: 10px;
     }
 </style>
 <div class="row">
@@ -122,7 +129,7 @@
                                 </p>
                                 <p class="attach">
                                     <a href="#">
-                                    <i class="fas fa-paperclip">Payment_Invoice.pdf</i>
+                                        <i class="fas fa-paperclip">Payment_Invoice.pdf</i>
                                     </a>
                                 </p>
                             </div>
@@ -133,7 +140,7 @@
                             <div class="bubble_r">
                                 <div class="person">
                                     <b>Mr John</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i>25 Feb 2019 14:19:43 PM</small>
+                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 14:19:43 PM</small>
                                 </div>
                                 <p class="msg">
                                     Please all payment should be made latest by monday.
@@ -146,7 +153,7 @@
                             <div class="bubble_s">
                                 <div class="person">
                                     <b>Me</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i>25 Feb 2019 15:05:03 PM</small>
+                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 15:05:03 PM</small>
                                 </div>
                                 <p class="msg">Noted with thanks sir</p>
                             </div>
@@ -155,7 +162,7 @@
                 </div>
                 <hr>
                 <form>
-                    <div class="form-group ">
+                    <div class="form-group">
                         <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
