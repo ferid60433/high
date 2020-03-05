@@ -20,6 +20,22 @@ $(document).ready(function() {
 			[10, 25, 50, "All"]
 		]
 	});
+	$(".nb_init").dataTable({
+		responsive: true,
+		language: {
+			paginate: {
+				previous: '<i class="fa fa-chevron-left"></i>',
+				next: '<i class="fa fa-chevron-right"></i>'
+			},
+			search: "_INPUT_",
+			searchPlaceholder: "--Search--"
+		},
+		dom: "lfrtip",
+		lengthMenu: [
+			[10, 25, 50, -1],
+			[10, 25, 50, "All"]
+		]
+	});
 
 	$(".date-picker").datepicker({
 		orientation: "top auto",

@@ -78,7 +78,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?=base_url("admin/messages")?>">
                         <i class="menu-icon icon-envelop"></i><span>Messages</span>
                     </a>
                 </li>
