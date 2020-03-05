@@ -16,10 +16,26 @@ class SAttendance extends CI_Controller
     }
     public function add()
     {
-        $p["title"] = "Add New Student Attendance";
+        $p["title"] = "Add New Class Attendance";
         $p["page_mother"] = "SAttendance";
         $p["page_mother_name"] = "Students Attendance";
         $p["page"] = "Add";
         $this->load->view('admin/add_sattendance', $p);
+    }
+    public function addsubject()
+    {
+        $p["title"] = "Add New Subject Attendance";
+        $p["page_mother"] = "SAttendance";
+        $p["page_mother_name"] = "Students Attendance";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_subsattendance', $p);
+    }
+    public function view()
+    {
+        $p["title"] = "View Student Attendance";
+        $p["page_mother"] = "SAttendance";
+        $p["page_mother_name"] = "Students Attendance";
+        $p["page"] = "View";
+        $this->load->view('admin/view_sattendance', $p);
     }
 }

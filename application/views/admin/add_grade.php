@@ -16,24 +16,13 @@
                                 <div class="row m-b-lg">
                                     <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Title</label>
+                                            <label class="col-sm-2 col-form-label">Grade Name</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Title" id="fullName" name="fullName">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Description</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-book"></i></div>
-                                                    </div>
-                                                    <textarea type="text" class="form-control" placeholder="Description" id="description" name="note"></textarea>
+                                                    <input type="text" class="form-control" placeholder="Grade Name">
                                                 </div>
                                             </div>
                                         </div>
@@ -52,16 +41,46 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">File</label>
+                                            <label class="col-sm-2 col-form-label">Grade Point</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-camera"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-book"></i></div>
                                                     </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    <input type="text" class="form-control" placeholder="Grade Point">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Mark From</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
                                                     </div>
+                                                    <input type="text" class="form-control" placeholder="45">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Mark To</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="50">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Note</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
+                                                    </div>
+                                                    <textarea type="text" class="form-control" placeholder="Note" id="note" name="note"></textarea>
                                                 </div>
                                             </div>
                                         </div>

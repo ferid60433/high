@@ -52,34 +52,34 @@
                     </a>
                     <ul>
                         <li><a href="<?=base_url("admin/sattendance")?>">Students Attendance</a></li>
-                        <li><a href="">Teachers Attendance</a></li>
-                        <li><a href="">Users Attendance</a></li>
+                        <li><a href="<?=base_url("admin/tattendance")?>">Teachers Attendance</a></li>
+                        <li><a href="<?=base_url("admin/uattendance")?>">Users Attendance</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">
-                        <i class="menu-icon icon-file-text2"></i><span>Exam</span><i class="accordion-icon fa fa-angle-left"></i>
+                        <i class="menu-icon icon-file-text2"></i><span>Exams</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Exam</a></li>
-                        <li><a href="">Exam Schedule</a></li>
-                        <li><a href="">Grade</a></li>
-                        <li><a href="">Exam Attendance</a></li>
+                        <li><a href="<?=base_url("admin/exams")?>">Exams</a></li>
+                        <li><a href="<?=base_url("admin/examschedule")?>">Exam Schedule</a></li>
+                        <li><a href="<?=base_url("admin/grades")?>">Grades</a></li>
+                        <li><a href="<?=base_url("admin/eattendance")?>">Exam Attendance</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);">
-                        <i class="menu-icon icon-checkmark"></i><span>Mark</span><i class="accordion-icon fa fa-angle-left"></i>
+                        <i class="menu-icon icon-checkmark"></i><span>Marks</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Mark</a></li>
-                        <li><a href="">Mark Distribution</a></li>
-                        <li><a href="">Promotion</a></li>
+                        <li><a href="<?=base_url("admin/marks")?>">Marks</a></li>
+                        <li><a href="<?=base_url("admin/marksdis")?>">Marks Distribution</a></li>
+                        <li><a href="<?=base_url("admin/promotion")?>">Promotion</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="">
-                        <i class="menu-icon icon-envelop"></i><span>Message</span>
+                    <a href="<?=base_url("admin/messages")?>">
+                        <i class="menu-icon icon-envelop"></i><span>Messages</span>
                     </a>
                 </li>
                 <li>
@@ -89,19 +89,19 @@
                 </li>
                 <li>
                     <a href="">
-                        <i class="menu-icon icon-mail"></i><span>Mail/SMS</span>
+                        <i class="menu-icon icon-mail"></i><span>Mails/SMS</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">
-                        <i class="menu-icon icon-display"></i><span>Online Exam</span><i class="accordion-icon fa fa-angle-left"></i>
+                        <i class="menu-icon icon-display"></i><span>Online Exams</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Question Group</a></li>
-                        <li><a href="">Question Level</a></li>
+                        <li><a href="">Question Groups</a></li>
+                        <li><a href="">Question Levels</a></li>
                         <li><a href="">Question Bank</a></li>
-                        <li><a href="">Online Exam</a></li>
-                        <li><a href="">Instruction</a></li>
+                        <li><a href="">Online Exams</a></li>
+                        <li><a href="">Instructions</a></li>
                     </ul>
                 </li>
                 <li>

@@ -1,12 +1,20 @@
 <?php $this->load->view("admin/inc/header") ?>
+<style>
+    .tab-pane .row {
+        margin-top: 15px;
+    }
+
+    .form-inline label {
+        justify-content: unset !important;
+    }
+</style>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
-                        <button type="button" class="btn btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/eattendance/add') ?>'"><i class="fas fa-plus"></i> Add Exam Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -29,14 +37,69 @@
                 </div>
             </div>
             <div class="card-body">
+                <form class="form-inline row">
+                    <div class="col-md-10 row">
+                        <div class="form-group row col-md-4">
+                            <label class="col-sm-12 col-form-label">Select Exam</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
+                                    </div>
+                                    <select class="form-control" id="exam" name="exam">
+                                        <option>Select</option>
+                                        <option value="bus assistant">Second Term Exam</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-md-4">
+                            <label class="col-sm-12 col-form-label">Class</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                    </div>
+                                    <select class="form-control" id="class" name="class">
+                                        <option>Select</option>
+                                        <option value="bus assistant">JSS1</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-md-4">
+                            <label class="col-sm-12 col-form-label">Subject</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                    </div>
+                                    <select class="form-control" id="subject" name="subject">
+                                        <option>Select</option>
+                                        <option value="bus assistant">English</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-2">
+                        <button type="submit" class="btn btn-primary btn-lg">View Attendance</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-white">
+            <div class="card-body">
                 <div class="">
                     <div class="card-body">
                         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Student Attendance</a>
+                                <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Exam Attendance</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm Student Attendance (e.g. JSS1 C)</a>
+                                <a class="nav-link" id="eachSection-tab" data-toggle="tab" href="#eachSection" role="tab" aria-controls="eachSection" aria-selected="false">Section / Arm Exam Attendance (e.g. JSS1 C)</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -50,7 +113,7 @@
                                                 <th>Name</th>
                                                 <th>Roll</th>
                                                 <th>Email</th>
-                                                <th>Action</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -60,14 +123,14 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><span class="badge badge-danger">Absent</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
-                            <div class="table-responsive">
+                                <div class="table-responsive">
                                     <table class="display table" style="width: 100%;">
                                         <thead>
                                             <tr>
@@ -76,7 +139,7 @@
                                                 <th>Name</th>
                                                 <th>Roll</th>
                                                 <th>Email</th>
-                                                <th>Action</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,7 +149,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><span class="badge badge-danger">Absent</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
