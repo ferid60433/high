@@ -83,9 +83,6 @@
                         <select id="userID" class="Group form-control select2" name="userID">
                             <option value="">Select User</option>
                         </select>
-                        <span class="has-error" id="selectDiv">
-                            </p>
-                        </span>
                     </div>
                     <div class="form-group ">
                         <input class="form-control" name="subject" value="" placeholder="Subject" />

@@ -64,5 +64,7 @@
 <!-- jquery wizard -->
 <script src="<?= base_url("assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js") ?>"></script>
 
+<script src="<?= base_url("assets/plugins/bootstrap-clockpicker/js/bootstrap-clockpicker.min.js") ?>"></script>
 <!-- form-wizard -->
 <script src="<?= base_url("assets/js/pages/form-wizard.js") ?>"></script>
+<script src="<?= base_url("assets/js/pages/form-elements.js") ?>"></script>

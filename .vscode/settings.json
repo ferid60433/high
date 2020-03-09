@@ -5,9 +5,11 @@
         "examschedule",
         "markdis",
         "marksdis",
+        "oexams",
         "sattendance",
         "schoolvillehigh",
         "subsattendance",
+        "summernote",
         "tattendance",
         "uattendance"
     ]
