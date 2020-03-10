@@ -83,12 +83,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?=base_url("admin/media")?>">
                         <i class="menu-icon icon-video-camera"></i><span>Media</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?=base_url("admin/mails")?>">
                         <i class="menu-icon icon-mail"></i><span>Mails/SMS</span>
                     </a>
                 </li>
@@ -97,11 +97,11 @@
                         <i class="menu-icon icon-display"></i><span>Online Exams</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul>
-                        <li><a href="">Question Groups</a></li>
-                        <li><a href="">Question Levels</a></li>
-                        <li><a href="">Question Bank</a></li>
-                        <li><a href="">Online Exams</a></li>
-                        <li><a href="">Instructions</a></li>
+                        <li><a href="<?=base_url("admin/oexams/groups")?>">Question Groups</a></li>
+                        <li><a href="<?=base_url("admin/oexams/levels")?>">Question Levels</a></li>
+                        <li><a href="<?=base_url("admin/oexams/bank")?>">Question Bank</a></li>
+                        <li><a href="<?=base_url("admin/oexams")?>">Online Exams</a></li>
+                        <li><a href="<?=base_url("admin/oexams/instructions")?>">Instructions</a></li>
                     </ul>
                 </li>
                 <li>

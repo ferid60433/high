@@ -13,11 +13,18 @@ class Media extends CI_Controller
         $p["page"] = "Media";
         $this->load->view('admin/media', $p);
     }
-    public function view()
+    public function folders()
     {
-        $p["title"] = "View Media";
+        $p["title"] = "View Folder";
         $p["page_mother"] = "Media";
-        $p["page"] = "View";
-        $this->load->view('admin/view_media', $p);
+        $p["page"] = "Folder Name";
+        $this->load->view('admin/media_folder', $p);
+    }
+    public function files()
+    {
+        $p["title"] = "View File";
+        $p["page_mother"] = "Media";
+        $p["page"] = "File Name";
+        $this->load->view('admin/media_file', $p);
     }
 }

@@ -1047,7 +1047,10 @@
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text"><i class="fas fa-upload"></i></div>
                                                         </div>
-                                                        <input type="file" class="form-control" placeholder="doc" name="doc">
+                                                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
                                                     </div>
                                                 </div>
                                             </div>

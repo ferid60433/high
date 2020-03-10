@@ -19,13 +19,6 @@
         overflow-y: scroll;
     }
 
-    .bubble_r:before {
-        width: 0;
-        height: 0;
-        border-top: 100px solid red;
-        border-right: 100px solid transparent;
-    }
-
     .bubble_r {
         width: 45%;
         background: #fecda2;
