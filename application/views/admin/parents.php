@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
-            <div class="card-heading clearfix">
-                <button type="button" class="btn btn-outline-primary float-right" onclick="window.location='<?=base_url('admin/parents/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+            <div class="card-heading clearfix mb-3">
+                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/parents/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

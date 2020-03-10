@@ -15,4 +15,5 @@ $route['logout'] = 'auth/logout';
 //Admin Routes
 $route['admin/(:any)'] = '$1';
 $route['admin/(:any)/(:any)'] = '$1/$2';
+$route['admin/(:any)/(:any)/(:any)'] = '$1/$2/$3';
 

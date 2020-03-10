@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="float-left">
                     <span class="stats-number">25</span>
-                    <p class="stats-info">Students</p>
+                    <p class="stats-info"><a href="<?=base_url("admin/students")?>">Students</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-user-graduate text-primary stats-icon primary"></i>
@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="float-left">
                     <span class="stats-number">12</span>
-                    <p class="stats-info">Parents</p>
+                    <p class="stats-info"><a href="<?=base_url("admin/parents")?>">Parents</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-user-plus stats-icon text-danger danger"></i>
@@ -31,7 +31,7 @@
             <div class="card-body">
                 <div class="float-left">
                     <span class="stats-number">23</span>
-                    <p class="stats-info">Teachers</p>
+                    <p class="stats-info"><a href="<?=base_url("admin/teachers")?>">Teachers</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-chalkboard-teacher stats-icon text-warning warning"></i>
@@ -44,7 +44,7 @@
             <div class="card-body">
                 <div class="float-left">
                     <span class="stats-number">8</span>
-                    <p class="stats-info">Classes</p>
+                    <p class="stats-info"><a href="<?=base_url("admin/classes")?>">Classes</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-tasks stats-icon text-success success"></i>

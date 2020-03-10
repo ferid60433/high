@@ -65,4 +65,5 @@ class Auth extends CI_Controller {
 					redirect($user_type.'s');
 		}
 	}
+
 }
