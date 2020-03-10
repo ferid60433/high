@@ -7,19 +7,21 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 login-box">
                         <h4 class="login-title">Sign in to your account</h4>
-                        <form action="<?=base_url("admin")?>" method="post">
+                        <?= form_open(); ?>
                             <div class="form-group">
                                 <label for="login">Email address</label>
-                                <input type="email" name="login" class="form-control" id="login">
+                                <input type="email" name="email" value="<?= set_value('email', ''); ?>" class="form-control" id="login">
+								<?= form_error('email'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="pass">Password</label>
                                 <input type="password" name="password" class="form-control" id="pass">
+								<?= form_error('password'); ?>
                             </div>
-                            <button class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                             <!-- <a href="register.html" class="btn btn-outline-primary">Register</a> -->
-                            <a href="index.html" class="forgot-link">Forgot password?</a>
-                        </form>
+                            <a href="<?= base_url('auth/forgot/')?>" class="forgot-link">Forgot password?</a>
+                        <?= form_close(); ?>
                     </div>
                 </div>
             </div>
