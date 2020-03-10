@@ -8,6 +8,11 @@
     .note-editor {
         width: 96%;
     }
+
+    .checkers input {
+        width: 22px;
+        height: 16px;
+    }
 </style>
 <div class="row">
     <div class="col-md-12">
@@ -80,70 +85,72 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class='form-group'> <label for="hints" class="col-sm-2 control-label">
-                            Hints </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="hints" name="hints" value="">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Hints</label>
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-info"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="hints" name="hints" value="">
+                            </div>
                         </div>
-                        <span class="col-sm-4 control-label">
-                        </span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Mark</label>
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-check"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="mark" name="mark" value="">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class='form-group'> <label for="mark" class="col-sm-2 control-label">
-                            Mark </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="mark" name="mark" value="">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Question Type</label>
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-question"></i></div>
+                                </div>
+                                <select name="type" id='type' class='form-control select2'>
+                                    <option value="0">Please Select</option>
+                                    <option value="1">Single Answer</option>
+                                    <option value="2">Multi Answer</option>
+                                    <option value="3">Fill in the blanks</option>
+                                </select>
+                            </div>
                         </div>
-                        <span class="col-sm-4 control-label">
-                        </span>
                     </div>
-
-                    <div class='form-group'> <label for="type" class="col-sm-2 control-label">
-                            Question Type <span class='text-red'>*</span>
-                        </label>
-                        <div class="col-sm-6">
-                            <select name="type" id='type' class='form-control select2'>
-                                <option value="0">Please Select</option>
-                                <option value="1">Single Answer</option>
-                                <option value="2">Multi Answer</option>
-                                <option value="3">Fill in the blanks</option>
-                            </select>
+                    <div class="form-group row" id='totalOptionDiv'>
+                        <label class="col-sm-2 col-form-label">Total Option</label>
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-sort"></i></div>
+                                </div>
+                                <select name="totalOption" id='totalOption' class='form-control select2'>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
                         </div>
-                        <span class="col-sm-4 control-label">
-                        </span>
                     </div>
-
-                    <div class='form-group' id='totalOptionDiv'> <label for="totalOption" class="col-sm-2 control-label">
-                            Total Option </label>
-                        <div class="col-sm-6">
-                            <select name="totalOption" id='totalOption' class='form-control select2'>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div>
-                        <span class="col-sm-4 control-label">
-                        </span>
-                    </div>
-
                     <div id="in"></div>
-
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-8">
-                            <input type="submit" class="btn btn-success" value="Add Question bank">
-                        </div>
+                        <input type="submit" class="btn btn-primary float-right" value="Add Question bank">
                     </div>
-
-
                 </form>
             </div>
         </div>
@@ -225,10 +232,43 @@
             type = 'checkbox';
             required = '';
         } else if (type == 3) {
-            var html = '<div class="form-group coption"><label for="answer' + id + '" class="col-sm-2 control-label">Answer ' + id + '</label><div class="col-sm-4"><input type="text" class="form-control" id="answer' + id + '" name="answer[]" value="' + value + '"></div><div class="col-sm-1"></div><span class="col-sm-4 control-label text-red" id="anserror' + id + '"></span></div>';
+            var html = '<div class="form-group row">' +
+                '<label class="col-sm-2 col-form-label">Answer ' + id + '</label>' +
+                '<div class="col-sm-10">' +
+                '<div class="input-group mb-3">' +
+                '<div class="input-group-prepend">' +
+                '<div class="input-group-text"><i class="fas fa-expand"></i></div>' +
+                '</div>' +
+                '<input id="answer' + id + 'type="text" class="form-control" name="answer[]" value="' + value + '">' +
+                '</div>' +
+                '</div>' +
+                '</div>';
             return html;
         }
-        var html = '<div class="form-group coption"><label for="option' + id + '" class="col-sm-2 control-label">Option ' + id + '</label><div class="col-sm-4" style="display:inline-table"><input type="text" class="form-control" id="option' + id + '" name="option[]" value="' + value + '"><span class="input-group-addon"><input class="answer" id="ans' + id + '" ' + checked + ' type="' + type + '" name="answer[]" value="' + id + '" data-toggle="tooltip" data-placement="top" title="Correct Answer" ' + required + ' /></span></div><div class="col-sm-3" style="display:inline-table"><input style="padding-top:7px" type="file" name="image' + id + '" id="image' + id + '"></div><span class="col-sm-3 control-label text-red" id="anserror' + id + '"></span></div>';
+
+        var html = '<div class="form-group row">' +
+            '<label class="col-sm-2 col-form-label">Option ' + id + '</label>' +
+            '<div class="col-sm-10">' +
+            '<div class="row">' +
+            '<div class="input-group col-sm-8">' +
+            '<input type="text" class="form-control" name="option[]" id="option' + id + '" value="' + value + '">' +
+            '<div class="input-group-prepend last">' +
+            '<div class="input-group-text">' +
+            '<div class="checkers"><span class="">' +
+            '<input' + checked + ' type="' + type + '" name="answer[]">' +
+            '</span></div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-sm-4">' +
+            '<div class="custom-file">' +
+            '<input type="file" class="custom-file-input" id="customFile' + id + '" name="image' + id + '">' +
+            '<label class="custom-file-label" for="customFile">Choose file</label>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
         return html;
     }
 </script>

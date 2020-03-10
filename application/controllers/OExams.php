@@ -36,7 +36,9 @@ class OExams extends CI_Controller
         $p["title"] = "Add Online Exam Question Bank";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
-        $p["page"] = "Add Bank";
+        $p["page_inner"] = "bank";
+        $p["page_inner_name"] = "Question Bank";
+        $p["page"] = "Add";
         $this->load->view('admin/add_oexams_bank', $p);
     }
     private function view_bank()
@@ -44,7 +46,9 @@ class OExams extends CI_Controller
         $p["title"] = "View Online Exam Question Bank";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
-        $p["page"] = "View Bank";
+        $p["page_inner"] = "bank";
+        $p["page_inner_name"] = "Question Bank";
+        $p["page"] = "View";
         $this->load->view('admin/view_oexams_bank', $p);
     }
     public function groups($act = "")
@@ -66,7 +70,9 @@ class OExams extends CI_Controller
         $p["title"] = "Add Online Exam Question Group";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
-        $p["page"] = "Add Group";
+        $p["page_inner"] = "groups";
+        $p["page_inner_name"] = "Question Group";
+        $p["page"] = "Add";
         $this->load->view('admin/add_oexams_group', $p);
     }
     public function levels($act = "")
@@ -88,7 +94,9 @@ class OExams extends CI_Controller
         $p["title"] = "Add Online Exam Question Level";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
-        $p["page"] = "Add Level";
+        $p["page_inner"] = "levels";
+        $p["page_inner_name"] = "Question Level";
+        $p["page"] = "Add";
         $this->load->view('admin/add_oexams_level', $p);
     }
 }
