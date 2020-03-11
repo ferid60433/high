@@ -21,3 +21,7 @@
     <script src="<?= base_url("assets/js/main.js") ?>"></script>
 
     <!-- all js include end -->
+    <?php if ($page_mother == "OExams" && isset($page_inner) && $page_inner == "bank" && $page == "View") : ?>
+        <link href="<?= base_url("assets/plugins/icheck/square/_all.css") ?>" rel="stylesheet">
+        <script src="<?= base_url("assets/plugins/icheck/icheck.js") ?>"></script>
+    <?php endif; ?>
