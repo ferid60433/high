@@ -24,7 +24,11 @@ class Auth extends CI_Controller {
 			return;
 		}else{
 			$data = array(
+<<<<<<< HEAD
+				'username' => $this->input->post('email', true),
+=======
 				'email' => $this->input->post('email', true),
+>>>>>>> master
 				'password' => $this->input->post('password', true)
 			);
 			$response = $this->user->login($data);
@@ -32,6 +36,10 @@ class Auth extends CI_Controller {
 			$this->load->view('accounts/login', $p);
 		}
 	}
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 	protected function login_switch( $res ){
 		if( !$res['status'] ) {
 			switch ($res['string'] ){
@@ -47,18 +55,34 @@ class Auth extends CI_Controller {
 			$this->session->set_flashdata('success_msg', 'Logged in successfully.');
 			$from = cleanit( $this->session->userdata('from') );
 			$user = $res['string'];
+<<<<<<< HEAD
+			$user_type = $user->user_type;
+=======
 			$user_group = $user->user_group;
+>>>>>>> master
 			$session_data = array(
 				'logged_in' => true,
 				'logged_id' => $user->id,
 				'email' => $user->email,
+<<<<<<< HEAD
+				'user_type' => $user_type,
+=======
 				'user_group' => $user_group,
+>>>>>>> master
 				'role' => $user->role
 			);
 			$this->session->set_userdata($session_data);
 			isset( $from ) ?
 					redirect( $from )
 				:
+<<<<<<< HEAD
+				( $user_type == 'admin')
+					? redirect('admin') :
+					redirect($user_type);
+		}
+	}
+
+=======
 				redirect( $user_group);
 //				( $user_type == 'admin')
 //					? redirect('admin') :
@@ -95,4 +119,5 @@ class Auth extends CI_Controller {
 	}
 
 
+>>>>>>> master
 }

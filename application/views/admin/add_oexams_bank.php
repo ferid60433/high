@@ -6,7 +6,7 @@
     }
 
     .note-editor {
-        width: 96%;
+        width: 94%;
     }
 
     .checkers input {

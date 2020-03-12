@@ -29,7 +29,6 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
-
 </head>
 
 <body class="page-sidebar-fixed page-header-fixed">
