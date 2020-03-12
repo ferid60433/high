@@ -4,7 +4,6 @@
     <p>Copyright &copy; <?= date("Y") . " " . SCHOOL_NAME ?> All rights reserved.</p>
 </div>
 </div>
-
 </div>
 <!-- end page content -->
 </div>

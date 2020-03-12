@@ -6,10 +6,12 @@
                 <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/teachers/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
+				<?php $this->load->view('msg_view'); ?>
                 <div class="table-responsive">
                     <table class="display table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
+                                <th style="display: none;">x</th>
                                 <th>S/N</th>
                                 <th>Photo</th>
                                 <th>Name</th>
@@ -19,14 +21,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td></td>
-                                <td>Mrs Chinenye</td>
-                                <td>chi@school.com</td>
-                                <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/teachers/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/teachers/delete")?>">Delete</a></td>
-                            </tr>
+							<?php $x = 1;  foreach( $teachers as $teacher ):  ?>
+							<tr>
+								<td style="display: none;"><?= $x ;?></td>
+								<td><?= $x ; ?></td>
+								<td>
+									<img class="img img-thumbnail" width="50" src="<?= ( $teacher->pic) ?
+										base_url('assets/img/' . $teacher->pic) :
+										base_url('assets/img/avatars/profile.jpg')?>" </td>
+								<td><?= ucwords($teacher->name); ?></td>
+								<td><?= $teacher->email; ?></td>
+								<td><?= statusLabel($teacher->status); ?></td>
+								<td>
+									<a class="btn btn-outline-info"
+									   href="<?=base_url("admin/teachers/view/?id=" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
+									<a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |
+									<a class="btn btn-outline-danger" href="<?=base_url("admin/teachers/delete/")?>">Delete</a>
+								</td>
+							</tr>
+							<?php $x++;  endforeach;?>
                         </tbody>
                     </table>
                 </div>
