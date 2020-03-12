@@ -13,6 +13,22 @@ class OExams extends CI_Controller
         $p["page"] = "Online Exams";
         $this->load->view('admin/oexams', $p);
     }
+    public function questions()
+    {
+        $p["title"] = "Online Exams";
+        $p["page_mother"] = "OExams";
+        $p["page_mother_name"] = "Online Exams";
+        $p["page"] = "Add Question Bank";
+        $this->load->view('admin/add_questions', $p);
+    }
+    public function add()
+    {
+        $p["title"] = "Add New Online Exam";
+        $p["page_mother"] = "OExams";
+        $p["page_mother_name"] = "Online Exams";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_oexams', $p);
+    }
     public function bank($act = "")
     {
         if (strtolower($act) == "add") {
