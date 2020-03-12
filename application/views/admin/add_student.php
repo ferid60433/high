@@ -29,7 +29,7 @@
                         <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                         </div>
                     </div>
-                    <form id="wizardFormStudent">
+					<?= form_open_multipart('', 'id="wizardFormStudent"')?>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="personal" role="tabpanel">
                                 <div class="row m-b-lg">
@@ -41,7 +41,10 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Full Name" id="fullName" name="fullName">
+                                                    <input type="text" class="form-control"
+														   placeholder="Full Name" id="fullName"
+														   name="name" value="<?= set_value('name', '')?>">
+													<?= form_error('name'); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,10 +55,15 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-user-friends"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="guardian" name="guardian">
-                                                        <option>Select</option>
-                                                        <option>Mr & Mrs Okunuka</option>
+                                                    <select class="form-control" id="guardian" required name="guardian">
+														<option value="" selected>-- Select Guardian --</option>
+														<?php foreach( $guardian as $g ): ?>
+                                                        <option
+															<?= set_select('guardian')?>
+															value="<?= $g->uid; ?>"><?= ucwords($g->guardian_name)?></option>
+														<?php endforeach; ?>
                                                     </select>
+													<?= form_error('guardian'); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +74,11 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-calendar"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control date-picker" placeholder="20/12/2012" id="dateOfBirth" name="dateOfBirth">
+                                                    <input
+														type="text"
+														class="form-control date-picker"
+														placeholder="20/12/2012" id="dateOfBirth"
+														name="dob">
                                                 </div>
                                             </div>
                                         </div>
@@ -77,9 +89,9 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-restroom"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="gender" name="gender">
-                                                        <option>Select</option>
-                                                        <option value="male">Male</option>
+                                                    <select class="form-control" id="gender"required name="gender">
+                                                        <option value="">Select</option>
+                                                        <option value="male" selected>Male</option>
                                                         <option value="female">Female</option>
                                                     </select>
                                                 </div>
@@ -92,8 +104,8 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-tint"></i></div>
                                                     </div>
-                                                    <select class="form-control" name="bloodGroup">
-                                                        <option>Select</option>
+                                                    <select class="form-control" name="blood_group">
+                                                        <option value="">Select</option>
                                                         <option value="A+">A+</option>
                                                         <option value="A-">A-</option>
                                                         <option value="B+">B+</option>
@@ -114,7 +126,7 @@
                                                         <div class="input-group-text"><i class="fas fa-camera"></i></div>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <input type="file" name="pic" class="custom-file-input" id="customFile">
                                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                                     </div>
                                                 </div>
@@ -127,7 +139,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-place-of-worship"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Religion" name="religion">
+                                                    <input type="text" value="<?= set_value('religion', '')?>" class="form-control" placeholder="Religion" name="religion">
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +156,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                                                    <input type="email" class="form-control" value="<?= set_value('email', '')?>" placeholder="Email" id="email" name="email">
                                                 </div>
                                             </div>
                                         </div>
@@ -155,7 +167,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-phone"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone">
+                                                    <input type="text" class="form-control" value="<?= set_value('phone', '')?>" placeholder="Phone" id="phone" name="phone">
                                                 </div>
                                             </div>
                                         </div>
@@ -166,7 +178,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-map-marker"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Address" id="address" name="address">
+                                                    <input type="text" class="form-control" value="<?= set_value('address', '')?>" placeholder="Address" id="address" name="address">
                                                 </div>
                                             </div>
                                         </div>
@@ -177,7 +189,10 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-globe"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="State" id="state" name="state">
+													<select class="form-control" id="country" name="state">
+														<option>Select</option>
+														<option value="lagos">Lagos State</option>
+													</select>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,7 +204,8 @@
                                                         <div class="input-group-text"><i class="fas fa-flag-usa"></i></div>
                                                     </div>
                                                     <select class="form-control" id="country" name="country">
-                                                        <option>Select</option>
+                                                        <option value="">Select</option>
+                                                        <option value="nigeria">Nigeria</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -318,7 +334,7 @@
                                 <button type="submit" class="finish ml-auto d-none btn btn-primary">Finish</button>
                             </ul>
                         </div>
-                    </form>
+                    <?= form_close(); ?>
                 </div>
             </div>
         </div>

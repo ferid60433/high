@@ -3,19 +3,22 @@ $(document).ready(function() {
 
 	var $validator = $("#wizardFormStudent").validate({
 		rules: {
-			fullName: {
+			name: {
+				required: true
+			},
+			guardian_name: {
 				required: true
 			},
 			designation: {
 				required: true
 			},
-			dateJoined: {
+			joined: {
 				required: true
 			},
 			guardian: {
 				required: true
 			},
-			dateOfBirth: {
+			dob: {
 				required: true
 			},
 			email: {
@@ -25,12 +28,9 @@ $(document).ready(function() {
 			password: {
 				required: true
 			},
-			confirmPassword: {
+			confirm_password: {
 				required: true,
 				equalTo: "#password"
-			},
-			username: {
-				required: true
 			},
 			class: {
 				required: true

@@ -9,14 +9,22 @@
     <div class="col-md-3">
         <div class="card card-white">
             <div class="card-body user-profile-card">
-                <img src="<?= base_url("assets/img/avatars/profile.jpg") ?>" class="user-profile-image rounded-circle" alt="" />
-                <h4 class="text-center m-t-lg">Mr & Mrs Pitts</h4>
+                <img
+					src="<?= ( $parent->guardian_pic) ?
+						base_url('assets/img/' . $parent->guardian_pic) :
+						base_url('assets/img/avatars/profile.jpg')?>"
+					class="user-profile-image rounded-circle" alt="<?= $parent->guardian_name; ?>" />
+                <h4 class="text-center m-t-lg">
+					<?= ( !empty( $parent->guardian_name)) ?
+						ucwords($parent->guardian_name) :
+						ucwords( $parent->father_name) ?>
+				</h4>
                 <p class="text-center">Parent</p>
 
                 <table class="table table-bordered">
                     <tr>
                         <td class="text-left">Phone </td>
-                        <td> 08011213345</td>
+                        <td><a href="tel:<?= $parent->phone;?>"><?= $parent->phone?></a></td>
                     </tr>
                 </table>
             </div>
@@ -39,20 +47,19 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-md-6">Father's Name: Mr Pitts</div>
-                            <div class="col-md-6">Father's Profession: Engineer</div>
+                            <div class="col-md-6">Father's Name: <?= ucwords( $parent->father_name); ?></div>
+                            <div class="col-md-6">Father's Profession: <?= ucwords($parent->father_prof)?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Mother's Name: Mrs Pitts</div>
-                            <div class="col-md-6">Mother's Profession: Teacher</div>
+                            <div class="col-md-6">Mother's Name: <?= ucwords($parent->mother_name ) ;?></div>
+                            <div class="col-md-6">Mother's Profession: <?= ucwords($parent->mother_prof)?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Email: pitts@aol.com</div>
-                            <div class="col-md-6">Phone: 08012345678</div>
+                            <div class="col-md-6">Email: <?= $parent->email; ?></div>
+                            <div class="col-md-6">Phone: <?= $parent->phone;?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Address: Schoolville ltd. Schoolville ltd.</div>
-                            <div class="col-md-6">Username: boomboom</div>
+                            <div class="col-md-6">Address: <?= ucwords($parent->address); ?></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="children" role="tabpanel" aria-labelledby="children-tab">

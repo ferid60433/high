@@ -129,20 +129,20 @@ if (!function_exists('statusLabel')) {
             case 'pending':
             case 'process':
             case 'suspended':
-                return '<div class="alert alert-warning">' . ucfirst( $status ). '</div>';
+                return '<span class="badge badge-warning">' . ucfirst( $status ). '</span>';
                 break;
             case 'approved':
             case 'success':
             case 'active':
-                return '<div class="alert alert-success">' . ucfirst( $status ). '</div>';
+                return '<span class="badge badge-success">' . ucfirst( $status ). '</span>';
                 break;
             case 'returned':
             case 'cancelled':
             case 'fail':
-                return '<div class="alert alert-danger">' . ucfirst( $status ). '</div>';
+                return '<span class="badge badge-danger">' . ucfirst( $status ). '</span>';
                 break;
             default:
-                return '<div class="alert alert-danger">' . ucfirst( $status ). '</div>';
+                return '<span class="badge badge-danger">' . ucfirst( $status ). '</span>';
                 break;
         }
     }
