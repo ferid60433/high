@@ -9,7 +9,6 @@ $route['404_override'] = 'custom404';
 
 //Auth
 $route['login'] = 'auth';
-$route['logout'] = 'auth/logout';
 
 
 //Admin Routes

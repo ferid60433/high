@@ -6,9 +6,8 @@
             <div id="main-wrapper" class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 login-box">
-                        <h4 class="login-title">Sign in to your account</h4>
-						<?php $this->load->view('msg_view'); ?>
-                        <?= form_open('auth'); ?>
+                        <h4 class="login-title">Create an account</h4>
+                        <?= form_open('auth/create'); ?>
                             <div class="form-group">
                                 <label for="login">Email address</label>
                                 <input type="email" name="email" value="<?= set_value('email', ''); ?>" class="form-control" id="login">

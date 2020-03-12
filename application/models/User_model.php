@@ -19,23 +19,19 @@ Class User_model extends CI_Model
      * @param string $table_name
      * @return bool|mixed
      */
-    function login($data = array(), $table_name = 'users', $select = '' ){
-		$this->db->where('email', $data['uid']);
-		$this->db->or_where('id', $data['uid']);
+    function login($data = array(), $table_name = 'users' ){
+    	$uid = ( isset($data['uid']) ) ? $data['uid'] : $data['email'];
+		$this->db->where('email', $uid);
+		$this->db->or_where('id', $uid);
 		$row = $this->db->get($table_name)->row();
 		if( $row ){
 			$salt = $row->salt;
 			$password = shaPassword( $data['password'], $salt);
-			if( !empty( $select ) ){ $this->db->select($select);}
-			$this->db->where('email', $data['uid']);
-			$this->db->or_where('id', $data['uid']);
-			$this->db->and_where('password', $password);
-
-			$result = $this->db->get('users');
+			$result = $this->db->query("SELECT * FROM users WHERE (email = '" .$uid. "' OR id = '".$uid."') AND password = '".$password."' LIMIT 1")->row();
 			if( !$result ) return array('status' => false, 'string' => 'password_mismatch');
 			$c_update = array('last_login' => get_now(), 'ip' => $_SERVER['REMOTE_ADDR']);
-			$this->db->where('email', $data['uid']);
-			$this->db->or_where('id', $data['uid']);
+			$this->db->where('email', $uid);
+			$this->db->or_where('id', $uid);
 			$this->db->update($table_name, $c_update);
 			return array('status' => true, 'string' => $result );
 		}else{
@@ -116,7 +112,6 @@ Class User_model extends CI_Model
         );
         $this->db->where('id', $access);
         $this->db->or_where('email', $access);
-        $this->db->or_where('phone', $access);
         return $this->db->update($table, $data);
     }
 
@@ -175,17 +170,6 @@ Class User_model extends CI_Model
     {
         return $this->db->get('states')->result_array();
     }
-
-    // Get states
-
-    function get_area($sid = '')
-    {
-        $this->db->select('id,name,price');
-        $this->db->where('sid', $sid);
-        return $this->db->get('area')->result_array();
-    }
-
-
 
     function generate_user_code($table = 'users')
     {

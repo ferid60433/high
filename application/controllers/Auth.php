@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
 			return;
 		}else{
 			$data = array(
-				'username' => $this->input->post('email', true),
+				'email' => $this->input->post('email', true),
 				'password' => $this->input->post('password', true)
 			);
 			$response = $this->user->login($data);
@@ -32,7 +32,6 @@ class Auth extends CI_Controller {
 			$this->load->view('accounts/login', $p);
 		}
 	}
-
 	protected function login_switch( $res ){
 		if( !$res['status'] ) {
 			switch ($res['string'] ){
@@ -45,25 +44,55 @@ class Auth extends CI_Controller {
 			}
 		}else{
 			// switch the user module
-			$this->sesion->set_flashdata('success_msg', 'Logged in successfully.');
+			$this->session->set_flashdata('success_msg', 'Logged in successfully.');
 			$from = cleanit( $this->session->userdata('from') );
 			$user = $res['string'];
-			$user_type = $user->user_type;
+			$user_group = $user->user_group;
 			$session_data = array(
 				'logged_in' => true,
 				'logged_id' => $user->id,
 				'email' => $user->email,
-				'user_type' => $user_type,
+				'user_group' => $user_group,
 				'role' => $user->role
 			);
 			$this->session->set_userdata($session_data);
 			isset( $from ) ?
 					redirect( $from )
 				:
-				( $user_type == 'admin')
-					? redirect('admin') :
-					redirect($user_type.'s');
+				redirect( $user_group);
+//				( $user_type == 'admin')
+//					? redirect('admin') :
+//					redirect($user_type.'s');
 		}
 	}
+
+	public function create(){
+		$p["title"] = "create";
+		if( $this->input->post() ){
+			// dummy registration
+			$salt = salt(50);
+			$data = array(
+				'email' => $_POST['email'],
+				'password' => shaPassword($this->input->post('password'), $salt),
+				'salt' => $salt,
+				'user_group' => 'admin',
+				'role' => '2',
+				'ip' => $_SERVER['REMOTE_ADDR'],
+				'date_registered' => get_now(),
+				'last_login' => get_now(),
+			);
+			$user = $this->user->create_account($data);
+			if( !is_numeric($user) ) {
+				$this->session->set_flashdata('error_msg', "Sorry! There was an error creating the account. " . $user);
+				$this->load->view('accounts/login', $p);
+			}else{
+				$this->session->set_flashdata('success_msg', "Account created successfully.");
+				redirect('auth');
+			}
+		}else{
+			$this->load->view('accounts/create', $p);
+		}
+	}
+
 
 }
