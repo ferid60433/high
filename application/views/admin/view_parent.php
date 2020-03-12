@@ -10,8 +10,8 @@
         <div class="card card-white">
             <div class="card-body user-profile-card">
                 <img
-					src="<?= ( $parent->guardian_pic) ?
-						base_url('assets/img/' . $parent->guardian_pic) :
+					src="<?= ( $parent->pic) ?
+						base_url('assets/img/' . $parent->pic) :
 						base_url('assets/img/avatars/profile.jpg')?>"
 					class="user-profile-image rounded-circle" alt="<?= $parent->guardian_name; ?>" />
                 <h4 class="text-center m-t-lg">
