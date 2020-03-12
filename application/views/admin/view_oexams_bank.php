@@ -13,3 +13,5 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<link href="<?=base_url("assets/plugins/icheck/square/red.css")?>" rel="stylesheet">
+<script src="<?=base_url("assets/plugins/icheck/icheck.min.js")?>"></script>
