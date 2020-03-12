@@ -173,13 +173,65 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Room</label>
+                                            <label class="col-sm-2 col-form-label">Mark Type</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Classroom">
+                                                    <select class="form-control" id="mark_type">
+                                                        <option>Select</option>
+                                                        <option value="Percentage">Percentage</option>
+                                                        <option value="Fixed">Fixed</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Pass Mark</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-check"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Pass Mark">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Negative Mark</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-minus-square"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Negative Mark">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Random</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-random"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Random">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Published</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-globe"></i></div>
+                                                    </div>
+                                                    <select class="form-control" id="mark_type">
+                                                        <option>Select</option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,3 +251,25 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<script>
+    $("#exam_type").change(function() {
+        switch (this.value) {
+            case "1":
+                $("#date_div").hide();
+                $("#time_div").hide();
+                break;
+            case "2":
+                $("#date_div").show();
+                $("#time_div").hide();
+                break;
+            case "3":
+                $("#date_div").show();
+                $("#time_div").show();
+                break;
+            default:
+                $("#date_div").hide();
+                $("#time_div").hide();
+                break;
+        }
+    })
+</script>
