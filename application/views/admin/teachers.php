@@ -32,7 +32,7 @@
 								<td><?= ucwords($teacher->name); ?></td>
 								<td><?= $teacher->email; ?></td>
 								<td><?= statusLabel($teacher->status); ?></td>
-								<td>
+								<td data-id="<?=$teacher->uid?>">
 									<a class="btn btn-outline-info"
 									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
 									<a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |

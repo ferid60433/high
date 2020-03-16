@@ -97,7 +97,7 @@ class Teachers extends CI_Controller
         $p["title"] = "View Teacher";
         $p["page_mother"] = "Teachers";
         $p["page"] = "View";
-		$id = (int)simple_crypt($this->input->get('id', true) , 'd');
+		$id = (int)simple_crypt($id , 'd');
 		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
  		FROM users u JOIN teachers p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
 		if( $id && $row ){

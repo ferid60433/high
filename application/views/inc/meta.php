@@ -29,21 +29,3 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
-</head>
-
-<body class="page-sidebar-fixed page-header-fixed">
-
-    <!-- start page loading -->
-    <div id="preloader">
-        <div class="row loader">
-            <div class="loader-icon"></div>
-        </div>
-    </div>
-    <style>
-        .page-footer {
-            background: #fff !important;
-            padding: 15px 5px 0 !important;
-            width: 100% !important;
-            position: fixed !important;
-        }
-    </style>
