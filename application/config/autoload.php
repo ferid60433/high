@@ -131,4 +131,4 @@ $autoload['language'] = array('english');
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('user_model' => 'user', 'site_model' => 'site');
+$autoload['model'] = array('user_model' => 'user', 'site_model' => 'site', 'menu_model' => 'menu');

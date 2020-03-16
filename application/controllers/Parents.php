@@ -90,11 +90,11 @@ class Parents extends MY_Controller
     }
 
 
-    public function view(){
+    public function view($id){
         $p["title"] = "View Parent";
         $p["page_mother"] = "Parents";
         $p["page"] = "View";
-		$id = (int)simple_crypt(xss_clean($this->uri->segment(4)) , 'd');
+		$id = (int)simple_crypt($id , 'd');
 		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
  		FROM users u JOIN parents p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
 		if( $id && $row ){

@@ -93,18 +93,19 @@ class Teachers extends CI_Controller
 			$this->load->view('admin/add_teacher', $p);
 		}
     }
-    public function view(){
+
+    public function view($id){
         $p["title"] = "View Teacher";
         $p["page_mother"] = "Teachers";
         $p["page"] = "View";
-		$id = (int)simple_crypt($this->input->get('id', true) , 'd');
+		$id = (int)simple_crypt($id , 'd');
 		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
  		FROM users u JOIN teachers p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
 		if( $id && $row ){
 			$p['teacher'] = $row;
 			$this->load->view('admin/view_teacher', $p);
 		}else{
-			$this->session->set_flashdata('error_msg', "Sorry, the parent account you're looking for can't be found.");
+			$this->session->set_flashdata('error_msg', "Sorry, the teacher account you're looking for can't be found.");
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 
