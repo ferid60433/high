@@ -587,6 +587,17 @@
                                                 69.00
                                             </td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Deductions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr>
                                             <td>
                                                 Provident Fund
@@ -598,6 +609,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <table class="table table-bordered">
                                     <thead>
@@ -730,9 +742,9 @@
                                                             <div class="input-group-text"><i class="fas fa-upload"></i></div>
                                                         </div>
                                                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

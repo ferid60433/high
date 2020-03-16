@@ -93,7 +93,7 @@ class Teachers extends CI_Controller
     }
 
 
-    public function view(){
+    public function view($id){
         $p["title"] = "View Teacher";
         $p["page_mother"] = "Teachers";
         $p["page"] = "View";
@@ -104,7 +104,7 @@ class Teachers extends CI_Controller
 			$p['teacher'] = $row;
 			$this->load->view('admin/view_teacher', $p);
 		}else{
-			$this->session->set_flashdata('error_msg', "Sorry, the parent account you're looking for can't be found.");
+			$this->session->set_flashdata('error_msg', "Sorry, the teacher account you're looking for can't be found.");
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 
