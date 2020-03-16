@@ -15,11 +15,49 @@ class OExams extends CI_Controller
     }
     public function questions()
     {
-        $p["title"] = "Online Exams";
+        $p["title"] = "Online Exam Question Bank";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
         $p["page"] = "Add Question Bank";
         $this->load->view('admin/add_questions', $p);
+    }
+    public function instructions($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_instruction();
+        } elseif ($act == "view") {
+            $this->view_instruction();
+        } elseif ($act == "edit") {
+            // $this->edit_instruction();
+        } elseif ($act == "") {
+            $p["title"] = "Online Exam Instructions";
+            $p["page_mother"] = "OExams";
+            $p["page_mother_name"] = "Online Exams";
+            $p["page"] = "Instructions";
+            $this->load->view('admin/instructions', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function view_instruction()
+    {
+        $p["title"] = "View Online Exam Instruction";
+        $p["page_mother"] = "OExams";
+        $p["page_mother_name"] = "Online Exams";
+        $p["page_inner"] = "instructions";
+        $p["page_inner_name"] = "Instructions";
+        $p["page"] = "View";
+        $this->load->view('admin/view_oexams_instruction', $p);
+    }
+    private function add_instruction()
+    {
+        $p["title"] = "Add Online Exam Instruction";
+        $p["page_mother"] = "OExams";
+        $p["page_mother_name"] = "Online Exams";
+        $p["page_inner"] = "instructions";
+        $p["page_inner_name"] = "Instructions";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_oexams_instruction', $p);
     }
     public function add()
     {
