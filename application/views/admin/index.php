@@ -1,4 +1,6 @@
 <?php $this->load->view("admin/inc/header") ?>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-xl-3 col-lg-6 col-md-6">
         <div class="card card-white stats-widget">
@@ -108,3 +110,5 @@
 
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+
+<?php $this->load->view("inc/post-script")?>

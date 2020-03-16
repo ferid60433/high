@@ -28,6 +28,8 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
+<<<<<<< HEAD
+=======
 
 	<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 
@@ -52,3 +54,4 @@
             position: fixed !important;
         }
     </style>
+>>>>>>> master

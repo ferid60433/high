@@ -8,6 +8,8 @@
         justify-content: unset !important;
     }
 </style>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
@@ -108,3 +110,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<?php $this->load->view("inc/post-script")?>

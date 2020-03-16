@@ -1,10 +1,4 @@
 <!-- start page sidebar -->
-<style>
-    a.active {
-        color: #2c7be5;
-        font-weight: 500;
-    }
-</style>
 <div class="page-sidebar">
     <a class="logo-box" href="<?= base_url() ?>">
         <span><?= SCHOOL_NAME ?></span>
@@ -15,7 +9,7 @@
         <div class="page-sidebar-menu">
             <ul class="accordion-menu">
                 <li>
-                    <a href="<?= base_url("admin") ?>">
+                    <a href="<?= base_url("admin") ?>" class="<?= (isset($active) && $active == "dashboard") ? "active" : "" ?>">
                         <i class="menu-icon icon-home4"></i><span>Dashboard</span>
                     </a>
                 </li>
