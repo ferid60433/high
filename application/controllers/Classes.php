@@ -18,7 +18,7 @@ class Classes extends MY_Controller
         $p["title"] = "Add New Class";
         $p["page_mother"] = "Classes";
         $p["page"] = "Add";
-        $p['teachers'] = $this->get_result('teachers', 'uid, name');
+        $p['teachers'] = $this->site->get_result('teachers', 'uid, name');
         if( $this->input->post() ){
 			$this->form_validation->set_rules('class_name', 'Class Name','trim|required|xss_clean');
 			$this->form_validation->set_rules('class_numeric', 'Class Numeric','trim|required|xss_clean');
