@@ -57,7 +57,7 @@
 									<select class="form-control" id="teacher" required name="teacher">
 										<option value="" selected>Select</option>
 										<?php foreach ( $teachers as $teacher ) : ?>
-											<option value="<?= $teacher->uid; ?>">
+											<option value="<?= $teacher->teacher_id; ?>">
 												<?= ucwords($teacher->name); ?>
 											</option>
 										<?php endforeach; ?>

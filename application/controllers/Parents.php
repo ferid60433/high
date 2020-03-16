@@ -35,7 +35,6 @@ class Parents extends MY_Controller
 					'mother_prof' => $this->input->post('mother_prof'),
 					'phone' => $this->input->post('phone'),
 					'address' => $this->input->post('address'),
-
 				);
 				$salt = salt(50);
 				$user_data = array(

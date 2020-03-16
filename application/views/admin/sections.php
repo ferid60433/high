@@ -18,9 +18,11 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-school"></i></div>
                                         </div>
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option>Select</option>
-                                            <option value="JSS1">JSS1</option>
+                                        <select class="form-control" id="class" name="class">
+                                            <option>-- Select --</option>
+											<?php foreach ( $classes as $class ) : ?>
+												<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
+											<?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -31,28 +33,20 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="display table datatables_init" style="width: 100%;">
+                    <table id="sections" class="display table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Section</th>
-                                <th>Class</th>
+								<th>Class</th>
+								<th>Section</th>
+								<th>Category</th>
                                 <th>Capacity</th>
                                 <th>Teacher</th>
                                 <th>Note</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>A</td>
-                                <td>JSS 1</td>
-                                <td>100</td>
-                                <td>Mrs Chinenye</td>
-                                <td>-</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/sections/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/sections/delete")?>">Delete</a></td>
-                            </tr>
+                        <tbody class="data-body">
                         </tbody>
                     </table>
                 </div>
@@ -61,4 +55,42 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<script>
+	$(document).ready(function(){
+		let base_url = "<?= base_url();?>";
+		$('#class').on('change', () =>{
+			let selected = parseInt($(this).find(':selected').val());
+			$('.data-body').empty();
+			if( selected > 0 ){
+				$('.data-body').empty();
+				$.ajax({
+					url : base_url + '/admin/sections/get_sections/',
+					method: "POST",
+					cache : false,
+					data: {selected},
+					success : response => {
+						if(response.status){
+							let data_list = '';
+							$.each(response.message, ( key, value ) => {
+								data_list += `<tr>
+<td>${value.sn}</td><td>${value.class}</td><td>${value.section}</td><td>${value.capacity}</td><td>${value.id}</td><td>${value.teacher}</td><td>${value.note}</td>
+<td>${value.actions}</td>
+</tr>`;
+							});
+							$('.data-body').append(data_list);
+						}else{
+							alert('error')
+						}
+					},
+					error : response => {
+						alert('There was an error fetching the section...');
+						console.debug(response);
+					}
+				});
+			}
+		});
+	})
+
+</script>
 <?php $this->load->view("inc/post-script")?>
+

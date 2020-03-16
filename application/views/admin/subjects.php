@@ -7,11 +7,12 @@
         <div class="card card-white">
             <div class="card-heading clearfix">
                 <div class="row">
+					<?php $this->load->view('msg_view'); ?>
                     <div class="col-md-6">
                         <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/subjects/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
-                        <form>
+                        <?= form_open(); ?>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Class</label>
                                 <div class="col-sm-10">
@@ -19,14 +20,16 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-school"></i></div>
                                         </div>
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option>Select</option>
-                                            <option value="JSS1">JSS1</option>
+                                        <select class="form-control" id="class" name="class">
+											<option>-- Select --</option>
+											<?php foreach ( $classes as $class ) : ?>
+												<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
+											<?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        <?= form_close(); ?>
                     </div>
                 </div>
             </div>
@@ -46,18 +49,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>English</td>
-                                <td>Teachers</td>
-                                <td>ENG101</td>
-                                <td>Mrs Chinenye</td>
-                                <td>40</td>
-                                <td>100</td>
-                                <td><span class="badge badge-info">mandatory</span></td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/subjects/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/subjects/delete")?>">Delete</a></td>
-                            </tr>
+                        <tbody class="data-body">
                         </tbody>
                     </table>
                 </div>
@@ -66,5 +58,42 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<!-- each page scripts -->
+<script>
+	$(document).ready(function(){
+		let base_url = "<?= base_url();?>";
+		$('#class').on('change', () =>{
+			
+			let selected = parseInt($(this).find(':selected').val());
+			$('.data-body').empty();
+			if( selected > 0 ){
+
+				$('.data-body').empty();
+				$.ajax({
+					url : base_url + '/admin/subjects/get_subjects/',
+					method: "POST",
+					cache : false,
+					data: {selected},
+					success : response => {
+						if(response.status){
+							let data_list = '';
+							$.each(response.message, ( key, value ) => {
+								data_list += `<tr>
+<td>${value.sn}</td><td>${value.subject}</td><td>${value.author}</td><td>${value.code}</td><td>${value.teacher}</td><td>${value.pass_mark}</td><td>${value.final_mark}</td>
+<td>${value.type}</td><td>${value.actions}</td></tr>`;
+							});
+							$('.data-body').append(data_list);
+						}else{
+							alert('error')
+						}
+					},
+					error : response => {
+						alert('There was an error fetching the section...');
+						console.debug(response);
+					}
+				});
+			}
+		});
+	})
+
+</script>
 <?php $this->load->view("inc/post-script")?>

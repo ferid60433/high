@@ -9,6 +9,7 @@
                 <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/classes/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
+				<?php $this->load->view('msg_view'); ?>
                 <div class="table-responsive">
                     <table class="display table datatables_init" style="width: 100%;">
                         <thead>
@@ -22,14 +23,25 @@
                             </tr>
                         </thead>
                         <tbody>
+						<?php $x = 1;  foreach( $classes as $class ) : ?>
                             <tr>
-                                <td>1.</td>
-                                <td>JSS 1</td>
-                                <td>7</td>
-                                <td>Mrs Chinenye</td>
-                                <td>-</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/classes/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/classes/delete")?>">Delete</a></td>
+                                <td><?= $x;?></td>
+                                <td><?= ucwords($class->name); ?></td>
+                                <td><?= $class->class_numeric; ?></td>
+								<td>
+									<a title="<?= ucwords($class->teacher)?>" href="<?= base_url('admin/teachers/?id=' .simple_crypt($class->tid))?>">
+										<?= ucwords($class->teacher)?>
+									</a>
+								</td>
+                                <td><?= substr( $class->note, 0, 10 )?></td>
+                                <td>
+									<a class="btn btn-outline-warning"
+									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>">Edit</a> |
+									<a class="btn btn-outline-danger"
+									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>">Delete</a>
+								</td>
                             </tr>
+						<?php $x++; endforeach;?>
                         </tbody>
                     </table>
                 </div>

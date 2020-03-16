@@ -15,4 +15,5 @@ $route['login'] = 'auth';
 $route['admin/(:any)'] = '$1';
 $route['admin/(:any)/(:any)'] = '$1/$2';
 $route['admin/(:any)/(:any)/(:any)'] = '$1/$2/$3';
+$route['admin/(:any)/(:any)/(:any)/(:any)'] = '$1/$2/$3/$4';
 
