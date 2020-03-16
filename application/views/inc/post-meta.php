@@ -1,8 +1,10 @@
 <style>
     .page-footer {
         background: #fff !important;
-        padding: 15px 5px 0 !important;
+        padding: 15px 40px 0 !important;
         position: fixed !important;
+        width: 100%;
+        z-index:2;
     }
     a.active {
         color: #2c7be5;
