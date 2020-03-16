@@ -64,7 +64,7 @@
 			if( selected > 0 ){
 				$('.data-body').empty();
 				$.ajax({
-					url : base_url + '/admin/sections/get_sections/',
+					url : base_url + '/ajax/get_sections/',
 					method: "POST",
 					cache : false,
 					data: {selected},

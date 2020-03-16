@@ -11,6 +11,7 @@ class Students extends MY_Controller
         $p["title"] = "All Students";
         $p["page"] = "Students";
 		$p['students'] = $this->site->run_sql("SELECT u.email, u.status, s.* FROM users u JOIN students s ON ( u.id = s.uid) ORDER BY u.id DESC")->result();
+		$p['classes'] = $this->site->run_sql("SELECT c.id, c.name, s.name section FROM classes c JOIN sections s ON (s.cid = c.id) ORDER BY c.id DESC")->result();
         $this->load->view('admin/students', $p);
     }
 

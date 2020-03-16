@@ -110,4 +110,5 @@
 
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+
 <?php $this->load->view("inc/post-script")?>
