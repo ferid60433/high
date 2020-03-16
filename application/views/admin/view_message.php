@@ -39,6 +39,8 @@
         margin-right: 10px;
     }
 </style>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-md-3">
         <div class="row">
@@ -175,3 +177,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<?php $this->load->view("inc/post-script")?>

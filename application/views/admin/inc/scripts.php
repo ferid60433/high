@@ -48,23 +48,15 @@
     <!-- full calendar list -->
     <script src='<?= base_url("assets/plugins/full-calendar/list/main.min.js") ?>'></script>
 <?php } ?>
-
-<!-- Datatables -->
 <script src="<?= base_url("assets/plugins/datatables/js/jquery.datatables.min.js") ?>"></script>
-
-<!-- datepicker -->
 <script src="<?= base_url("assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js") ?>"></script>
-
-<!-- table-data -->
 <script src="<?= base_url("assets/js/pages/table-data.js") ?>"></script>
-
-<!-- jquery validation -->
 <script src="<?= base_url("assets/plugins/jquery-validation/jquery.validate.min.js") ?>"></script>
-
-<!-- jquery wizard -->
 <script src="<?= base_url("assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js") ?>"></script>
-
 <script src="<?= base_url("assets/plugins/bootstrap-clockpicker/js/bootstrap-clockpicker.min.js") ?>"></script>
-<!-- form-wizard -->
 <script src="<?= base_url("assets/js/pages/form-wizard.js") ?>"></script>
 <script src="<?= base_url("assets/js/pages/form-elements.js") ?>"></script>
+<?php if (isset($page_mother) && $page_mother == "OExams") : ?>
+    <link href="<?= base_url("assets/plugins/icheck/square/_all.css") ?>" rel="stylesheet">
+    <script src="<?= base_url("assets/plugins/icheck/icheck.js") ?>"></script>
+<?php endif; ?>

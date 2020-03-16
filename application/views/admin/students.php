@@ -1,4 +1,6 @@
 <?php $this->load->view("admin/inc/header") ?>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
@@ -49,7 +51,7 @@
 								<td>
 									<img class="img img-thumbnail" width="50" src="<?= ( $student->pic) ?
 										base_url('assets/img/' . $student->pic) :
-										base_url('assets/img/avatars/profile.jpg')?>" </td>
+										base_url('assets/img/avatars/profile.jpg')?>"/> </td>
                                 <td><?= ucwords($student->name ); ?></td>
                                 <td><?= $student->roll; ?></td>
                                 <td><?= $student->email; ?></td>
@@ -67,3 +69,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<?php $this->load->view("inc/post-script")?>

@@ -39,6 +39,8 @@
         background: #cecefe;
     }
 </style>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-md-8">
         <div class="row">
@@ -359,3 +361,4 @@
         });
     });
 </script>
+<?php $this->load->view("inc/post-script")?>

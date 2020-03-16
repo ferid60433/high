@@ -1,4 +1,6 @@
 <?php $this->load->view("admin/inc/header") ?>
+<?php $this->load->view("inc/post-meta") ?>
+<?php $this->load->view("admin/inc/pre-body") ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
@@ -32,7 +34,7 @@
 								<td><?= ucwords($teacher->name); ?></td>
 								<td><?= $teacher->email; ?></td>
 								<td><?= statusLabel($teacher->status); ?></td>
-								<td>
+								<td data-id="<?=$teacher->uid?>">
 									<a class="btn btn-outline-info"
 									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
 									<a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |
@@ -48,3 +50,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<?php $this->load->view("inc/post-script")?>
