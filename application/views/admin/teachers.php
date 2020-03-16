@@ -34,7 +34,7 @@
 								<td><?= statusLabel($teacher->status); ?></td>
 								<td>
 									<a class="btn btn-outline-info"
-									   href="<?=base_url("admin/teachers/view/?id=" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
+									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
 									<a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |
 									<a class="btn btn-outline-danger" href="<?=base_url("admin/teachers/delete/")?>">Delete</a>
 								</td>
