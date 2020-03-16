@@ -10,8 +10,8 @@
         <div class="card card-white">
             <div class="card-body user-profile-card">
                 <img
-					src="<?= ( $parent->guardian_pic) ?
-						base_url('assets/img/' . $parent->guardian_pic) :
+					src="<?= ( $parent->pic) ?
+						base_url('assets/img/' . $parent->pic) :
 						base_url('assets/img/avatars/profile.jpg')?>"
 					class="user-profile-image rounded-circle" alt="<?= $parent->guardian_name; ?>" />
                 <h4 class="text-center m-t-lg">
@@ -88,45 +88,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+									<?php $x=1; foreach ( $children as $child ): ?>
                                     <tr>
                                         <td>
-                                            1
+                                            <?= $x;?>
                                         </td>
                                         <td>
-                                            <img src="<?= base_url("assets/img/avatars/user-dropdown.jpg") ?>" alt="" class="rounded-circle">
+                                            <img
+												src="<?= (isset( $child->pic)) ?
+													base_url('assets/img/' . $child->pic) :
+													base_url("assets/img/avatars/user-dropdown.jpg");
+												?>"
+												alt="<?= $child->name; ?>"
+												class="rounded-circle">
                                         </td>
                                         <td>
-                                            Brad Pitts
+                                            <?= ucwords($child->name); ?>
                                         </td>
                                         <td>
-                                            1
+                                            <?= $child->roll;?>
                                         </td>
                                         <td>
-                                            JSS1
+                                            <?= $child->class; ?>
                                         </td>
                                         <td>
-                                            -
+											<?= $child->section; ?>
                                         </td>
                                     </tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        <img src="<?= base_url("assets/img/avatars/user-dropdown.jpg") ?>" alt="" class="rounded-circle">
-                                    </td>
-                                    <td>
-                                        Joy Pitts
-                                    </td>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        SSS1
-                                    </td>
-                                    <td>
-                                        Science
-                                    </td>
-                                    </tr>
+									<?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>

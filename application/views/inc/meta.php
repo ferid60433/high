@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <!-- metas -->
@@ -9,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content="admin,dashboard" />
-    <meta name="description" content="Crizal - Responsive Admin Dashboard Template" />
+    <meta name="description" content="Schoolville High" />
 
     <!-- title  -->
     <title> <?= isset($title) ? $title : "Portal" ?> :: <?= SCHOOL_NAME ?></title>
@@ -29,7 +28,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
-
+	<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 </head>
 
 <body class="page-sidebar-fixed page-header-fixed">
@@ -41,6 +40,9 @@
         </div>
     </div>
     <style>
+		body{
+			font-family: 'Rubik', sans-serif;
+		}
         .page-footer {
             background: #fff !important;
             padding: 15px 5px 0 !important;

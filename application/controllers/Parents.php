@@ -35,7 +35,6 @@ class Parents extends MY_Controller
 					'mother_prof' => $this->input->post('mother_prof'),
 					'phone' => $this->input->post('phone'),
 					'address' => $this->input->post('address'),
-
 				);
 				$salt = salt(50);
 				$user_data = array(
@@ -95,7 +94,7 @@ class Parents extends MY_Controller
         $p["title"] = "View Parent";
         $p["page_mother"] = "Parents";
         $p["page"] = "View";
-		$id = (int)simple_crypt($this->input->get('id', true) , 'd');
+		$id = (int)simple_crypt(xss_clean($this->uri->segment(4)) , 'd');
 		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
  		FROM users u JOIN parents p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
 		if( $id && $row ){

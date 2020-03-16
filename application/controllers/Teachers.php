@@ -2,20 +2,22 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Teachers extends CI_Controller
 {
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         if (strtolower($this->uri->segment(1)) == "teachers") show_404();
     }
-    public function index()
-    {
+    public function index(){
         $p["title"] = "All Teachers";
         $p["page"] = "Teachers";
-		$p['teachers'] = $this->site->run_sql("SELECT u.email, u.status, p.* FROM users u JOIN teachers p ON ( u.id = p.uid) ORDER BY u.id DESC")->result();
+        $id = xss_clean( $this->input->get('id'));
+		$id = simple_crypt( $id, 'd');
+		$p['teachers'] = empty($id) ?
+		 	$this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN teachers t ON ( u.id = t.uid) ORDER BY u.id DESC")->result()
+			: $this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN teachers t ON ( u.id = t.uid) WHERE t.id = '" .$id."'")->result() ;
+//		var_dump( $p['teachers'] );exit;
         $this->load->view('admin/teachers', $p);
     }
-    public function add()
-    {
+    public function add(){
         $p["title"] = "Add New Teacher";
         $p["page_mother"] = "Teachers";
         $p["page"] = "Add";
@@ -91,8 +93,6 @@ class Teachers extends CI_Controller
 			$this->load->view('admin/add_teacher', $p);
 		}
     }
-
-
     public function view(){
         $p["title"] = "View Teacher";
         $p["page_mother"] = "Teachers";

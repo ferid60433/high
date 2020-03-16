@@ -9,6 +9,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
+				<?php $this->load->view('msg_view'); ?>
                 <div id="rootWizardStudent">
                     <ul class="nav mb-4  nav-pills nav-fill" role="tablist">
                         <li class="nav-item">
@@ -39,11 +40,13 @@
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
+                                                    <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control"
-														   placeholder="Full Name" id="fullName"
-														   name="name" value="<?= set_value('name', '')?>">
+														   placeholder="Full Name" id="name"
+														   name="name"
+														   value="<?= set_value('name', '')?>">
 													<?= form_error('name'); ?>
                                                 </div>
                                             </div>
@@ -57,7 +60,7 @@
                                                     </div>
                                                     <select class="form-control" id="guardian" required name="guardian">
 														<option value="" selected>-- Select Guardian --</option>
-														<?php foreach( $guardian as $g ): ?>
+														<?php foreach( $guardians as $g ): ?>
                                                         <option
 															<?= set_select('guardian')?>
 															value="<?= $g->uid; ?>"><?= ucwords($g->guardian_name)?></option>
@@ -89,11 +92,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-restroom"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="gender"required name="gender">
-                                                        <option value="">Select</option>
-                                                        <option value="male" selected>Male</option>
-                                                        <option value="female">Female</option>
-                                                    </select>
+													<?= load_select('gender', array('required' => true)); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -104,17 +103,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-tint"></i></div>
                                                     </div>
-                                                    <select class="form-control" name="blood_group">
-                                                        <option value="">Select</option>
-                                                        <option value="A+">A+</option>
-                                                        <option value="A-">A-</option>
-                                                        <option value="B+">B+</option>
-                                                        <option value="B-">B-</option>
-                                                        <option value="O+">O+</option>
-                                                        <option value="O-">O-</option>
-                                                        <option value="AB+">AB+</option>
-                                                        <option value="AB-">AB-</option>
-                                                    </select>
+													<?= load_select('blood_group'); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +128,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-place-of-worship"></i></div>
                                                     </div>
-                                                    <input type="text" value="<?= set_value('religion', '')?>" class="form-control" placeholder="Religion" name="religion">
+													<?= load_select('religion'); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,7 +145,8 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                                                     </div>
-                                                    <input type="email" class="form-control" value="<?= set_value('email', '')?>" placeholder="Email" id="email" name="email">
+                                                    <input type="email" class="form-control"
+														   value="<?= set_value('email', '')?>" placeholder="Email" id="email" name="email">
                                                 </div>
                                             </div>
                                         </div>
@@ -167,7 +157,8 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-phone"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" value="<?= set_value('phone', '')?>" placeholder="Phone" id="phone" name="phone">
+                                                    <input type="text" class="form-control"
+														   value="<?= set_value('phone', '')?>" placeholder="Phone" id="phone" name="phone">
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +169,8 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-map-marker"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" value="<?= set_value('address', '')?>" placeholder="Address" id="address" name="address">
+                                                    <input type="text" class="form-control"
+														   value="<?= set_value('address', '')?>" placeholder="Address" id="address" name="address">
                                                 </div>
                                             </div>
                                         </div>
@@ -223,8 +215,11 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-building"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="class" name="class">
-                                                        <option>Select</option>
+                                                    <select class="form-control" id="class" name="cid" required>
+                                                        <option value="">-- Select Class --</option>
+														<?php foreach ( $classes as $class ):?>
+															<option value="<?= $class->id; ?>"><?= ucwords($class->name); ?></option>
+														<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -236,8 +231,11 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-puzzle-piece"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="section" name="section">
-                                                        <option>Select</option>
+                                                    <select class="form-control" id="section" name="sid" required>
+                                                        <option value="">-- Select Section/Arm</option>
+														<?php foreach( $sections as $section) : ?>
+															<option value="<?= $section->id; ?>"><?= ucwords($section->name); ?></option>
+														<?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -249,9 +247,11 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">#</div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Admission Number" id="admin_no" name="admin_no">
+                                                    <input type="text" class="form-control" placeholder="Admission Number"
+														   id="admission_no" name="adm_no">
                                                 </div>
-                                            </div>
+												<span class="help-block text-danger">Leave empty if you want the system to generate for you</span>
+											</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Roll</label>
@@ -282,7 +282,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-comment"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Remarks" name="remark">
+                                                    <input type="text" class="form-control" placeholder="Remarks" name="remarks">
                                                 </div>
                                             </div>
                                         </div>
@@ -292,17 +292,6 @@
                             <div class="tab-pane fade" id="account" role="tabpanel">
                                 <div class="row m-b-lg">
                                     <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Username</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user-shield"></i></div>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="Username" id="username" name="username">
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Password</label>
                                             <div class="col-sm-10">
@@ -321,7 +310,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-key"></i></div>
                                                     </div>
-                                                    <input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword">
+                                                    <input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword" name="confirm_password">
                                                 </div>
                                             </div>
                                         </div>

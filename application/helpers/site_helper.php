@@ -125,6 +125,7 @@ function urlify($string, $id =''){
 
 if (!function_exists('statusLabel')) {
     function statusLabel($status){
+    	$status = strtolower( $status );
         switch ($status) {
             case 'pending':
             case 'process':
@@ -138,11 +139,12 @@ if (!function_exists('statusLabel')) {
                 break;
             case 'returned':
             case 'cancelled':
+			case 'mandatory':
             case 'fail':
                 return '<span class="badge badge-danger">' . ucfirst( $status ). '</span>';
                 break;
             default:
-                return '<span class="badge badge-danger">' . ucfirst( $status ). '</span>';
+                return '<span class="badge info">' . ucfirst( $status ). '</span>';
                 break;
         }
     }
@@ -205,3 +207,28 @@ function simple_crypt( $string, $action = 'e' ) {
     }
     return $output;
 }
+
+
+/*
+ *
+ * HTML Helper for the App
+ * @TODO: We can move it to another file later*/
+
+if(!function_exists('load_select')){
+	function load_select($name = '', $extra = array() ){
+		$required = ( !empty( $array) && 	$extra['required'] ) ? 'required' : null;
+		$return = '<select class="form-control" '.$required.' name="' .$name . '">
+			<option value="" selected>-- Select an option --</option>';
+		$options = explode('|', lang($name));
+		if( $options ) {
+			foreach ( $options as $option ) :
+				$return .= '<option value="'.trim($option).'">'.ucwords($option).'</option>';
+			endforeach;
+		}
+		$return .= '</select>';
+		return $return;
+	}
+
+}
+
+
