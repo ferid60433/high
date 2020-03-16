@@ -43,7 +43,6 @@
                                 </tr>
                             <?php $x++;
                             endforeach; ?>
->>>>>>> 4ad296d63d97784a5ffa73ded7dbd716a97405b7
                         </tbody>
                     </table>
                 </div>
