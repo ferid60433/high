@@ -56,7 +56,7 @@
                 <div class="table-responsive">
                     <table class="table nb_init table-hover">
                         <thead>
-                            <th>#</th>
+                            <th>S/N</th>
                             <th>Status</th>
                             <th>Name</th>
                             <th>Subject</th>
