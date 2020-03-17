@@ -107,7 +107,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="table-responsive">
-                                    <table class="display table datatables_init" style="width: 100%;">
+                                    <table class="table datatables_init" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
@@ -133,7 +133,7 @@
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
                                 <div class="table-responsive">
-                                    <table class="display table" style="width: 100%;">
+                                    <table class="table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>

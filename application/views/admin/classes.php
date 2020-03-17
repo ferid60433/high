@@ -11,7 +11,7 @@
             <div class="card-body">
 				<?php $this->load->view('msg_view'); ?>
                 <div class="table-responsive">
-                    <table class="display table datatables_init" style="width: 100%;">
+                    <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>

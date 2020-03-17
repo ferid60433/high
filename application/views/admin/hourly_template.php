@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/salaries/hourly/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -13,17 +13,17 @@
                         <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Exam Title</th>
-                                <th>Published</th>
+                                <th>Hourly Grade</th>
+                                <th>Hourly Rate</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td>Second Term Exam</td>
-                                <td><span class="badge badge-info">Yes</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a></td>
+                                <td>Junior Grade</td>
+                                <td>35.00</td>
+                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/salaries/hourly/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/salaries/hourly/delete") ?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -33,4 +33,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>
