@@ -572,7 +572,7 @@
                         <div class="row">
                             <div class="col-md-12">Salary Grade: B</div>
                             <div class="col-md-12">Basic Salary: 6,999.00</div>
-                            <div class="col-md-12">Overtime Rate(Per/Hour): 10.00</div>
+                            <div class="col-md-12">Overtime Rate(Per Hour): 10.00</div>
                             <div class="col-md-6">
                                 <table class="table table-bordered">
                                     <thead>
@@ -588,6 +588,10 @@
                                             <td>
                                                 69.00
                                             </td>
+                                        </tr>
+                                        <tr style="font-weight:500;">
+                                            <td>Total Allowances</td>
+                                            <td>69.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -607,6 +611,10 @@
                                             <td>
                                                 69.00
                                             </td>
+                                        </tr>
+                                        <tr style="font-weight:500;">
+                                            <td>Total Deductions</td>
+                                            <td>69.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -791,4 +799,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

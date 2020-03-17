@@ -95,7 +95,7 @@
         <div class="card card-white">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="display table" style="width: 100%;">
+                    <table class="table" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>

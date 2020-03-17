@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="sections" class="display table datatables_init" style="width: 100%;">
+                    <table id="sections" class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>

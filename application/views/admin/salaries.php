@@ -15,20 +15,24 @@
         <div class="card card-white">
             <div class="card-body">
                 <form class="form-inline row">
-                    <div class="col-md-3"></div>
+                    <div class="col-md-4"></div>
                     <div class="form-group row col-md-4">
-                        <label class="col-sm-12 col-form-label">Date</label>
+                        <label class="col-sm-12 col-form-label">Role</label>
                         <div class="col-sm-12">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                    <div class="input-group-text"><i class="fas fa-user-plus"></i></div>
                                 </div>
-                                <input type="text" class="form-control date-picker" id="date" name="date">
+                                <select class="form-control" id="role" name="role">
+                                    <option>Select</option>
+                                    <option value="bus assistant">Bus Assistant</option>
+                                    <option value="moderator">Moderator</option>
+                                    <option value="receptionist">Receptionist</option>
+                                    <option value="librarian">Librarian</option>
+                                    <option value="accountant">Accountant</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row col-md-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Attendance</button>
                     </div>
                 </form>
             </div>
@@ -37,26 +41,14 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-                <div class="alert alert-dark mb-0 text-center" role="alert">
-                    Attendance Details<br>
-                    Day : Friday<br>
-                    Date : 28th February 2020
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="card card-white">
-            <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table" style="width: 100%;">
+                    <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>
                                 <th>Photo</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Role</th>
                                 <th>Attendance</th>
                             </tr>
                         </thead>
@@ -64,9 +56,8 @@
                             <tr>
                                 <td>1.</td>
                                 <td></td>
-                                <td>Mr John</td>
+                                <td>Mrs Chinenye</td>
                                 <td>chi@school.com</td>
-                                <td>Accountant</td>
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="att" id="att1" value="P">
@@ -97,4 +88,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>
