@@ -49,7 +49,8 @@
                                 <th>Photo</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Attendance</th>
+                                <th>Join Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +59,7 @@
                                 <td></td>
                                 <td>Mrs Chinenye</td>
                                 <td>chi@school.com</td>
+                                <td>10 March 2012</td>
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="att" id="att1" value="P">
