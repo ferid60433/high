@@ -1,12 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Sections extends CI_Controller
+class Sections extends MY_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        if (strtolower($this->uri->segment(1)) == "sections") show_404();
-    }
     public function index(){
         $p["title"] = "All Sections";
         $p["page"] = "Sections";
