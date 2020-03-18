@@ -1,6 +1,6 @@
 <div class="page-container">
     <?php $this->load->view("admin/inc/sidebar") ?>
-    <div class="page-content">
+    <div class="page-content" style="margin-bottom:25px;">
         <div class="page-header">
             <div class="search-form">
                 <form action="#" method="GET">
@@ -82,5 +82,6 @@
             </nav>
         </div>
         <div class="page-inner">
-            <?php if (isset($active) && $active == "dashboard"); else $this->load->view("admin/inc/breadcrumb") ?>
+            <?php if (isset($active) && $active == "dashboard");
+            else $this->load->view("admin/inc/breadcrumb") ?>
             <div id="main-wrapper">

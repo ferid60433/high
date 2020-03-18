@@ -72,4 +72,39 @@ class Salaries extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_hourly_template', $p);
     }
+    public function view()
+    {
+        $p["title"] = "View Salary";
+        $p["page_mother"] = "Salaries";
+        $p["page"] = "View";
+        $this->load->view('admin/view_salary', $p);
+    }
+    public function add()
+    {
+        $p["title"] = "Add Salary";
+        $p["page_mother"] = "Salaries";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_salary', $p);
+    }
+    public function pay($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_salary_payment();
+        } elseif ($act == "") {
+            $p["title"] = "Pay Salary";
+            $p["page_mother"] = "Salaries";
+            $p["page"] = "Pay";
+            $this->load->view('admin/pay_salary', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_salary_payment(){
+        $p["title"] = "Add Salary Payment";
+        $p["page_mother"] = "Salaries";
+        $p["page_inner"] = "pay";
+        $p["page_inner_name"] = "Pay";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_salary_payment', $p);
+    }
 }
