@@ -17,8 +17,6 @@ class Assets extends CI_Controller
     {
         if (strtolower($act) == "add") {
             $this->add_vendor();
-        } elseif ($act == "view") {
-            $this->view_vendor();
         } elseif ($act == "edit") {
             // $this->edit_vendor();
         } elseif ($act == "") {
@@ -39,14 +37,53 @@ class Assets extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_assets_vendor', $p);
     }
-    private function view_vendor()
+    public function location($act = "")
     {
-        $p["title"] = "View Vendor";
+        if (strtolower($act) == "add") {
+            $this->add_location();
+        } elseif ($act == "edit") {
+            // $this->edit_location();
+        } elseif ($act == "") {
+            $p["title"] = "Assets Locations";
+            $p["page_mother"] = "Assets";
+            $p["page"] = "Locations";
+            $this->load->view('admin/assets_location', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_location()
+    {
+        $p["title"] = "Add Location";
         $p["page_mother"] = "Assets";
-        $p["page_inner"] = "vendor";
-        $p["page_inner_name"] = "Vendors";
-        $p["page"] = "View";
-        $this->load->view('admin/view_assets_vendor', $p);
+        $p["page_inner"] = "location";
+        $p["page_inner_name"] = "Locations";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_assets_location', $p);
+    }
+    public function category($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_category();
+        } elseif ($act == "edit") {
+            // $this->edit_category();
+        } elseif ($act == "") {
+            $p["title"] = "Assets Categories";
+            $p["page_mother"] = "Assets";
+            $p["page"] = "Categories";
+            $this->load->view('admin/assets_category', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_category()
+    {
+        $p["title"] = "Add Category";
+        $p["page_mother"] = "Assets";
+        $p["page_inner"] = "Category";
+        $p["page_inner_name"] = "Categories";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_assets_category', $p);
     }
     public function view()
     {
