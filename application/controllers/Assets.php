@@ -87,16 +87,16 @@ class Assets extends CI_Controller
     }
     public function view()
     {
-        $p["title"] = "View Salary";
-        $p["page_mother"] = "Salaries";
+        $p["title"] = "View Asset";
+        $p["page_mother"] = "Assets";
         $p["page"] = "View";
-        $this->load->view('admin/view_salary', $p);
+        $this->load->view('admin/view_asset', $p);
     }
     public function add()
     {
-        $p["title"] = "Add Salary";
-        $p["page_mother"] = "Salaries";
+        $p["title"] = "Add Asset";
+        $p["page_mother"] = "Assets";
         $p["page"] = "Add";
-        $this->load->view('admin/add_salary', $p);
+        $this->load->view('admin/add_asset', $p);
     }
 }

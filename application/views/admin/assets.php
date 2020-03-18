@@ -27,9 +27,9 @@
                                 <td>01992018291</td>
                                 <td>HP All In One</td>
                                 <td>In Storage</td>
-                                <td>Main</td>
+                                <td>Computers</td>
                                 <td>Akwa Ibom</td>
-                                <td><a class="btn btn-outline-primary" href="<?=base_url("admin/assets/edit")?>">Edit</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/assets/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-outline-primary" href="<?=base_url("admin/assets/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/assets/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>
