@@ -1,7 +1,7 @@
 <?php
-class Menu_model extends CI_Model
-{
-    function modules()
+class Menu_model extends CI_Model{
+
+	function modules()
     {
         return $this->db->get('modules')->result();
     }

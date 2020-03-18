@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!-- metas -->
     <meta charset="utf-8">
     <meta name="author" content="Chitrakoot Web" />
@@ -29,11 +28,9 @@
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
 	<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="page-sidebar-fixed page-header-fixed">
-
     <!-- start page loading -->
     <div id="preloader">
         <div class="row loader">
