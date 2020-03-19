@@ -231,4 +231,27 @@ if(!function_exists('load_select')){
 
 }
 
+if(!function_exists('getQuestionType')){
+	function getQuestionType($type ){
+		switch ($type){
+			case '1':
+				return 'Single';
+				break;
+			case '2':
+				return 'Multiple';
+				break;
+			case '3':
+				return 'Fill';
+				break;
+			default :
+				return 'single';
+				break;
+		}
+	}
+
+}
+
+
+
+
 

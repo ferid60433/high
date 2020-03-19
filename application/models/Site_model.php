@@ -39,7 +39,7 @@ class Site_model extends CI_Model
         if( $condition != '' ){
             $this->db->where( $condition );
         }
-        return $this->db->get( $table )->result();
+        return $this->db->order_by('id', 'DESC')->get( $table )->result();
     }
 
     function get_row($table = "users", $select = "", $condition = "" ){
