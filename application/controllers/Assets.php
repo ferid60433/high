@@ -37,6 +37,30 @@ class Assets extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_assets_vendor', $p);
     }
+    public function assignment($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_assignment();
+        } elseif ($act == "edit") {
+            // $this->edit_assignment();
+        } elseif ($act == "") {
+            $p["title"] = "Assets Assignments";
+            $p["page_mother"] = "Assets";
+            $p["page"] = "Assignments";
+            $this->load->view('admin/assets_assignment', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_assignment()
+    {
+        $p["title"] = "Add assignment";
+        $p["page_mother"] = "Assets";
+        $p["page_inner"] = "assignment";
+        $p["page_inner_name"] = "Assignments";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_assets_assignment', $p);
+    }
     public function location($act = "")
     {
         if (strtolower($act) == "add") {
@@ -61,6 +85,30 @@ class Assets extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_assets_location', $p);
     }
+    public function purchase($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_purchase();
+        } elseif ($act == "edit") {
+            // $this->edit_purchase();
+        } elseif ($act == "") {
+            $p["title"] = "Assets Purchases";
+            $p["page_mother"] = "Assets";
+            $p["page"] = "Purchases";
+            $this->load->view('admin/assets_purchase', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_purchase()
+    {
+        $p["title"] = "Add Purchase";
+        $p["page_mother"] = "Assets";
+        $p["page_inner"] = "purchase";
+        $p["page_inner_name"] = "Purchases";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_assets_purchase', $p);
+    }
     public function category($act = "")
     {
         if (strtolower($act) == "add") {
@@ -80,7 +128,7 @@ class Assets extends CI_Controller
     {
         $p["title"] = "Add Category";
         $p["page_mother"] = "Assets";
-        $p["page_inner"] = "Category";
+        $p["page_inner"] = "category";
         $p["page_inner_name"] = "Categories";
         $p["page"] = "Add";
         $this->load->view('admin/add_assets_category', $p);
