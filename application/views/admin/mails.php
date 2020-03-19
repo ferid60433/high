@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/mails/compose')?>'"><i class="fas fa-edit"></i> Compose New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/mails/compose')?>'"><i class="fas fa-edit"></i> Compose New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#folderMod"><i class="fas fa-folder-plus"></i> Add New Folder</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#folderMod"><i class="fas fa-folder-plus"></i> Add New Folder</button>
             </div>
             <div class="card-body">
                 <div class="row">

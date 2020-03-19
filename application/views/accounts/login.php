@@ -21,7 +21,7 @@
                         <?= form_error('password'); ?>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <!-- <a href="register.html" class="btn btn-outline-primary">Register</a> -->
+                    <!-- <a href="register.html" class="btn btn-sm btn-outline-primary">Register</a> -->
                     <a href="<?= base_url('auth/forgot/') ?>" class="forgot-link">Forgot password?</a>
                     <?= form_close(); ?>
                 </div>
