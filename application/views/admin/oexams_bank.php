@@ -27,7 +27,7 @@
                                 <td>Who killed James?</td>
                                 <td>English 1</td>
                                 <td>Single Answer</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
@@ -35,7 +35,7 @@
                                 <td>Who is 2 + 8?</td>
                                 <td>Mathematics 1</td>
                                 <td>Single Answer</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

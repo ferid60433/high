@@ -23,7 +23,7 @@
                                 <td>1.</td>
                                 <td>Answer All</td>
                                 <td>Students Are To Answer All Questions In The Examination</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/instructions/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/instructions/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/instructions/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/oexams/instructions/view")?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/instructions/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/instructions/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

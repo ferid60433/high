@@ -38,9 +38,9 @@
                                     <td><?= $parent->email; ?></td>
                                     <td><?= statusLabel($parent->status); ?></td>
                                     <td>
-                                        <a class="btn btn-outline-info" href="<?= base_url("admin/parents/view/" . simple_crypt($parent->uid) . '/') ?>">View</a> |
-                                        <a class="btn btn-outline-warning" href="<?= base_url("admin/parents/edit/" . simple_crypt($parent->uid . '/')) ?>">Edit</a> |
-                                        <a class="btn btn-outline-danger" href="<?= base_url("admin/parents/delete/") ?>">Delete</a>
+                                        <a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/parents/view/" . simple_crypt($parent->uid) . '/') ?>">View</a> |
+                                        <a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/parents/edit/" . simple_crypt($parent->uid . '/')) ?>">Edit</a> |
+                                        <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/parents/delete/") ?>">Delete</a>
                                     </td>
                                 </tr>
                             <?php $x++;

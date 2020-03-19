@@ -76,7 +76,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-school"></i></div>
                                                     </div>
-                                                    <select class="form-control" id="subject" name="subject">
+                                                    <select class="form-control" id="category" name="category">
                                                         <option>Select</option>
                                                         <option value="">Computers</option>
                                                     </select>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="finish float-right btn btn-primary btn-lg">Finish</button>
+                                    <button type="submit" class="finish float-right btn btn-primary btn-sm">Finish</button>
                                 </div>
                             </div>
                         </div>

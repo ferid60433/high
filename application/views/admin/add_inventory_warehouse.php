@@ -22,9 +22,20 @@
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-briefcase"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Code</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-code"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Code">
                                                 </div>
                                             </div>
                                         </div>
@@ -51,13 +62,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Contact Name</label>
+                                            <label class="col-sm-2 col-form-label">Address</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-newspaper"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Contact Name">
+                                                    <textarea class="form-control" id="address" name="address"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,4 +88,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

@@ -102,8 +102,8 @@
                                                 Teacher :<br>
                                                 Room : classroom
                                                 <div>
-                                                    <a href="#" title="Edit" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" title="Delete" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                                                    <a href="#" title="Edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                                    <a href="#" title="Delete" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

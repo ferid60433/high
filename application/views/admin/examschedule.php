@@ -67,7 +67,7 @@
                                                 <td>04 Mar 2019</td>
                                                 <td>10:45AM - 11-45AM</td>
                                                 <td>JSS1A</td>
-                                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
+                                                <td><a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -99,7 +99,7 @@
                                                 <td>04 Mar 2019</td>
                                                 <td>10:45AM - 11-45AM</td>
                                                 <td>JSS1A</td>
-                                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
+                                                <td><a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/examschedule/edit") ?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/examschedule/delete") ?>">Delete</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

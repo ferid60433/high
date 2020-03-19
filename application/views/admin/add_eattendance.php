@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Attendance</button>
                     </div>
                 </form>
             </div>

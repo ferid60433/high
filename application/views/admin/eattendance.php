@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-2">
-                        <button type="submit" class="btn btn-primary btn-lg">View Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">View Attendance</button>
                     </div>
                 </form>
             </div>

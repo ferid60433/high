@@ -60,7 +60,7 @@
                                 <td>Mrs Chinenye</td>
                                 <td>chi@school.com</td>
                                 <td>10 March 2012</td>
-                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/salaries/view") ?>">View</a> | <a class="btn btn-outline-warning" href="<?= base_url("admin/salaries/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/salaries/delete") ?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/salaries/view") ?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/salaries/edit") ?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/salaries/delete") ?>">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
@@ -68,7 +68,7 @@
                                 <td>Mr John</td>
                                 <td>john@school.com</td>
                                 <td>12 May 2013</td>
-                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/salaries/add") ?>">Add</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/salaries/add") ?>">Add</a></td>
                             </tr>
                         </tbody>
                     </table>

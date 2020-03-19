@@ -21,12 +21,12 @@
                             <tr>
                                 <td>1.</td>
                                 <td>English Language 1</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/groups/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/groups/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/groups/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/groups/delete")?>">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
                                 <td>Mathematics 1</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/groups/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/groups/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/groups/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/groups/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

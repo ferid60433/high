@@ -31,7 +31,7 @@
                                 <td>70</td>
                                 <td>100</td>
                                 <td>Excellent</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/grades/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/grades/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/grades/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/grades/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

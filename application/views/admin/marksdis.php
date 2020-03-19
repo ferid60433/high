@@ -23,13 +23,13 @@
                                 <td>1.</td>
                                 <td>C.A.</td>
                                 <td>40</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
                                 <td>Exam</td>
                                 <td>60</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

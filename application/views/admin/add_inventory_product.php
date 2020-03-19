@@ -22,42 +22,55 @@
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-briefcase"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control" placeholder="Name">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Email</label>
+                                            <label class="col-sm-2 col-form-label">Category</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-school"></i></div>
                                                     </div>
-                                                    <input type="email" class="form-control" placeholder="Email">
+                                                    <select class="form-control" id="category" name="category">
+                                                        <option>Select</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Phone</label>
+                                            <label class="col-sm-2 col-form-label">Buying Price</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-phone"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Phone">
+                                                    <input type="text" class="form-control" placeholder="Buying Price">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Contact Name</label>
+                                            <label class="col-sm-2 col-form-label">Selling Price</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                        <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Contact Name">
+                                                    <input type="text" class="form-control" placeholder="Selling Price">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Description</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-newspaper"></i></div>
+                                                    </div>
+                                                    <textarea class="form-control" id="description" name="description"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,4 +90,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

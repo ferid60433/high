@@ -47,11 +47,11 @@
                             <tr>
                                 <td>1.</td>
                                 <td>Anger Management</td>
-                                <td>finish ml-auto d-none btn-primary btn-lg</td>
+                                <td>finish ml-auto d-none btn-primary btn-sm</td>
                                 <td>2020-02-26</td>
                                 <td>-</td>
                                 <td>img.jpg</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/syllabus/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/syllabus/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/syllabus/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/syllabus/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

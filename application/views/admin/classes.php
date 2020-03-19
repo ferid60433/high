@@ -35,9 +35,9 @@
 								</td>
                                 <td><?= substr( $class->note, 0, 10 )?></td>
                                 <td>
-									<a class="btn btn-outline-warning"
+									<a class="btn btn-sm btn-outline-warning"
 									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>">Edit</a> |
-									<a class="btn btn-outline-danger"
+									<a class="btn btn-sm btn-outline-danger"
 									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>">Delete</a>
 								</td>
                             </tr>

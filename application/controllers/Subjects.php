@@ -89,8 +89,8 @@ class Subjects extends CI_Controller
 					$res['pass_mark'] = $s->pass_mark;
 					$res['final_mark'] = $s->final_mark;
 					$res['type'] = statusLabel($s->type);
-					$edit_btn = '<a class="btn btn-outline-warning" href="'. base_url('admin/subjects/edit/' . simple_crypt($s->id)).'">Edit</a> |';
-					$del_btn = '<a class="btn btn-outline-danger" href="'. base_url('admin/subjects/delete/' . simple_crypt($s->id)).'">Delete</a>';
+					$edit_btn = '<a class="btn btn-sm btn-outline-warning" href="'. base_url('admin/subjects/edit/' . simple_crypt($s->id)).'">Edit</a> |';
+					$del_btn = '<a class="btn btn-sm btn-outline-danger" href="'. base_url('admin/subjects/delete/' . simple_crypt($s->id)).'">Delete</a>';
 					$res['actions'] = $edit_btn . $del_btn;
 					array_push( $resarray, $res );
 					$x++;

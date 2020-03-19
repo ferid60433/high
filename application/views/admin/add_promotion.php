@@ -80,8 +80,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="col-md-12 row"><button class="btn btn-primary btn-lg ml-auto mt-2">Promotion To Class JSS2</button></div>
-                    <div class="col-md-12 row"><button class="btn btn-info btn-lg ml-auto mt-2">Enroll To Class JSS1</button></div>
+                    <div class="col-md-12 row"><button class="btn btn-primary btn-sm ml-auto mt-2">Promotion To Class JSS2</button></div>
+                    <div class="col-md-12 row"><button class="btn btn-info btn-sm ml-auto mt-2">Enroll To Class JSS1</button></div>
                 </div>
             </div>
         </div>

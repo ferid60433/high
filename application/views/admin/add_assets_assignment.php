@@ -35,6 +35,76 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Quantity</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Quantity" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Role</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                    </div>
+                                                    <select class="form-control" id="" name="">
+                                                        <option>Select</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Checkout To</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                                    </div>
+                                                    <select class="form-control" id="" name="">
+                                                        <option>Select</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Due Date</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control date-picker" placeholder="Due Date" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Checkout Date</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control date-picker" placeholder="Checkout Date" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Checkin Date</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control date-picker" placeholder="Checkin Date" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Note</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
@@ -50,7 +120,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="finish float-right btn btn-primary btn-lg">Finish</button>
+                                    <button type="submit" class="finish float-right btn btn-primary btn-sm">Finish</button>
                                 </div>
                             </div>
                         </div>

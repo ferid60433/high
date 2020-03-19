@@ -23,7 +23,7 @@
                                 <td>1.</td>
                                 <td>Abuja</td>
                                 <td>FCT Abuja</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/assets/location/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/location/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/assets/location/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/assets/location/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -59,7 +59,7 @@
                                 <td>04 Mar 2019</td>
                                 <td>6999</td>
                                 <td>6999</td>
-                                <td><a class="btn btn-outline-primary" href="<?= base_url("admin/salaries/pay/view") ?>" title="View"><i class="fas fa-search"></i></a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/salaries/pay/delete") ?>" title="Delete"><i class="fas fa-trash"></i></a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/salaries/pay/view") ?>" title="View"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/salaries/pay/delete") ?>" title="Delete"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

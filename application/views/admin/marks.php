@@ -70,7 +70,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/marks/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/marks/view") ?>">View</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -96,7 +96,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/marks/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/marks/view") ?>">View</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

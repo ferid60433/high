@@ -37,7 +37,7 @@
                                 <td>23 Mar 2020</td>
                                 <td>22 Nov 2030</td>
                                 <td>Mr John</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/assets/purchase/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/purchase/delete")?>">Delete</a>| <a class="btn btn-outline-warning" href="<?=base_url("admin/assets/purchase/disapprove")?>">Disapprove</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/assets/purchase/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/assets/purchase/delete")?>">Delete</a>| <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/assets/purchase/disapprove")?>">Disapprove</a></td>
                             </tr>
                         </tbody>
                     </table>

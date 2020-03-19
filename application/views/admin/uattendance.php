@@ -27,7 +27,7 @@
                                 <td>Mr John</td>
                                 <td>chi@school.com</td>
                                 <td>Accountant</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/uattendance/view")?>">View</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/uattendance/view")?>">View</a></td>
                             </tr>
                         </tbody>
                     </table>

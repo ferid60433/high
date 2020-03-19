@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/exams/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/inventory/supplier/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -13,19 +13,23 @@
                         <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Exam Name</th>
-                                <th>Date</th>
-                                <th>Note</th>
+                                <th>Company Name</th>
+                                <th>Supplier name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td>Second Term Exam</td>
-                                <td>04 Mar 2019</td>
-                                <td>Senior school final mock</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/exams/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/exams/delete")?>">Delete</a></td>
+                                <td>Skilzcore</td>
+                                <td>Ade Ade</td>
+                                <td>think@thinkally.net</td>
+                                <td>09088112151</td>
+                                <td>12, runway, off-airport rd, methuselah</td>
+                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/inventory/supplier/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/inventory/supplier/delete")?>">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>
