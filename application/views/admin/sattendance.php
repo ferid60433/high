@@ -62,7 +62,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/sattendance/view") ?>"><i class="fas fa-search"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -88,7 +88,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/sattendance/view") ?>"><i class="fas fa-search"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -60,7 +60,7 @@
                                 <td>Mrs Chinenye</td>
                                 <td>chi@school.com</td>
                                 <td>10 March 2012</td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/salaries/pay/add") ?>">Make Payment</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/salaries/pay/add") ?>">Make Payment</a></td>
                             </tr>
                         </tbody>
                     </table>

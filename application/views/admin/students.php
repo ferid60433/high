@@ -58,9 +58,9 @@
                                 <td><?= $student->roll; ?></td>
                                 <td><?= $student->email; ?></td>
                                 <td><span class="badge badge-info"><?= statusLabel($student->status)?></span></td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/students/view/" . simple_crypt($student->id .'/')) ?>">View</a> |
-									<a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/students/edit/" . simple_crypt($student->id .'/')); ?>">Edit</a> |
-									<a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/students/delete") ?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/students/view/" . simple_crypt($student->id .'/')) ?>"><i class="fas fa-search"></i></a> |
+									<a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/students/edit/" . simple_crypt($student->id .'/')); ?>"><i class="fas fa-edit"></i></a> |
+									<a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/students/delete") ?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
 						<?php endforeach;?>
                         </tbody>

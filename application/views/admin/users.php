@@ -29,7 +29,7 @@
                                 <td>chidu@svl.com</td>
                                 <td>Accountant</td>
                                 <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/users/view")?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/users/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/users/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/users/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/users/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/users/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

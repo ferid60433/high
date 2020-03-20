@@ -25,7 +25,7 @@
                                 <td>Second Term Exam</td>
                                 <td>04 Mar 2019</td>
                                 <td>Senior school final mock</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/exams/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/exams/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/exams/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/exams/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

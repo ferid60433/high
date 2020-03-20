@@ -29,7 +29,7 @@
                                 <td>5000</td>
                                 <td>4800</td>
                                 <td>Complete Male Uniform</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/inventory/product/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/inventory/product/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/inventory/product/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/inventory/product/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

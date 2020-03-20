@@ -32,8 +32,8 @@ class Ajax extends CI_Controller
 					$res['tid'] = $s->tid;
 					$res['teacher'] = $s->teacher;
 					$res['note'] = substr(trim($s->note), 0, 10);
-					$edit_btn = '<a class="btn btn-sm btn-outline-warning" href="'. base_url('admin/sections/edit/' . simple_crypt($s->id)).'">Edit</a> |';
-					$del_btn = '<a class="btn btn-sm btn-outline-danger" href="'. base_url('admin/sections/delete/' . simple_crypt($s->id)).'">Delete</a>';
+					$edit_btn = '<a class="btn btn-sm btn-outline-warning" title="Edit" href="'. base_url('admin/sections/edit/' . simple_crypt($s->id)).'"><i class="fas fa-edit"></i></a> |';
+					$del_btn = '<a class="btn btn-sm btn-outline-danger" title="Delete" href="'. base_url('admin/sections/delete/' . simple_crypt($s->id)).'"><i class="fas fa-trash"></i></a>';
 					$res['actions'] = $edit_btn . $del_btn;
 					array_push( $resarray, $res );
 					$x++;

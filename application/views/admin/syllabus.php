@@ -51,7 +51,7 @@
                                 <td>2020-02-26</td>
                                 <td>-</td>
                                 <td>img.jpg</td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/syllabus/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/syllabus/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/syllabus/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/syllabus/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

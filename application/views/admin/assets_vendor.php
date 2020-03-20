@@ -27,7 +27,7 @@
                                 <td>ch@high.sch.ng</td>
                                 <td>090827636272</td>
                                 <td>Joyner</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/assets/vendor/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/assets/vendor/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/assets/vendor/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/assets/vendor/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

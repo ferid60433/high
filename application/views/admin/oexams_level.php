@@ -21,12 +21,12 @@
                             <tr>
                                 <td>1.</td>
                                 <td>High</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/levels/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/levels/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/levels/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/levels/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
                                 <td>Low</td>
-                                <td><a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/levels/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/levels/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/levels/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/levels/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

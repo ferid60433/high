@@ -29,7 +29,7 @@
                                 <td>In Storage</td>
                                 <td>Computers</td>
                                 <td>Akwa Ibom</td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/assets/view")?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/assets/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/assets/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/assets/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/assets/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/assets/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -25,7 +25,7 @@
                                 <td></td>
                                 <td>Mrs Chinenye</td>
                                 <td>chi@school.com</td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/tattendance/view")?>">View</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/tattendance/view")?>"><i class="fas fa-search"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

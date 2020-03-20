@@ -23,7 +23,7 @@
                                 <td>1.</td>
                                 <td>Second Term Exam</td>
                                 <td><span class="badge badge-info">Yes</span></td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/edit")?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

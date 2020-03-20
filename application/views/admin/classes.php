@@ -36,9 +36,9 @@
                                 <td><?= substr( $class->note, 0, 10 )?></td>
                                 <td>
 									<a class="btn btn-sm btn-outline-warning"
-									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>">Edit</a> |
+									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>"><i class="fas fa-edit"></i></a> |
 									<a class="btn btn-sm btn-outline-danger"
-									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>">Delete</a>
+									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>"><i class="fas fa-trash"></i></a>
 								</td>
                             </tr>
 						<?php $x++; endforeach;?>

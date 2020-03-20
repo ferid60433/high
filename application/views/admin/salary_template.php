@@ -25,7 +25,7 @@
                                 <td>Junior Grade</td>
                                 <td>6,999</td>
                                 <td>15.00</td>
-                                <td><a class="btn btn-sm btn-outline-info" href="<?= base_url("admin/salaries/template/view") ?>">View</a> | <a class="btn btn-sm btn-outline-warning" href="<?= base_url("admin/salaries/template/edit") ?>">Edit</a> | <a class="btn btn-sm btn-outline-danger" href="<?= base_url("admin/salaries/template/delete") ?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/salaries/template/view") ?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/salaries/template/edit") ?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/salaries/template/delete") ?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

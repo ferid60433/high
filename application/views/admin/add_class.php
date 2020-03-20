@@ -90,7 +90,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-						<button type="submit" class="finish float-right btn btn-primary btn-sm">Add</button>
+						<button type="submit" class="finish float-right btn btn-primary btn-sm">Finish</button>
 					</div>
 				</div>
 				<?= form_close(); ?>

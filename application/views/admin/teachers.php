@@ -36,9 +36,9 @@
 								<td><?= statusLabel($teacher->status); ?></td>
 								<td data-id="<?=$teacher->uid?>">
 									<a class="btn btn-sm btn-outline-info"
-									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
-									<a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |
-									<a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/teachers/delete/")?>">Delete</a>
+									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>"><i class="fas fa-search"></i></a> |
+									<a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>"><i class="fas fa-edit"></i></a> |
+									<a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/teachers/delete/")?>"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 							<?php $x++;  endforeach;?>
