@@ -45,7 +45,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="class" name="cid" required>
-										<option value="">-- Select Class</option>
+										<option value="">-- Select Class --</option>
 										<?php foreach ( $classes as $class ):?>
 											<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 										<?php endforeach; ?>
@@ -87,7 +87,7 @@
 						<button type="submit" class="finish float-right btn btn-primary btn-sm">Finish</button>
 					</div>
 				</div>
-				<?php form_close();?>
+				<?= form_close();?>
             </div>
         </div>
     </div>
@@ -129,7 +129,9 @@
 				$('#section').append('<option value="0">-- All Section/Arms --</option>')
 			}
 		});
+
 	})
 
 </script>
-<?php $this->load->view("inc/post-script")?>
+</body>
+</html>

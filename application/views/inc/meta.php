@@ -28,3 +28,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="<?= base_url("assets/css/styles.css") ?>" />
+
+	<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
+

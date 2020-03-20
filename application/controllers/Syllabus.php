@@ -5,9 +5,11 @@ class Syllabus extends MY_Controller
     public function index(){
         $p["title"] = "All Syllabus";
         $p["page"] = "Syllabus";
-		$p['classes'] = $this->site->run_sql("SELECT c.id, c.name, s.name section FROM classes c JOIN sections s ON (s.cid = c.id) ORDER BY c.id DESC")->result();
+        $p['syllabus'] = $this->site->get_result('syllabus', '*');
+		$p['classes'] = $this->site->get_result('classes', 'id,name');
         $this->load->view('admin/syllabus', $p);
     }
+
     public function add(){
         $p["title"] = "Add New Syllabus";
         $p["page_mother"] = "Syllabus";

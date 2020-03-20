@@ -50,7 +50,9 @@
                         <h4 class="card-title">Question Bank</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form-inline row">
+						<?php $this->load->view('msg_view'); ?>
+						<?= form_open('', 'class="form-inline row" id="question_filter_form"'); ?>
+							<input type="hidden" name="post_type" value="filter_form">
                             <div class="form-group row col-md-6">
                                 <label class="col-sm-12 col-form-label">Difficulty Level</label>
                                 <div class="col-sm-12">
@@ -58,9 +60,15 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
                                         </div>
-                                        <select class="form-control" id="exam" name="exam">
-                                            <option>Select</option>
-                                            <option value="bus assistant">High</option>
+										<select class="form-control" id="level" name="level">
+											<option value="">-- Select level of question --</option>
+											<?php foreach( $levels as $l ) : ?>
+                                            	<option value="<?= $l->id; ?>"
+													<?php if( isset($level) && $level == $l->id){echo 'selected';} ?>
+												>
+													<?= ucwords($l->title); ?>
+												</option>
+											<?php endforeach;?>
                                         </select>
                                     </div>
                                 </div>
@@ -72,16 +80,23 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-book"></i></div>
                                         </div>
-                                        <select class="form-control" id="class" name="class">
-                                            <option>Select</option>
-                                            <option value="bus assistant">English 1</option>
+                                        <select class="form-control" id="group" name="group">
+											<option value="">-- Select group question --</option>
+											<?php foreach( $groups as $g ) : ?>
+												<option value="<?= $g->id?>"
+													<?php if( isset($group) && $group == $g->id){echo 'selected';} ?>
+												>
+													<?= ucwords($g->title); ?>
+												</option>
+											<?php endforeach;?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+						<?= form_close()?>
                         <div class="table-responsive">
                             <table class="table">
+                            	<?php if( isset($questions)) :?>
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
@@ -91,18 +106,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>What is 2 + 2?</td>
-                                        <td>Single Answer</td>
-                                        <td><button class="btn btn-primary float-right" title="Add Question"><i class="fas fa-plus"></i></button></td>
-                                    </tr>
+									<?php if( count( $questions )) : $x =1; foreach( $questions as $q ) : ?>
+										<tr>
+											<td><?= $x;?>.</td>
+											<td><?= $q->question;?></td>
+											<td><?= getQuestionType($q->question_type);?></td>
+											<td>
+												<?= form_open(); ?>
+													<input type="hidden" name="question_id" value="<?= $q->id; ?>">
+													<input type="hidden" name="exam_id" value="<?= $exam->id; ?>">
+													<input type="hidden" name="post_type" value="add_question">
+													<button type="submit" class="btn btn-primary float-right" title="Add Question">
+														<i class="fas fa-plus"></i>
+													</button>
+												<?= form_close(); ?>
+											</td>
+										</tr>
+									<?php $x++; endforeach; else :?>
+										<tr>
+											<td colspan="4">No question in the selected filter</td>
+										</tr>
+									<?php endif; ?>
                                 </tbody>
                                 <tfoot>
+									<?php if( count( $questions )) :?>
                                     <tr>
-                                        <td colspan="4"><button class="btn btn-primary float-right" title="Add All Question"><i class="fas fa-plus"></i> Add All Questions</button></td>
+                                        <td colspan="4">
+											<button
+												data-level="<?= $level; ?>"
+												data-group="<?= $group?>"
+												data-exam_id="<?= $exam->id; ?>"
+												class="btn btn-primary float-right all-question" title="Add All Question">
+												<i class="fas fa-plus"></i> Add All Questions</button>
+										</td>
                                     </tr>
+									<?php endif; ?>
                                 </tfoot>
+								<?php endif; ?>
                             </table>
                         </div>
                     </div>
@@ -115,87 +155,50 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12 row qr">
-                                <h4 class="col-md-1">1.</h4>
-                                <div class="col-md-11" style="margin-top:-5px;">
-                                    <div class="card-heading clearfix row">
-                                        <h5 class="col-md-7">What is 2 + 2?</h5>
-                                        <span class="col-md-5 text-right" style="font-weight:500">1 Mark</span>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="radio" name="single" checked disabled> 1
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="radio" name="single" disabled> 2
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="radio" name="single" disabled> 3
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="radio" name="single" disabled> 4
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12"><button class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i> Remove Question 1</button></div>
-                            </div>
-                            <div class="col-md-12 row qr">
-                                <h4 class="col-md-1">2.</h4>
-                                <div class="col-md-11" style="margin-top:-5px;">
-                                    <div class="card-heading clearfix row">
-                                        <h5 class="col-md-7">Who killed James?</h5>
-                                        <span class="col-md-5 text-right" style="font-weight:500">1 Mark</span>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="checkbox" checked disabled> John
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="checkbox" disabled> Jacob
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="checkbox" disabled> Jaguar
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="checkbox" disabled checked> Jimmy
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12"><button class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i> Remove Question 2</button></div>
-                            </div>
-                            <div class="col-md-12 row qr">
-                                <h4 class="col-md-1">3.</h4>
-                                <div class="col-md-11" style="margin-top:-5px;">
-                                    <div class="card-heading clearfix row">
-                                        <h5 class="col-md-7">What is Biology?</h5>
-                                        <span class="col-md-5 text-right" style="font-weight:500">5 Marks</span>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-1">
-                                                        <div class="qNum">1</div>
-                                                    </div>
-                                                    <div class="col-sm-11">
-                                                        <h5 class="qPhrase">The study of life</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12"><button class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i> Remove Question 3</button></div>
+							<?php $x = 1; foreach( $aquestions as $q ) :?>
+								<div class="col-md-12 row qr">
+									<h4 class="col-md-1"><?= $x;?>.</h4>
+									<div class="col-md-11" style="margin-top:-5px;">
+										<div class="card-heading clearfix row">
+											<h5 class="col-md-7"><?= $q['question']; ?></h5>
+											<span class="col-md-5 text-right" style="font-weight:500"><?= $q['mark']; ?> Mark</span>
+										</div>
+										<div class="card-body">
+											<div class="row">
+												<?php
+													$out_explode = explode('---', $q['options']);
+													foreach( $out_explode as $out ) :
+														$in_explode = explode( '||', $out);
+												?>
+													<?php if($q['question_type'] == '3') :?>
+														<div class="col-sm-1">
+															<div class="qNum"><?= ucwords($in_explode[0]); ?></div>
+														</div>
+														<div class="col-sm-11">
+															<h5 class="qPhrase"><?= $in_explode[1]; ?></h5>
+														</div>
+													<?php else : ?>
+														<div class="col-sm-6">
+															<input type="<?= ($q['question_type'] == '1') ? 'radio' : 'checkbox'; ?>" name="<?= $in_explode[0]; ?>" <?= ($in_explode[1] ==1) ? 'checked' : null; ?> disabled> <?= ucwords($in_explode[0]); ?>
+														</div>
+													<?php endif; ?>
+												<?php endforeach;?>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<?= form_open(); ?>
+											<input type="hidden" name="post_type" value="remove_question" />
+											<input type="hidden" name="question_id" value="<?=$q['id']; ?>" />
+											<button type="submit"
+													class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i>
+												Remove Question #<?=$x;?>
+											</button>
+										<?= form_close(); ?>
+									</div>
+								</div>
 
-                            </div>
+							<?php $x++; endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -214,67 +217,63 @@
                             <table class="table">
                                 <tr>
                                     <th>Exam Title:</th>
-                                    <td>Second Term Exam</td>
+                                    <td><?= ucwords($exam->title);?></td>
                                 </tr>
                                 <tr>
                                     <th>Exam Type:</th>
-                                    <td>Only Duration</td>
+                                    <td><?= ucwords($exam->exam_type)?></td>
                                 </tr>
                                 <tr>
                                     <th>Date:</th>
-                                    <td></td>
+                                    <td><?= date('Y-m-d', strtotime( $exam->start_date)); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Time From:</th>
-                                    <td></td>
+                                    <td><?= date('H:i:s', strtotime($exam->start_time)); ?></td>
                                 </tr>
-                                <tr>
-                                    <th>Time To:</th>
-                                    <td></td>
-                                </tr>
+								<tr>
+									<th>Time To:</th>
+									<td><?= date('H:i:s', strtotime($exam->end_time)); ?></td>
+								</tr>
                                 <tr>
                                     <th>Duration:</th>
-                                    <td>40 Minutes</td>
+                                    <td><?= $exam->duration?> Minutes</td>
                                 </tr>
                                 <tr>
                                     <th>Description:</th>
-                                    <td></td>
+                                    <td><?= $exam->description; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Random:</th>
-                                    <td>0</td>
+                                    <td><?= ( $exam->random == '1') ? 'Yes' : 'No'; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Mark Type:</th>
-                                    <td>Fixed</td>
+                                    <td><?= ucwords($exam->mark_type); ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Pass Value:</th>
-                                    <td>10</td>
+                                    <th>Pass Mark:</th>
+                                    <td><?= $exam->pass_mark?></td>
                                 </tr>
                                 <tr>
                                     <th>Negative Mark:</th>
-                                    <td></td>
+                                    <td><?= $exam->negative_mark; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Instruction:</th>
-                                    <td>Answer All</td>
+                                    <td><?= $exam->instruction; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Class:</th>
-                                    <td>JSS1</td>
+                                    <td><?= strtoupper( $exam->class_name); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Section:</th>
-                                    <td>JSS1</td>
-                                </tr>
-                                <tr>
-                                    <th>Student Group:</th>
-                                    <td></td>
+                                    <td><?= strtoupper( $exam->section_name); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Subject:</th>
-                                    <td>English Language</td>
+                                    <td><?= ucwords($exam->subject); ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -360,5 +359,14 @@
             increaseArea: '50%'
         });
     });
+</script>
+<script>
+	$(document).ready(() =>{
+		$('#group, #level').change( () => {
+			let group_id = $('#group').val();
+			let level_id = $('#level').val();
+			$('#question_filter_form').submit();
+		})
+	});
 </script>
 <?php $this->load->view("inc/post-script")?>
