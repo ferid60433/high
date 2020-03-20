@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/marksdis/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/marksdis/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,13 +23,13 @@
                                 <td>1.</td>
                                 <td>C.A.</td>
                                 <td>40</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/marksdis/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/marksdis/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
                                 <td>Exam</td>
                                 <td>60</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/marksdis/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/marksdis/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/marksdis/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/marksdis/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

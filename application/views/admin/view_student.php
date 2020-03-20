@@ -1182,7 +1182,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-block btn-primary btn-lg">Save</button>
+                                <button class="btn btn-block btn-primary btn-sm">Save</button>
                             </div>
                         </form>
                     </div>
@@ -1211,7 +1211,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-block btn-primary btn-lg">Save</button>
+                                <button class="btn btn-block btn-primary btn-sm">Save</button>
                             </div>
                         </form>
                     </div>

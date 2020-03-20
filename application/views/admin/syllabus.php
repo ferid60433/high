@@ -7,7 +7,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/syllabus/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/syllabus/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -47,11 +47,11 @@
                             <tr>
                                 <td>1.</td>
                                 <td>Anger Management</td>
-                                <td>finish ml-auto d-none btn-primary btn-lg</td>
+                                <td>finish ml-auto d-none btn-primary btn-sm</td>
                                 <td>2020-02-26</td>
                                 <td>-</td>
                                 <td>img.jpg</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/syllabus/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/syllabus/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/syllabus/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/syllabus/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

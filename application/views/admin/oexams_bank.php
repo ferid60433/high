@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/bank/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/bank/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,7 +27,7 @@
                                 <td>Who killed James?</td>
                                 <td>English 1</td>
                                 <td>Single Answer</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/oexams/bank/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/bank/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/bank/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                             <tr>
                                 <td>2.</td>
@@ -35,7 +35,7 @@
                                 <td>Who is 2 + 8?</td>
                                 <td>Mathematics 1</td>
                                 <td>Single Answer</td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/bank/view")?>">View</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/oexams/bank/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/bank/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/bank/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -9,7 +9,7 @@
                 <div class="row">
 					<?php $this->load->view('msg_view'); ?>
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/subjects/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/subjects/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
                         <?= form_open(); ?>

@@ -16,7 +16,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/eattendance/add') ?>'"><i class="fas fa-plus"></i> Add Exam Attendance</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/eattendance/add') ?>'"><i class="fas fa-plus"></i> Add Exam Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-2">
-                        <button type="submit" class="btn btn-primary btn-lg">View Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">View Attendance</button>
                     </div>
                 </form>
             </div>

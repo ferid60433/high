@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Attendance</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +90,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="col-md-12"><button class="btn btn-primary btn-lg float-right mt-2">Submit</button></div>
+                    <div class="col-md-12"><button class="btn btn-primary btn-sm float-right mt-2">Submit</button></div>
                 </div>
             </div>
         </div>

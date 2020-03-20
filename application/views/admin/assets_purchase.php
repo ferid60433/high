@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/assets/purchase/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/assets/purchase/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -37,7 +37,7 @@
                                 <td>23 Mar 2020</td>
                                 <td>22 Nov 2030</td>
                                 <td>Mr John</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/assets/purchase/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/purchase/delete")?>">Delete</a>| <a class="btn btn-outline-warning" href="<?=base_url("admin/assets/purchase/disapprove")?>">Disapprove</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/assets/purchase/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/assets/purchase/delete")?>"><i class="fas fa-trash"></i></a>| <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/assets/purchase/disapprove")?>">Disapprove</a></td>
                             </tr>
                         </tbody>
                     </table>

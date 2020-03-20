@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/assets/assignment/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/assets/assignment/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,8 +27,15 @@
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td>Computers</td>
-                                <td><a class="btn btn-outline-warning" href="<?=base_url("admin/assets/assignment/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/assets/assignment/delete")?>">Delete</a></td>
+                                <td>HP All In One</td>
+                                <td>1</td>
+                                <td>Accountant</td>
+                                <td>Mr John</td>
+                                <td>18 Mar 2020</td>
+                                <td>02 Mar 2020</td>
+                                <td>17 Mar 2020</td>
+                                <td>Checked Out</td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/assets/assignment/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/assets/assignment/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/assets/assignment/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

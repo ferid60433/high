@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/salaries/hourly/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/salaries/hourly/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,7 +23,7 @@
                                 <td>1.</td>
                                 <td>Junior Grade</td>
                                 <td>35.00</td>
-                                <td><a class="btn btn-outline-warning" href="<?= base_url("admin/salaries/hourly/edit") ?>">Edit</a> | <a class="btn btn-outline-danger" href="<?= base_url("admin/salaries/hourly/delete") ?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/salaries/hourly/edit") ?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/salaries/hourly/delete") ?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

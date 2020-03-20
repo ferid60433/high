@@ -41,6 +41,8 @@ class Assets extends CI_Controller
     {
         if (strtolower($act) == "add") {
             $this->add_assignment();
+        } elseif ($act == "view") {
+            $this->view_assignment();
         } elseif ($act == "edit") {
             // $this->edit_assignment();
         } elseif ($act == "") {
@@ -54,12 +56,21 @@ class Assets extends CI_Controller
     }
     private function add_assignment()
     {
-        $p["title"] = "Add assignment";
+        $p["title"] = "Add Assignment";
         $p["page_mother"] = "Assets";
         $p["page_inner"] = "assignment";
         $p["page_inner_name"] = "Assignments";
         $p["page"] = "Add";
         $this->load->view('admin/add_assets_assignment', $p);
+    }
+    private function view_assignment()
+    {
+        $p["title"] = "View Assignment";
+        $p["page_mother"] = "Assets";
+        $p["page_inner"] = "assignment";
+        $p["page_inner_name"] = "Assignments";
+        $p["page"] = "View";
+        $this->load->view('admin/view_assets_assignment', $p);
     }
     public function location($act = "")
     {

@@ -6,7 +6,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/classes/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/classes/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
 				<?php $this->load->view('msg_view'); ?>
@@ -35,10 +35,10 @@
 								</td>
                                 <td><?= substr( $class->note, 0, 10 )?></td>
                                 <td>
-									<a class="btn btn-outline-warning"
-									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>">Edit</a> |
-									<a class="btn btn-outline-danger"
-									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>">Delete</a>
+									<a class="btn btn-sm btn-outline-warning"
+									   href="<?=base_url("admin/classes/edit/" . simple_crypt($class->id))?>"><i class="fas fa-edit"></i></a> |
+									<a class="btn btn-sm btn-outline-danger"
+									   href="<?=base_url("admin/classes/delete/" . simple_crypt($class->id))?>"><i class="fas fa-trash"></i></a>
 								</td>
                             </tr>
 						<?php $x++; endforeach;?>

@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,7 +23,7 @@
                                 <td>1.</td>
                                 <td>Second Term Exam</td>
                                 <td><span class="badge badge-info">Yes</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

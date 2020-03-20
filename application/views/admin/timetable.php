@@ -7,7 +7,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/timetable/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/timetable/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -102,8 +102,8 @@
                                                 Teacher :<br>
                                                 Room : classroom
                                                 <div>
-                                                    <a href="#" title="Edit" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" title="Delete" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                                                    <a href="#" title="Edit" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                                    <a href="#" title="Delete" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
