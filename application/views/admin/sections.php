@@ -7,7 +7,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sections/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/sections/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="sections" class="display table datatables_init" style="width: 100%;">
+                    <table id="sections" class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>

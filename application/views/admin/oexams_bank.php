@@ -17,6 +17,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
+
 			<?php if( empty($page_action) ) : ?>
 				<div class="card-heading clearfix mb-3">
 					<button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/bank/add')?>'"><i class="fas fa-plus"></i> Add New</button>
@@ -130,7 +131,7 @@
 					<?= form_close()?>
 				<?php else :?>
                 <div class="table-responsive">
-                    <table class="display table datatables_init" style="width: 100%;">
+                    <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>
@@ -153,6 +154,7 @@
 									<a class="btn btn-sm btn-outline-info" href="<?=base_url("admin/oexams/bank/view/" . simple_crypt( $q->id)); ?>">View</a> |
 									<a class="btn btn-sm btn-outline-warning" href="<?=base_url("admin/oexams/bank/edit/" . simple_crypt( $q->id))?>">Edit</a> |
 									<a class="btn btn-sm btn-outline-danger" href="<?=base_url("admin/oexams/bank/delete")?>">Delete</a></td>
+
                             </tr>
                             <?php $x++; endforeach; ?>
                         </tbody>

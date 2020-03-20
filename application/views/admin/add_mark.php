@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Attendance</button>
                     </div>
                 </form>
             </div>
@@ -97,7 +97,7 @@
         <div class="card card-white">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="display table" style="width: 100%;">
+                    <table class="table" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>
@@ -119,7 +119,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="col-md-12"><button class="btn btn-primary btn-lg float-right mt-2">Add Marks</button></div>
+                    <div class="col-md-12"><button class="btn btn-primary btn-sm float-right mt-2">Add Marks</button></div>
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-xl-9 col-lg-8 offset-xl-3 offset-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg float-right">Send</button>
+                                            <button type="submit" class="btn btn-primary btn-sm float-right">Send</button>
                                         </div>
                                     </div>
                                 </form>
@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-xl-9 col-lg-8 offset-xl-3 offset-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg float-right">Send</button>
+                                            <button type="submit" class="btn btn-primary btn-sm float-right">Send</button>
                                         </div>
                                     </div>
                                 </form>

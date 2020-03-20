@@ -69,11 +69,11 @@
 									<td><?= $x ;?>.</td>
 									<td><?= ucwords($level->title); ?></td>
 									<td>
-										<a class="btn btn-outline-warning"
+										<a class="btn btn-sm btn-outline-warning"
 										   href="<?=base_url("admin/oexams/levels/edit/" . simple_crypt( $level->id))?>">
 											Edit
 										</a> |
-										<a class="btn btn-outline-danger"
+										<a class="btn btn-sm btn-outline-danger"
 										   href="<?=base_url("admin/oexams/levels/delete")?>">Delete</a>
 									</td>
 								</tr>

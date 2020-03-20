@@ -7,8 +7,8 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
-                        <button type="button" class="btn btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/sattendance/add') ?>'"><i class="fas fa-plus"></i> Add Class Attendance</button>
+                        <button type="button" class="btn btn-sm btn-outline-info" onclick="window.location='<?= base_url('admin/sattendance/addsubject') ?>'"><i class="fas fa-plus"></i> Add Subject Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -44,7 +44,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="table-responsive">
-                                    <table class="display table datatables_init" style="width: 100%;">
+                                    <table class="table datatables_init" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
@@ -62,7 +62,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/sattendance/view") ?>"><i class="fas fa-search"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
                             <div class="table-responsive">
-                                    <table class="display table" style="width: 100%;">
+                                    <table class="table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
@@ -88,7 +88,7 @@
                                                 <td>John Green</td>
                                                 <td>26</td>
                                                 <td>jg@svl.com</td>
-                                                <td><a class="btn btn-outline-info" href="<?= base_url("admin/sattendance/view") ?>">View</a></td>
+                                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/sattendance/view") ?>"><i class="fas fa-search"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>

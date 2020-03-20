@@ -6,7 +6,7 @@
         <div class="card card-white">
 			<?php if( !empty( $acttion_type )) : ?>
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/groups/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/oexams/groups/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
 			<?php endif; ?>
             <div class="card-body">
@@ -55,7 +55,7 @@
 					</div>
 				<?php else : ?>
                 <div class="table-responsive">
-                    <table class="display table datatables_init" style="width: 100%;">
+                    <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>S/N</th>
@@ -69,11 +69,11 @@
 									<td><?= $x ;?>.</td>
 									<td><?= ucwords($group->title); ?></td>
 									<td>
-										<a class="btn btn-outline-warning"
+										<a class="btn btn-sm btn-outline-warning"
 										   href="<?=base_url("admin/oexams/groups/edit/" . simple_crypt( $group->id))?>">
 											Edit
 										</a> |
-										<a class="btn btn-outline-danger"
+										<a class="btn btn-sm btn-outline-danger"
 										   href="<?=base_url("admin/oexams/groups/delete")?>">Delete</a>
 									</td>
                             	</tr>

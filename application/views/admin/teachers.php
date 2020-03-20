@@ -5,12 +5,12 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-outline-primary" onclick="window.location='<?=base_url('admin/teachers/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/teachers/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
 				<?php $this->load->view('msg_view'); ?>
                 <div class="table-responsive">
-                    <table class="display table datatables_init" style="width: 100%;">
+                    <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th style="display: none;">x</th>
@@ -35,10 +35,10 @@
 								<td><?= $teacher->email; ?></td>
 								<td><?= statusLabel($teacher->status); ?></td>
 								<td data-id="<?=$teacher->uid?>">
-									<a class="btn btn-outline-info"
-									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>">View</a> |
-									<a class="btn btn-outline-warning" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>">Edit</a> |
-									<a class="btn btn-outline-danger" href="<?=base_url("admin/teachers/delete/")?>">Delete</a>
+									<a class="btn btn-sm btn-outline-info"
+									   href="<?=base_url("admin/teachers/view/" . simple_crypt($teacher->uid ) .'/')?>"><i class="fas fa-search"></i></a> |
+									<a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/teachers/edit/". simple_crypt($teacher->uid .'/'))?>"><i class="fas fa-edit"></i></a> |
+									<a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/teachers/delete/")?>"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 							<?php $x++;  endforeach;?>

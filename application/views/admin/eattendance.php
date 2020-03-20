@@ -16,7 +16,7 @@
             <div class="card-heading clearfix">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-outline-primary" onclick="window.location='<?= base_url('admin/eattendance/add') ?>'"><i class="fas fa-plus"></i> Add Exam Attendance</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/eattendance/add') ?>'"><i class="fas fa-plus"></i> Add Exam Attendance</button>
                     </div>
                     <div class="col-md-6">
                         <form>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="form-group row col-md-2">
-                        <button type="submit" class="btn btn-primary btn-lg">View Attendance</button>
+                        <button type="submit" class="btn btn-primary btn-sm">View Attendance</button>
                     </div>
                 </form>
             </div>
@@ -107,7 +107,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="table-responsive">
-                                    <table class="display table datatables_init" style="width: 100%;">
+                                    <table class="table datatables_init" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>
@@ -133,7 +133,7 @@
                             </div>
                             <div class="tab-pane fade" id="eachSection" role="tabpanel" aria-labelledby="eachSection-tab">
                                 <div class="table-responsive">
-                                    <table class="display table" style="width: 100%;">
+                                    <table class="table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>S/N</th>

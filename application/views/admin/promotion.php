@@ -183,7 +183,7 @@
             <div class="col-md-12">
                 <div class="card card-white">
                     <div class="card-body">
-                        <div class="col-md-12 text-center"><button class="btn btn-primary btn-lg mt-2">Promotion Mark Setting</button></div>
+                        <div class="col-md-12 text-center"><button class="btn btn-primary btn-sm mt-2">Promotion Mark Setting</button></div>
                     </div>
                 </div>
             </div>
