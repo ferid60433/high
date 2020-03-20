@@ -5,16 +5,86 @@ class OExams extends MY_Controller{
 	public function index(){
         $p["title"] = "Online Exams";
         $p["page"] = "Online Exams";
+        $p['exams'] = $this->site->get_result('oexam', 'id, title,published', array('id' => $this->session->userdata('logged_id')));
         $this->load->view('admin/oexams', $p);
     }
 
-    public function questions(){
-        $p["title"] = "Online Exam Question Bank";
-        $p["page_mother"] = "OExams";
-        $p["page_mother_name"] = "Online Exams";
-        $p["page"] = "Add Question Bank";
-        $this->load->view('admin/add_questions', $p);
-    }
+    public function questions( $exam_id ){
+		$exam_id = simple_crypt($exam_id, 'd');
+		$row = $this->site->get_row('oexam', '*', array('id' => $exam_id));
+		if( !$exam_id || !$row ){ show_404();}
+		$result = $this->site->run_sql("SELECT o.*, cl.name class_name, se.name section_name, su.subject
+		FROM oexam o JOIN classes cl ON (cl.id = o.cid) 
+		LEFT JOIN sections se ON (se.id = o.sid)
+		LEFT JOIN subjects su ON (su.id = o.subject)
+		WHERE o.id = '".$exam_id."' ")->row();
+		$p['exam'] = $result;
+
+		$questions = $this->site->get_result('oexam_question', '*', array('oexam_id' => $exam_id));
+		$output = array();
+		foreach( $questions as $q ) {
+			$res['id'] = $q->id;
+			$bank = $this->site->get_row('oexam_questions', 'question,id,question_type,mark', array('id' => $q->question_id));
+			$res['question'] = $bank->question;
+			$res['question_type'] = $bank->question_type;
+			$res['mark'] = $bank->mark;
+			$options = $this->site->run_sql("SELECT GROUP_CONCAT(CONCAT(option_value, '||',is_answer) SEPARATOR '---') as options FROM oexam_options
+			WHERE qid = '".$bank->id."' GROUP BY qid")->row()->options;
+			$res['options'] = $options;
+			array_push( $output, $res);
+		}
+		$p['aquestions'] = $output;
+
+		if( $_POST ){
+			$post_type = $this->input->post('post_type');
+			if( $post_type == 'filter_form'){
+				$group_id = $this->input->post('group');
+				$level_id = $this->input->post('level');
+				$p['group'] = $group_id;
+				$p['level'] = $level_id;
+				$query = "SELECT o.id,o.question,o.question_type FROM oexam_questions o 
+			WHERE NOT EXISTS( SELECT * FROM oexam_question WHERE oexam_id = o.id) AND ";
+				if( !empty($group_id)){
+					$query .= " o.qgroup = '".$group_id."' ";
+				}elseif( !empty($level_id)){
+					$query .= " o.level = '".$level_id."' ";
+				}elseif( !empty($group_id) && !empty($level_id) ) {
+					$query .= " o.qgroup = '".$group_id."' AND o.level = '".$level_id."' ";
+				}
+				$query .= " ORDER BY o.id DESC";
+				$questions = $this->site->run_sql($query)->result();
+				$p['questions'] = $questions;
+			}elseif( $post_type == 'add_question'){
+				$data = array(
+					'oexam_id' => $this->input->post('exam_id'),
+					'question_id' => $this->input->post('question_id'),
+				);
+				if( $this->site->insert_data('oexam_question', $data)){
+					$this->session->set_flashdata('success_msg', 'The Question has been added to the exam successfully.');
+				}else{
+					$this->session->set_flashdata('error_msg', 'There was an error submitting the question.');
+				}
+				redirect($_SERVER['HTTP_REFERER']);
+			}elseif( $post_type == 'remove_question'){
+				try {
+					$id = $this->input->post('question_id', true);
+					if( $this->site->delete('oexam_question', array('id' => $id ))){
+						$this->session->set_flashdata('success_msg', 'The question has been removed from the question bank.');
+					}
+				} catch (Exception $e) {
+					$this->session->set_flashdata('error_msg', 'There was an error removing the question from the bank.');
+				}
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		$p["title"] = "Online Exam Question Bank";
+		$p["page_mother"] = "OExams";
+		$p["page_mother_name"] = "Online Exams";
+		$p["page"] = "Add Question Bank";
+		$p['groups'] = $this->site->get_result('oexam_group', 'id, title');
+		$p['levels'] = $this->site->get_result('oexam_level', 'id, title');
+		$this->load->view('admin/add_questions', $p);
+	}
 
     public function instructions($act = ""){
         if (strtolower($act) == "add") {
@@ -53,13 +123,16 @@ class OExams extends MY_Controller{
         $p["page"] = "Add";
         $this->load->view('admin/add_oexams_instruction', $p);
     }
+    /*
+     * Add new Online Examination
+     * */
     public function add(){
         $p["title"] = "Add New Online Exam";
         $p["page_mother"] = "OExams";
         $p["page_mother_name"] = "Online Exams";
         $p["page"] = "Add";
 		$p['classes'] = $this->site->get_result('classes', 'id,name');
-
+		$this->form_validation->set_rules('title', 'Exam Title', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('cid', 'class', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('subject', 'Subject', 'trim|required|xss_clean');
 		if( $this->form_validation->run() == false ){
@@ -67,7 +140,38 @@ class OExams extends MY_Controller{
 			$this->load->view('admin/add_oexams', $p);
 			return;
 		}else{
+			$data = array(
+				'title' => $this->input->post('title', true),
+				'description' => $this->input->post('description', true),
+				'cid' => $this->input->post('cid', true),
+				'sid' => $this->input->post('sid', true),
+				'subject' => $this->input->post('subject', true),
+				'instruction' => $this->input->post('instruction', true),
+				'duration' => $this->input->post('duration', true),
+				'exam_status' => $this->input->post('exam_status', true),
+				'start_date' => date('Y-m-d', strtotime($this->input->post('start_date', true))),
+				'start_time' => date('H:i:s', strtotime($this->input->post('start_time', true))),
+				'end_time' => date('H:i:s', strtotime($this->input->post('end_time', true))),
+				'mark_type' => $this->input->post('mark_type', true),
+				'exam_type' => $this->input->post('exam_type', true),
+				'pass_mark' => $this->input->post('pass_mark', true),
+				'negative_mark' => $this->input->post('negative_mark', true),
+				'random' => $this->input->post('random', true),
+				'published' => $this->input->post('published', true),
+				'uid' =>  $this->session->userdata('logged_id'),
+			);
+			$url = $this->site->generate_code('oexam', 'url');
+			$data['url'] = $url;
 
+			if( $this->site->insert_data('oexam', $data) ) {
+				$link = anchor(base_url('cbt/'.$url), 'Exam link');
+				$this->session->set_flashdata('success_msg', 'Success: The exam has been posted successfully. ' .$link);
+				redirect($_SERVER['HTTP_REFERER']);
+			}else{
+				$this->session->set_flashdata('error_msg', 'Error: There was an error posting the exam. Please try again, and if error persist. contact webmaster.');
+				$this->load->view('admin/add_oexams', $p);
+				return;
+			}
 		}
 
     }

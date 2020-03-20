@@ -22,7 +22,7 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-book"></i></div>
 									</div>
-									<input type="text" name="title" class="form-control" placeholder="Exam Title">
+									<input type="text" name="title" required class="form-control" placeholder="Exam Title">
 								</div>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 										<div class="input-group-text"><i class="fas fa-list"></i></div>
 									</div>
 									<select class="form-control" id="exam_status" name="exam_status">
-										<option value="">Ecam Status (Optional)</option>
+										<option value="">Exam Status (Optional)</option>
 										<option value="one_time">One Time</option>
 										<option value="multiple_time">Multiple Times</option>
 									</select>
@@ -140,7 +140,7 @@
 										<div class="input-group-prepend">
 											<div class="input-group-text"><i class="fas fa-calendar"></i></div>
 										</div>
-										<input type="text" name="date" class="form-control date-picker" placeholder="Exam Date">
+										<input type="text" name="start_date" class="form-control date-picker" placeholder="Exam Date">
 									</div>
 								</div>
 							</div>
@@ -153,7 +153,7 @@
 										<div class="input-group-prepend">
 											<div class="input-group-text"><i class="fas fa-clock"></i></div>
 										</div>
-										<input type="text" name="time" class="form-control time-picker" placeholder="10:00 AM">
+										<input type="text" name="start_time" class="form-control time-picker" placeholder="10:00 AM">
 									</div>
 								</div>
 							</div>
@@ -164,7 +164,7 @@
 										<div class="input-group-prepend">
 											<div class="input-group-text"><i class="fas fa-clock"></i></div>
 										</div>
-										<input type="text" name="time_to" class="form-control time-picker" placeholder="10:45 AM">
+										<input type="text" name="end_time" class="form-control time-picker" placeholder="10:45 AM">
 									</div>
 								</div>
 							</div>
@@ -176,8 +176,8 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-check"></i></div>
 									</div>
-									<select class="form-control" id="mark_type">
-										<option>Select</option>
+									<select class="form-control" id="mark_type" name="mark_type">
+										<option value="">-- Select Mark Type --</option>
 										<option value="percentage">Percentage</option>
 										<option value="fixed">Fixed</option>
 									</select>
@@ -191,7 +191,7 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-check"></i></div>
 									</div>
-									<input type="text" name="pass_mark" class="form-control" placeholder="Pass Mark">
+									<input type="number" name="pass_mark" class="form-control" placeholder="Pass Mark">
 								</div>
 							</div>
 						</div>
@@ -202,7 +202,7 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-minus-square"></i></div>
 									</div>
-									<input type="text" name="negative_mark" class="form-control" placeholder="Negative Mark">
+									<input type="number" name="negative_mark" class="form-control" placeholder="Negative Mark">
 								</div>
 							</div>
 						</div>
@@ -228,11 +228,10 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-globe"></i></div>
 									</div>
-									<select class="form-control" id="poublished">
-										<option>Select</option>
-										<option value="yes">Yes</option>
-										<option value="no">No</option>
-										<option value="pause">Pause</option>
+									<select class="form-control" id="poublished" name="published" required>
+										<option value="">-- Select Status -- </option>
+										<option value="active">Make Active</option>
+										<option value="suspend">Suspend</option>
 									</select>
 								</div>
 							</div>
@@ -303,15 +302,15 @@
 <script>
     $("#exam_type").change(function() {
         switch (this.value) {
-            case "1":
+            case "duration":
                 $("#date_div").hide();
                 $("#time_div").hide();
                 break;
-            case "2":
+            case "date_duration":
                 $("#date_div").show();
                 $("#time_div").hide();
                 break;
-            case "3":
+            case "date_time_duration":
                 $("#date_div").show();
                 $("#time_div").show();
                 break;

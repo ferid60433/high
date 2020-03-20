@@ -130,17 +130,20 @@ if (!function_exists('statusLabel')) {
             case 'pending':
             case 'process':
             case 'suspended':
+            case 'pause':
                 return '<span class="badge badge-warning">' . ucfirst( $status ). '</span>';
                 break;
             case 'approved':
             case 'success':
             case 'active':
+            case 'publish':
                 return '<span class="badge badge-success">' . ucfirst( $status ). '</span>';
                 break;
             case 'returned':
             case 'cancelled':
 			case 'mandatory':
             case 'fail':
+            case 'no':
                 return '<span class="badge badge-danger">' . ucfirst( $status ). '</span>';
                 break;
             default:

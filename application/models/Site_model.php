@@ -106,7 +106,7 @@ class Site_model extends CI_Model
             $this->db->from($table);
             $count = $this->db->count_all_results();
         } while ($count >= 1);
-        return 'PS'.$number;
+        return $number;
     }
 
     function find_username($table = 'contacts', $contact = '' )

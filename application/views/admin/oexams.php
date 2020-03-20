@@ -19,12 +19,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Second Term Exam</td>
-                                <td><span class="badge badge-info">Yes</span></td>
-                                <td><a class="btn btn-outline-info" href="<?=base_url("admin/oexams/questions")?>">Add Questions</a> | <a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/edit")?>">Edit</a> | <a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a></td>
-                            </tr>
+							<?php $x= 1; foreach( $exams as $exam ) : ?>
+								<tr>
+									<td><?= $x; ?>.</td>
+									<td><?= ucwords($exam->title); ?></td>
+									<td><?= statusLabel($exam->published); ?></td>
+									<td>
+										<a class="btn btn-outline-info" href="<?=base_url("admin/oexams/questions/" .simple_crypt($exam->id))?>">Add Questions</a> |
+										<a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/edit/" . simple_crypt($exam->id))?>">Edit</a> |
+										<a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a>
+									</td>
+								</tr>
+							<?php $x++; endforeach;?>
                         </tbody>
                     </table>
                 </div>
