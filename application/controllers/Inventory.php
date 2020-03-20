@@ -89,6 +89,8 @@ class Inventory extends CI_Controller
     {
         if (strtolower($act) == "add") {
             $this->add_purchase();
+        } elseif ($act == "view") {
+            $this->view_purchase();
         } elseif ($act == "edit") {
             // $this->edit_purchase();
         } elseif ($act == "") {
@@ -108,6 +110,15 @@ class Inventory extends CI_Controller
         $p["page_inner_name"] = "Purchases";
         $p["page"] = "Add";
         $this->load->view('admin/add_inventory_purchase', $p);
+    }
+    private function view_purchase()
+    {
+        $p["title"] = "View Purchase";
+        $p["page_mother"] = "Inventory";
+        $p["page_inner"] = "purchase";
+        $p["page_inner_name"] = "Purchases";
+        $p["page"] = "View";
+        $this->load->view('admin/view_inventory_purchase', $p);
     }
     public function category($act = "")
     {
