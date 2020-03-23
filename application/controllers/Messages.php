@@ -37,6 +37,7 @@ class Messages extends MY_Controller{
         $p["title"] = "Compose Message";
         $p["page_mother"] = "Messages";
         $p["page"] = "Compose";
+		$p['classes'] = $this->site->get_result('classes', 'id,name');
         $p['user_groups'] = $this->site->run_sql("SELECT DISTINCT(user_group) FROM users WHERE status = 'active' ")->result();
         $this->load->view('admin/compose_message', $p);
     }

@@ -42,13 +42,12 @@
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                    <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                                     </div>
                                                     <input type="text" class="form-control"
 														   placeholder="Full Name" id="name"
 														   name="name"
-														   value="<?= set_value('name', '')?>">
+														   value="<?= set_value('name', '')?>" />
 													<?= form_error('name'); ?>
                                                 </div>
                                             </div>
@@ -83,7 +82,7 @@
 														type="text"
 														class="form-control date-picker"
 														placeholder="20/12/2012" id="dateOfBirth"
-														name="dob">
+														name="dob" />
                                                 </div>
                                             </div>
                                         </div>
