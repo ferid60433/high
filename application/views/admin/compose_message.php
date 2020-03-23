@@ -44,46 +44,42 @@
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="userGroup">
-                            <option>Select Group</option>
-                            <option value="1">Admin</option>
-                            <option value="6">Librarian</option>
-                            <option value="7">Receptionist</option>
-                            <option value="4">Parents</option>
-                            <option value="5">Accountant</option>
-                            <option value="3">Student</option>
-                            <option value="2">Teacher</option>
+                            <option> -- Select Group --</option>
+							<?php foreach( $user_groups as $g ) : ?>
+                            	<option value="<?= strtolower($g->user_group); ?>"><?= ucwords( $g->user_group)?></option>
+							<?php endforeach; ?>
                         </select>
                     </div>
                     <div id="classDiv" class="form-group " style="display:none;">
                         <select id="classID" class="Group form-control select2" name="classID">
-                            <option value="">Select Class</option>
+                            <option value="">-- Select Class --</option>
                         </select>
                         <span id="selectDiv" class="control-label">
                         </span>
                     </div>
                     <div id="stdDiv" class="form-group" style="display:none;">
                         <select id="studentID" class="Group form-control select2" name="studentID">
-                            <option value="">Select Student</option>
+                            <option value="">-- Select Student --</option>
                         </select>
                     </div>
                     <div id="adminDiv" class="form-group" style="display:none;">
                         <select id="systemadminID" class="Group form-control select2" name="systemadminID">
-                            <option value="">Select Admin</option>
+                            <option value="">-- Select Admin --</option>
                         </select>
                     </div>
                     <div id="teacherDiv" class="form-group" style="display:none;">
                         <select id="teacherID" class="Group form-control select2" name="teacherID">
-                            <option value="">Select Teacher</option>
+                            <option value="">-- Select Teacher -- </option>
                         </select>
                     </div>
                     <div id="parentDiv" class="form-group" style="display:none;">
                         <select id="parentID" class="Group form-control select2" name="parentID">
-                            <option value="">Select Parent</option>
+                            <option value="">-- Select Parent --</option>
                         </select>
                     </div>
                     <div id="userDiv" class="form-group">
                         <select id="userID" class="Group form-control select2" name="userID">
-                            <option value="">Select User</option>
+                            <option value="">-- Select User --</option>
                         </select>
                     </div>
                     <div class="form-group ">
@@ -111,44 +107,46 @@
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
 <script>
+	let base_url = "<?= base_url();?>";
     $("#userGroup").change(function() {
-        if ($(this).val() == 1) {
-            $("#classDiv").hide();
-            $("#stdDiv").hide();
-            $("#teacherDiv").hide();
-            $("#parentDiv").hide();
-            $("#userDiv").hide();
-            $("#adminDiv").show();
-        } else if ($(this).val() == 2) {
-            $("#classDiv").hide();
-            $("#stdDiv").hide();
-            $("#adminDiv").hide();
-            $("#parentDiv").hide();
-            $("#userDiv").hide();
-            $("#teacherDiv").show();
-        } else if ($(this).val() == 3) {
-            $("#classDiv").show();
-            $("#stdDiv").show();
-            $("#adminDiv").hide();
-            $("#teacherDiv").hide();
-            $("#userDiv").hide();
-            $("#parentDiv").hide();
-        } else if ($(this).val() == 4) {
-            $("#classDiv").hide();
-            $("#stdDiv").hide();
-            $("#adminDiv").hide();
-            $("#parentDiv").hide();
-            $("#teacherDiv").hide();
-            $("#userDiv").hide();
-            $("#parentDiv").show();
+		let global_options = '';
+		let type = $(this).val();
+		$.get( base_url + `/ajax/get_user_group_detail?type=${type}`, ( response, status) => {
+			if( Array.isArray(response.message)) {
+				$.each(response.message, (key, value) => {
+					global_options += `<option value="${value.id}">${value.name}  - (${value.email})</option>`;
+				});
+			}else{
+				global_options += `<option>${response.message}</option>`;
+			}
+		});
+		console.log( global_options );
+        if ($(this).val() == 'admin') {
+        	// admin
+			$('#classDiv, #stdDiv, #teacherDiv, #parentDiv, #userDiv').hide();
+			$("#adminDiv").show();
+			$('#systemadminID').append(global_options);
+
+        } else if ($(this).val() == 'teacher') {
+        	// teacher
+			$('#classDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
+			$("#teacherDiv").show();
+			$('#teacherID').append(global_options);
+
+        } else if ($(this).val() == 'student') {
+			// student
+			$('#teacherDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
+			$("#classDiv").show();
+			$('#studentID').append(global_options);
+        } else if ($(this).val() == 'parent') {
+        	// Parent
+			$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #userDiv').hide();
+			$("#parentDiv").show();
+			$('#parentID').append(global_options);
         } else {
-            $("#classDiv").hide();
-            $("#stdDiv").hide();
-            $("#adminDiv").hide();
-            $("#parentDiv").hide();
-            $("#teacherDiv").hide();
-            $("#parentDiv").hide();
-            $("#userDiv").show();
+			$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #parentDiv').hide();
+			$("#userDiv").show();
+			$('#userIDID').append(global_options);
         }
     });
 </script>

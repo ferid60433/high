@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 20, 2020 at 04:16 PM
+-- Generation Time: Mar 23, 2020 at 12:10 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -60,6 +60,34 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `name`, `tid`, `class_numeric`, `note`) VALUES
 (6, 'jss 1', 1, '123', 'jss1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message_thread`
+--
+
+CREATE TABLE `message_thread` (
+  `id` int(11) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `status` varchar(20) NOT NULL COMMENT 'active||thrash||draft'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messaging`
+--
+
+CREATE TABLE `messaging` (
+  `id` int(11) NOT NULL,
+  `receiver` int(11) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `thread` varchar(20) NOT NULL,
+  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -585,8 +613,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `title`, `email`, `password`, `salt`, `user_group`, `auth_code`, `ip`, `role`, `date_registered`, `last_login`, `status`) VALUES
-(1, '', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '::1', 2, '2020-03-11 09:00:52', '2020-03-20 08:47:36', ''),
-(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'teacher', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
+(1, '', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '::1', 2, '2020-03-11 09:00:52', '2020-03-23 08:40:24', 'active'),
+(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'student', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
 (6, '', 'teacher@gmail.com', '6f2f1faf9b98c090fb6e1a831412eb1c1b52f8292caac1f2f7f437cd507ada3d', 'Z7+k?!e;%LlhAhGFKmCfj;&N+MnF8q%J(Le_#5D78.L@|H9prF', 'teacher', '', '::1', 0, '2020-03-11 16:27:51', '2020-03-11 16:27:51', 'active');
 
 --
@@ -603,6 +631,18 @@ ALTER TABLE `assignments`
 -- Indexes for table `classes`
 --
 ALTER TABLE `classes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `message_thread`
+--
+ALTER TABLE `message_thread`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messaging`
+--
+ALTER TABLE `messaging`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -719,6 +759,18 @@ ALTER TABLE `classes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `message_thread`
+--
+ALTER TABLE `message_thread`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `messaging`
+--
+ALTER TABLE `messaging`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
@@ -752,7 +804,7 @@ ALTER TABLE `oexam_options`
 -- AUTO_INCREMENT for table `oexam_question`
 --
 ALTER TABLE `oexam_question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `oexam_questions`

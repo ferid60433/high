@@ -1,14 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Messages extends CI_Controller
-{
-    public function __construct()
-    {
+class Messages extends MY_Controller{
+    public function __construct(){
         parent::__construct();
         if (strtolower($this->uri->segment(1)) == "messages") show_404();
     }
-    public function index()
-    {
+
+    public function index(){
         $p["title"] = "All Messages";
         $p["page"] = "Messages";
         $p["msg_view"] = "Conversations";
@@ -35,11 +33,11 @@ class Messages extends CI_Controller
         $p["page"] = $p["msg_view"] = "Trash";
         $this->load->view('admin/messages', $p);
     }
-    public function compose()
-    {
+    public function compose(){
         $p["title"] = "Compose Message";
         $p["page_mother"] = "Messages";
         $p["page"] = "Compose";
+        $p['user_groups'] = $this->site->run_sql("SELECT DISTINCT(user_group) FROM users WHERE status = 'active' ")->result();
         $this->load->view('admin/compose_message', $p);
     }
     public function view()
