@@ -2,6 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class OExams extends MY_Controller{
 
+    public function __construct()
+    {
+        parent::__construct();
+        if (strtolower($this->uri->segment(1)) == "oexams") show_404();
+    }
 	public function index(){
         $p["title"] = "Online Exams";
         $p["page"] = "Online Exams";

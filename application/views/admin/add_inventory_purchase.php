@@ -91,7 +91,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-calendar"></i></div>
                                     </div>
-                                    <input type="text" class="form-control date-picker" placeholder="Exam Date">
+                                    <input type="text" class="form-control date-picker" placeholder="Date">
                                 </div>
                             </div>
                         </div>

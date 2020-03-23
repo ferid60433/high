@@ -13,7 +13,5 @@ class MY_Controller extends CI_Controller {
 		}else{
 			redirect('logout');
 		}
-
-		if(strtolower($this->uri->segment(1)) == "parents") show_404();
     }
 }
