@@ -45,9 +45,9 @@
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="userGroup">
                             <option> -- Select Group --</option>
-							<?php foreach( $user_groups as $g ) : ?>
-                            	<option value="<?= strtolower($g->user_group); ?>"><?= ucwords( $g->user_group)?></option>
-							<?php endforeach; ?>
+                            <?php foreach ($user_groups as $g) : ?>
+                                <option value="<?= strtolower($g->user_group); ?>"><?= ucwords($g->user_group) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div id="classDiv" class="form-group " style="display:none;">
@@ -107,47 +107,48 @@
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
 <script>
-	let base_url = "<?= base_url();?>";
+    let base_url = "<?= base_url(); ?>";
     $("#userGroup").change(function() {
-		let global_options = '';
-		let type = $(this).val();
-		$.get( base_url + `/ajax/get_user_group_detail?type=${type}`, ( response, status) => {
-			if( Array.isArray(response.message)) {
-				$.each(response.message, (key, value) => {
-					global_options += `<option value="${value.id}">${value.name}  - (${value.email})</option>`;
-				});
-			}else{
-				global_options += `<option>${response.message}</option>`;
-			}
-		});
-		console.log( global_options );
+        let global_options = '';
+        let type = $(this).val();
+        $.get(base_url + `/ajax/get_user_group_detail?type=${type}`, (response, status) => {
+            if (Array.isArray(response.message)) {
+                $.each(response.message, (key, value) => {
+                    global_options += `<option value="${value.id}">${value.name}  - (${value.email})</option>`;
+                });
+            } else {
+                global_options = `<option>${response.message}</option>`;
+            }
+            alert(global_options)
+        });
+        console.log(global_options);
         if ($(this).val() == 'admin') {
-        	// admin
-			$('#classDiv, #stdDiv, #teacherDiv, #parentDiv, #userDiv').hide();
-			$("#adminDiv").show();
-			$('#systemadminID').append(global_options);
+            // admin
+            $('#classDiv, #stdDiv, #teacherDiv, #parentDiv, #userDiv').hide();
+            $("#adminDiv").show();
+            $('#systemadminID').append(global_options);
 
         } else if ($(this).val() == 'teacher') {
-        	// teacher
-			$('#classDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
-			$("#teacherDiv").show();
-			$('#teacherID').append(global_options);
+            // teacher
+            $('#classDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
+            $("#teacherDiv").show();
+            $('#teacherID').append(global_options);
 
         } else if ($(this).val() == 'student') {
-			// student
-			$('#teacherDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
-			$("#classDiv").show();
-			$('#studentID').append(global_options);
+            // student
+            $('#teacherDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
+            $("#classDiv").show();
+            $('#studentID').append(global_options);
         } else if ($(this).val() == 'parent') {
-        	// Parent
-			$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #userDiv').hide();
-			$("#parentDiv").show();
-			$('#parentID').append(global_options);
+            // Parent
+            $('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #userDiv').hide();
+            $("#parentDiv").show();
+            $('#parentID').append(global_options);
         } else {
-			$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #parentDiv').hide();
-			$("#userDiv").show();
-			$('#userIDID').append(global_options);
+            $('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #parentDiv').hide();
+            $("#userDiv").show();
+            $('#userIDID').append(global_options);
         }
     });
 </script>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>
