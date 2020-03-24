@@ -208,7 +208,6 @@
 
 		$('#draft').on('click', () => {
 			alert('Clicked here');
-			// $('#post_type').val('draft');
 			$('#message_form').submit();
 			alert('Message form has been sent');
 		});
