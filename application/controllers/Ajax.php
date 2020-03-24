@@ -93,7 +93,6 @@ class Ajax extends CI_Controller
 			echo json_encode( $response );exit;
 		}
 	}
-
 	function get_syllabus_by_section(){
 		if (!$this->input->is_ajax_request()) { redirect(base_url());}
 		header('Content-type: text/json');
@@ -125,7 +124,6 @@ class Ajax extends CI_Controller
 			echo json_encode( $response );exit;
 		}
 	}
-
 	function get_assignments_by_section(){
 		if (!$this->input->is_ajax_request()) { redirect(base_url());}
 		header('Content-type: text/json');
@@ -167,6 +165,39 @@ class Ajax extends CI_Controller
 				$response['message'] = $resarray;
 			}else{
 				$response['message'] = "No Assignment For This Particular Class, section.";
+			}
+			echo json_encode( $response );exit;
+		}
+	}
+
+
+	function get_user_group_detail(){
+		if (!$this->input->is_ajax_request()) { redirect(base_url());}
+		header('Content-type: text/json');
+		header('Content-type: application/json');
+		$response['status'] = false;
+		$type = $this->input->get('type');
+		if( !empty( $type )){
+			$results = '';
+			if(!in_array( $type, array('student', 'parent', 'teacher'))){
+				$results = $this->site->get_result('users', 'id, title as name, email', array('user_group' => $type ) );
+			}else{
+				$table = $type .'s';
+				$results = $this->site->run_sql("SELECT u.id, u.email, t.name FROM users u JOIN {$table} t ON(t.uid = u.id) WHERE u.user_group = '{$type}'")->result();
+			}
+			$resarray = array();
+			$x = 1; $response['status'] = true;
+			if( !empty( $results ) ){
+				foreach( $results as $s ){
+					$res['id'] = $s->id;
+					$res['name'] = strtoupper($s->name);
+					$res['email'] = $s->email;
+					array_push( $resarray, $res );
+					$x++;
+				}
+				$response['message'] = $resarray;
+			}else{
+				$response['message'] = "No Result Found.";
 			}
 			echo json_encode( $response );exit;
 		}

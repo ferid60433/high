@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2020 at 01:16 PM
+-- Generation Time: Mar 23, 2020 at 12:10 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -13,6 +13,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `high`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assignments`
+--
+
+CREATE TABLE `assignments` (
+  `id` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `uploader` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `subject` int(11) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `time_uploaded` datetime NOT NULL,
+  `deadline` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `assignments`
+--
+
+INSERT INTO `assignments` (`id`, `cid`, `sid`, `uploader`, `title`, `description`, `subject`, `file`, `time_uploaded`, `deadline`) VALUES
+(1, 6, 2, 1, 'Algebra Assignment', 'Assignment for algebra', 1, '', '2020-03-17 13:33:15', '2020-03-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -34,6 +60,34 @@ CREATE TABLE `classes` (
 
 INSERT INTO `classes` (`id`, `name`, `tid`, `class_numeric`, `note`) VALUES
 (6, 'jss 1', 1, '123', 'jss1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message_thread`
+--
+
+CREATE TABLE `message_thread` (
+  `id` int(11) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `status` varchar(20) NOT NULL COMMENT 'active||thrash||draft'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messaging`
+--
+
+CREATE TABLE `messaging` (
+  `id` int(11) NOT NULL,
+  `receiver` int(11) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `thread` varchar(20) NOT NULL,
+  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -79,6 +133,162 @@ INSERT INTO `modules` (`id`, `title`, `iclass`, `url`) VALUES
 (24, 'Visitors Information', 'icon-user-plus', 'visitors'),
 (25, 'Administration', 'icon-shield', ''),
 (26, 'Settings', 'icon-cogs', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam`
+--
+
+CREATE TABLE `oexam` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `cid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `subject` int(11) NOT NULL,
+  `instruction` varchar(255) NOT NULL,
+  `exam_status` varchar(20) NOT NULL,
+  `exam_type` varchar(20) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `mark_type` varchar(20) NOT NULL,
+  `pass_mark` int(11) NOT NULL,
+  `negative_mark` int(11) NOT NULL,
+  `random` int(1) NOT NULL,
+  `published` varchar(20) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `url` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oexam`
+--
+
+INSERT INTO `oexam` (`id`, `title`, `description`, `cid`, `sid`, `subject`, `instruction`, `exam_status`, `exam_type`, `duration`, `start_date`, `start_time`, `end_time`, `mark_type`, `pass_mark`, `negative_mark`, `random`, `published`, `uid`, `url`) VALUES
+(1, 'General Aptitude Test', 'General Aptitude Test exam testing', 6, 2, 1, 'Just do your thing...', '', 'duration', 30, '2020-03-28', '15:05:00', '17:30:00', 'percentage', 30, 2, 1, 'active', 1, '52146879');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam_group`
+--
+
+CREATE TABLE `oexam_group` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oexam_group`
+--
+
+INSERT INTO `oexam_group` (`id`, `title`, `created_by`) VALUES
+(1, 'FMCS exam', 1),
+(2, 'UTME 2022', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam_level`
+--
+
+CREATE TABLE `oexam_level` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oexam_level`
+--
+
+INSERT INTO `oexam_level` (`id`, `title`, `created_by`) VALUES
+(1, 'Low', 1),
+(2, 'High', 1),
+(3, 'Medium', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam_options`
+--
+
+CREATE TABLE `oexam_options` (
+  `id` int(11) NOT NULL,
+  `qid` int(11) NOT NULL,
+  `option_value` varchar(255) NOT NULL,
+  `is_answer` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oexam_options`
+--
+
+INSERT INTO `oexam_options` (`id`, `qid`, `option_value`, `is_answer`) VALUES
+(1, 1, 'Animal place or thing', 1),
+(2, 1, 'Animal', 1),
+(3, 1, 'Place', 1),
+(4, 1, 'sunshine and light', 1),
+(5, 2, 'Covid 1', 1),
+(6, 2, 'covid 2', 0),
+(7, 2, 'covid 3', 0),
+(8, 3, 'hello1', 1),
+(9, 3, 'ticked', 1),
+(10, 3, 'ticked', 1),
+(11, 3, 'hello4', 0),
+(12, 3, 'ticked', 0),
+(13, 3, 'hello', 0),
+(14, 4, 'OPTION 1', 0),
+(15, 4, 'OPTION 2', 0),
+(16, 4, 'OPTION 3', 0),
+(17, 4, 'OPTION 4', 0),
+(18, 7, 'option 1', 0),
+(19, 7, 'option 2', 1),
+(20, 7, 'option 3', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam_question`
+--
+
+CREATE TABLE `oexam_question` (
+  `id` int(11) NOT NULL,
+  `oexam_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oexam_questions`
+--
+
+CREATE TABLE `oexam_questions` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `qgroup` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  `question` text NOT NULL,
+  `hint` varchar(255) NOT NULL,
+  `mark` varchar(10) NOT NULL,
+  `question_type` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oexam_questions`
+--
+
+INSERT INTO `oexam_questions` (`id`, `uid`, `qgroup`, `level`, `question`, `hint`, `mark`, `question_type`) VALUES
+(1, 1, 1, 3, '<p>What is photosyntensis?    <br></p>', 'sunlight', '10', '1'),
+(2, 1, 2, 1, 'What is COVID 19<br>', 'disease', '10', '1'),
+(3, 1, 1, 3, '<p>Hello <br></p>', 'hello', '3', '2'),
+(4, 1, 1, 3, 'hEY', 'hey', '4', '2'),
+(7, 1, 2, 3, 'Hey', 'hey', '10', '2');
 
 -- --------------------------------------------------------
 
@@ -135,11 +345,11 @@ INSERT INTO `roles` (`id`, `title`, `roles`) VALUES
 
 CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
+  `cid` int(11) NOT NULL COMMENT 'Class ID',
   `name` varchar(50) NOT NULL,
   `category` varchar(50) NOT NULL,
   `capacity` varchar(10) NOT NULL,
-  `cid` int(11) NOT NULL,
-  `tid` int(11) NOT NULL,
+  `tid` int(11) NOT NULL COMMENT 'Teacher ID',
   `note` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -147,9 +357,9 @@ CREATE TABLE `sections` (
 -- Dumping data for table `sections`
 --
 
-INSERT INTO `sections` (`id`, `name`, `category`, `capacity`, `cid`, `tid`, `note`) VALUES
-(1, 'nelson mandela', 'JSS1-GROUP', '20', 6, 1, 'class for all'),
-(2, 'gold', 'Gold Class', '10', 6, 1, 'Awesome       ');
+INSERT INTO `sections` (`id`, `cid`, `name`, `category`, `capacity`, `tid`, `note`) VALUES
+(1, 6, 'nelson mandela', 'JSS1-GROUP', '20', 1, 'class for all'),
+(2, 6, 'gold', 'Gold Class', '10', 1, 'Awesome       ');
 
 -- --------------------------------------------------------
 
@@ -330,6 +540,29 @@ INSERT INTO `submodules` (`id`, `mid`, `title`, `iclass`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `syllabus`
+--
+
+CREATE TABLE `syllabus` (
+  `id` int(11) NOT NULL,
+  `cid` int(11) NOT NULL COMMENT 'class id',
+  `sid` int(11) NOT NULL DEFAULT '0' COMMENT 'Section ID - 0 , which might be empty',
+  `syllabus` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `time_uploaded` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `syllabus`
+--
+
+INSERT INTO `syllabus` (`id`, `cid`, `sid`, `syllabus`, `title`, `description`, `time_uploaded`) VALUES
+(1, 6, 2, '', 'John doe syllabus', 'For JSS1 Gold', '2020-03-16 15:38:53');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teachers`
 --
 
@@ -380,13 +613,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `title`, `email`, `password`, `salt`, `user_group`, `auth_code`, `ip`, `role`, `date_registered`, `last_login`, `status`) VALUES
-(1, '', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '127.0.0.1', 2, '2020-03-11 09:00:52', '2020-03-16 08:14:51', ''),
-(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'teacher', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
+(1, '', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '::1', 2, '2020-03-11 09:00:52', '2020-03-23 08:40:24', 'active'),
+(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'student', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
 (6, '', 'teacher@gmail.com', '6f2f1faf9b98c090fb6e1a831412eb1c1b52f8292caac1f2f7f437cd507ada3d', 'Z7+k?!e;%LlhAhGFKmCfj;&N+MnF8q%J(Le_#5D78.L@|H9prF', 'teacher', '', '::1', 0, '2020-03-11 16:27:51', '2020-03-11 16:27:51', 'active');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `assignments`
+--
+ALTER TABLE `assignments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `classes`
@@ -395,9 +634,57 @@ ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `message_thread`
+--
+ALTER TABLE `message_thread`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messaging`
+--
+ALTER TABLE `messaging`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `modules`
 --
 ALTER TABLE `modules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam`
+--
+ALTER TABLE `oexam`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam_group`
+--
+ALTER TABLE `oexam_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam_level`
+--
+ALTER TABLE `oexam_level`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam_options`
+--
+ALTER TABLE `oexam_options`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam_question`
+--
+ALTER TABLE `oexam_question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oexam_questions`
+--
+ALTER TABLE `oexam_questions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -437,6 +724,12 @@ ALTER TABLE `submodules`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -454,16 +747,70 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `assignments`
+--
+ALTER TABLE `assignments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `message_thread`
+--
+ALTER TABLE `message_thread`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `messaging`
+--
+ALTER TABLE `messaging`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `oexam`
+--
+ALTER TABLE `oexam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `oexam_group`
+--
+ALTER TABLE `oexam_group`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `oexam_level`
+--
+ALTER TABLE `oexam_level`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `oexam_options`
+--
+ALTER TABLE `oexam_options`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `oexam_question`
+--
+ALTER TABLE `oexam_question`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `oexam_questions`
+--
+ALTER TABLE `oexam_questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `parents`
@@ -502,6 +849,12 @@ ALTER TABLE `submodules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
+-- AUTO_INCREMENT for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -511,4 +864,4 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
