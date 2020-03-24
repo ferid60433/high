@@ -34,7 +34,7 @@ class Accounting extends CI_Controller
         $p["page_inner"] = "fee";
         $p["page_inner_name"] = "Fee Types";
         $p["page"] = "Add";
-        $this->load->view('admin/add_assets_fee', $p);
+        $this->load->view('admin/add_account_fee', $p);
     }
     public function invoice($act = "")
     {
