@@ -41,11 +41,7 @@
                 <h4 class="card-title">Compose New Message</h4>
             </div>
             <div class="card-body">
-<<<<<<< HEAD
-                <form action="#" method="post" enctype="multipart/form-data">
-=======
 				<?= form_open_multipart('', 'id="message_form"'); ?>
->>>>>>> master
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="userGroup">
                             <option> -- Select Group --</option>
@@ -54,13 +50,6 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-<<<<<<< HEAD
-                    <div id="classDiv" class="form-group " style="display:none;">
-                        <select id="classID" class="Group form-control select2" name="classID">
-                            <option value="">-- Select Class --</option>
-                        </select>
-                    </div>
-=======
 					<div id="classDiv" style="display: none;">
 						<div class="form-group">
 							<select class="Group form-control select2" id="cid" name="class">
@@ -76,7 +65,6 @@
 							</select>
 						</div>
 					</div>
->>>>>>> master
                     <div id="stdDiv" class="form-group" style="display:none;">
                         <select id="studentID" class="Group form-control select2" name="studentID">
                             <option value="">-- Select Student --</option>
@@ -116,14 +104,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-<<<<<<< HEAD
-                            <button type="submit" value="draft" name="submit" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
-                            <button type="submit" value="send" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
-=======
 							<input type="hidden" name="post_type" id="post_type" value="">
-                            <button type="button" id="draft" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
+                            <button type="submit" id="draft" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
                             <button type="submit" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
->>>>>>> master
                         </div>
                     </div>
                 <?= form_close(); ?>
@@ -133,51 +116,6 @@
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
 <script>
-<<<<<<< HEAD
-    let base_url = "<?= base_url(); ?>";
-    $("#userGroup").change(function() {
-        let global_options = '';
-        let type = $(this).val();
-        $.get(base_url + `/ajax/get_user_group_detail?type=${type}`, (response, status) => {
-            if (Array.isArray(response.message)) {
-                $.each(response.message, (key, value) => {
-                    global_options += `<option value="${value.id}">${value.name}  - (${value.email})</option>`;
-                });
-            } else {
-                global_options = `<option>${response.message}</option>`;
-            }
-            alert(global_options)
-        });
-        console.log(global_options);
-        if ($(this).val() == 'admin') {
-            // admin
-            $('#classDiv, #stdDiv, #teacherDiv, #parentDiv, #userDiv').hide();
-            $("#adminDiv").show();
-            $('#systemadminID').append(global_options);
-
-        } else if ($(this).val() == 'teacher') {
-            // teacher
-            $('#classDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
-            $("#teacherDiv").show();
-            $('#teacherID').append(global_options);
-
-        } else if ($(this).val() == 'student') {
-            // student
-            $('#teacherDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
-            $("#classDiv").show();
-            $('#studentID').append(global_options);
-        } else if ($(this).val() == 'parent') {
-            // Parent
-            $('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #userDiv').hide();
-            $("#parentDiv").show();
-            $('#parentID').append(global_options);
-        } else {
-            $('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #parentDiv').hide();
-            $("#userDiv").show();
-            $('#userIDID').append(global_options);
-        }
-    });
-=======
 	$(document).ready(function () {
 		let base_url = "<?= base_url();?>";
 		$("#userGroup").change(function() {
@@ -268,15 +206,15 @@
 			}
 		});
 
-		$('#draft').on('click', () => {
+		$('#draft').on('click', (e) => {
 			alert('Clicked here');
 			// $('#post_type').val('draft');
-			$('#message_form').submit();
+            if(1) e.preventDefault();
+            return true;
 			alert('Message form has been sent');
 		});
 	});
 
 
->>>>>>> 6423b22904eaade3a72c1802584a2b2304fef7bf
 </script>
 <?php $this->load->view("inc/post-script") ?>
