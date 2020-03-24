@@ -14,7 +14,7 @@ class Students extends MY_Controller
 		$p['students'] = $this->site->run_sql("SELECT u.email, u.status, s.* FROM users u JOIN students s ON ( u.id = s.uid) ORDER BY u.id DESC")->result();
 		$p['classes'] = $this->site->run_sql("SELECT c.id, c.name, s.name section FROM classes c JOIN sections s ON (s.cid = c.id) ORDER BY c.id DESC")->result();
 		$this->load->view('admin/students', $p);
-	}
+    }
 
 	/*
      * Add student to the student
@@ -40,7 +40,8 @@ class Students extends MY_Controller
 				$this->session->set_flashdata('error_msg', validation_errors());
 				$this->load->view('admin/add_student', $p);
 				return;
-			} else {
+			}else{
+//				@TODO: Work on the Admission Number
 				$data = array(
 					'gid' => $this->input->post('guardian'),
 					'name' => $this->input->post('name'),
@@ -54,6 +55,7 @@ class Students extends MY_Controller
 					'country' => $this->input->post('country'),
 					'cid' => $this->input->post('cid'),
 					'sid' => $this->input->post('sid'),
+					'roll' => $this->input->post('roll'),
 					'adm_no' => $this->input->post('adm_no'),
 					'activities' => $this->input->post('activities'),
 					'remarks' => $this->input->post('remarks')
