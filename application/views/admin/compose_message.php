@@ -207,11 +207,8 @@
 		});
 
 		$('#draft').on('click', (e) => {
-			alert('Clicked here');
-			// $('#post_type').val('draft');
-            if(1) e.preventDefault();
+            $("#post_type").val("draft");
             return true;
-			alert('Message form has been sent');
 		});
 	});
 
