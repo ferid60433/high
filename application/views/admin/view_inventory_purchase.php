@@ -46,10 +46,52 @@
                         </h5>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class=""></table>
+                            <table class="table table-bordered">
+                                <thead class="bg-info text-white">
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Description</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Complete Male Uniform</td>
+                                        <td>5,000.00</td>
+                                        <td>1</td>
+                                        <td>5,000.00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot style="font-weight:500">
+                                    <tr>
+                                        <td colspan="4" class="text-right">Total Amount (NGN)</td>
+                                        <td>5,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-right">Paid (NGN)</td>
+                                        <td>1,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-right">Balance (NGN)</td>
+                                        <td>4,000.00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <div class="alert alert-default">
+                            <p>Created By: User</p>
+                            <p>Date: 20 Mar 2020</p>
                         </div>
                     </div>
                 </div>
