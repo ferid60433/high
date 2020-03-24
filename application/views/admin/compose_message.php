@@ -45,9 +45,9 @@
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="userGroup">
                             <option> -- Select Group --</option>
-							<?php foreach( $user_groups as $g ) : ?>
-                            	<option value="<?= strtolower($g->user_group); ?>"><?= ucwords( $g->user_group)?></option>
-							<?php endforeach; ?>
+                            <?php foreach ($user_groups as $g) : ?>
+                                <option value="<?= strtolower($g->user_group); ?>"><?= ucwords($g->user_group) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 					<div id="classDiv" style="display: none;">
@@ -105,7 +105,7 @@
                     <div class="row">
                         <div class="col-md-12">
 							<input type="hidden" name="post_type" id="post_type" value="">
-                            <button type="button" id="draft" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
+                            <button type="submit" id="draft" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
                             <button type="submit" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
                         </div>
                     </div>
@@ -206,13 +206,12 @@
 			}
 		});
 
-		$('#draft').on('click', () => {
-			alert('Clicked here');
-			$('#message_form').submit();
-			alert('Message form has been sent');
+		$('#draft').on('click', (e) => {
+            $("#post_type").val("draft");
+            return true;
 		});
 	});
 
 
 </script>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

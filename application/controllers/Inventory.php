@@ -9,9 +9,7 @@ class Inventory extends CI_Controller
     }
     public function index()
     {
-        $p["title"] = "All Inventory";
-        $p["page"] = "Inventory";
-        $this->load->view('admin/inventory', $p);
+        return redirect("admin/inventory/product");
     }
     public function supplier($act = "")
     {
@@ -120,6 +118,41 @@ class Inventory extends CI_Controller
         $p["page"] = "View";
         $this->load->view('admin/view_inventory_purchase', $p);
     }
+    public function sale($act = "")
+    {
+        if (strtolower($act) == "add") {
+            $this->add_sale();
+        } elseif ($act == "view") {
+            $this->view_sale();
+        } elseif ($act == "edit") {
+            // $this->edit_sale();
+        } elseif ($act == "") {
+            $p["title"] = "Inventory Sales";
+            $p["page_mother"] = "Inventory";
+            $p["page"] = "Sales";
+            $this->load->view('admin/inventory_sale', $p);
+        } else {
+            show_404();
+        }
+    }
+    private function add_sale()
+    {
+        $p["title"] = "Add Sale";
+        $p["page_mother"] = "Inventory";
+        $p["page_inner"] = "sale";
+        $p["page_inner_name"] = "Sales";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_inventory_sale', $p);
+    }
+    private function view_sale()
+    {
+        $p["title"] = "View Sale";
+        $p["page_mother"] = "Inventory";
+        $p["page_inner"] = "sale";
+        $p["page_inner_name"] = "Sales";
+        $p["page"] = "View";
+        $this->load->view('admin/view_inventory_sale', $p);
+    }
     public function category($act = "")
     {
         if (strtolower($act) == "add") {
@@ -143,19 +176,5 @@ class Inventory extends CI_Controller
         $p["page_inner_name"] = "Categories";
         $p["page"] = "Add";
         $this->load->view('admin/add_inventory_category', $p);
-    }
-    public function view()
-    {
-        $p["title"] = "View Asset";
-        $p["page_mother"] = "Inventory";
-        $p["page"] = "View";
-        $this->load->view('admin/view_inventory', $p);
-    }
-    public function add()
-    {
-        $p["title"] = "Add Asset";
-        $p["page_mother"] = "Inventory";
-        $p["page"] = "Add";
-        $this->load->view('admin/add_inventory', $p);
     }
 }
