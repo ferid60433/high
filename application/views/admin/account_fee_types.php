@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/exams/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/accounting/fee/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -21,9 +21,9 @@
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td>SS2 Tuition Fee</td>
-                                <td>SS2 Tuition Fee Amount</td>
-                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/exams/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/exams/delete")?>"><i class="fas fa-trash"></i></a></td>
+                                <td>Tuition</td>
+                                <td>Tuition Fee</td>
+                                <td><a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/accounting/fee/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/accounting/fee/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

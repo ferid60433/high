@@ -41,7 +41,7 @@
                 <h4 class="card-title">Compose New Message</h4>
             </div>
             <div class="card-body">
-                <form role="form" method="post" enctype="multipart/form-data">
+                <form action="#" method="post" enctype="multipart/form-data">
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="userGroup">
                             <option>Select Group</option>
@@ -58,8 +58,6 @@
                         <select id="classID" class="Group form-control select2" name="classID">
                             <option value="">Select Class</option>
                         </select>
-                        <span id="selectDiv" class="control-label">
-                        </span>
                     </div>
                     <div id="stdDiv" class="form-group" style="display:none;">
                         <select id="studentID" class="Group form-control select2" name="studentID">
@@ -100,7 +98,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" value="draft" name="submit" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
+                            <button type="submit" value="draft" name="submit" class="btn btn-warning"><i class="fa fa-times"></i> Drafts</button>
                             <button type="submit" value="send" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
                         </div>
                     </div>
