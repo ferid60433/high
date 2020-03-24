@@ -43,8 +43,8 @@
             <div class="card-body">
 				<?= form_open_multipart('', 'id="message_form"'); ?>
                     <div class="form-group ">
-                        <select id="userGroup" class="Group form-control select2" name="userGroup">
-                            <option> -- Select Group --</option>
+                        <select id="userGroup" class="Group form-control select2" name="userGroup" required>
+                            <option value=""> -- Select Group --</option>
                             <?php foreach ($user_groups as $g) : ?>
                                 <option value="<?= strtolower($g->user_group); ?>"><?= ucwords($g->user_group) ?></option>
                             <?php endforeach; ?>
@@ -53,7 +53,7 @@
 					<div id="classDiv" style="display: none;">
 						<div class="form-group">
 							<select class="Group form-control select2" id="cid" name="class">
-								<option value="">-- Select Class --</option>
+								<option value=""> -- Select Class -- </option>
 								<?php foreach( $classes as $c ) : ?>
 									<option value="<?= $c->id?>"><?= ucwords($c->name); ?></option>
 								<?php endforeach; ?>
@@ -61,7 +61,7 @@
 						</div>
 						<div class="form-group">
 							<select id="section" class="Group form-control select2" name="section">
-								<option value="">-- Select Section/Arms --</option>
+								<option value=""> -- Select Section/Arms -- </option>
 							</select>
 						</div>
 					</div>
