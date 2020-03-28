@@ -44,6 +44,8 @@ class Accounting extends CI_Controller
             $this->view_invoice();
         } elseif ($act == "edit") {
             // $this->edit_invoice();
+        } elseif ($act == "payment") {
+            $this->invoice_payment();
         } elseif ($act == "") {
             $p["title"] = "All Invoices";
             $p["page_mother"] = "Accounting";
@@ -71,5 +73,14 @@ class Accounting extends CI_Controller
         $p["page_inner_name"] = "Invoices";
         $p["page"] = "View";
         $this->load->view('admin/view_account_invoice', $p);
+    }
+    private function invoice_payment()
+    {
+        $p["title"] = "Add Invoice Payment";
+        $p["page_mother"] = "Accounting";
+        $p["page_inner"] = "invoice";
+        $p["page_inner_name"] = "Invoices";
+        $p["page"] = "Payment";
+        $this->load->view('admin/add_account_invoice_payment', $p);
     }
 }
