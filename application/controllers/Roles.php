@@ -18,6 +18,7 @@ class Roles extends CI_Controller
         $p["title"] = "Add User Role";
         $p["page_mother"] = "Roles";
         $p["page"] = "Add";
+        $p["modules"] = $this->db->get("modules")->result();
         $this->load->view('admin/add_user_role', $p);
     }
 }
