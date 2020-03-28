@@ -29,6 +29,27 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Actions</label>
+                                            <div class="col-sm-10">
+                                                <div class="row">
+                                                    <?php foreach ($modules as $m) : ?>
+                                                        <div class="col-md-4">
+                                                            <div class="form-check">
+                                                                <div class="checker" id="uniform-<?= $m->title ?>">
+                                                                    <span>
+                                                                        <input class="form-check-input" type="checkbox" id="<?= $m->title ?>" <?=($m->url == "messages")?"checked":""?>>
+                                                                    </span>
+                                                                </div>
+                                                                <label class="form-check-label" for="<?= $m->title ?>">
+                                                                    <?= $m->title ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Note</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
