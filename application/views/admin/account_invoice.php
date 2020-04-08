@@ -47,7 +47,7 @@
                                     <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/accounting/invoice/delete") ?>">
                                         <i class="fas fa-trash"></i>
                                     </a> |
-                                    <a class="btn btn-sm btn-outline-success" title="Payment" href="<?= base_url("admin/accounting/invoice/payment") ?>">
+                                    <a class="btn btn-sm btn-outline-success" title="Payment" href="<?= base_url("admin/accounting/invoice/payment/add") ?>">
                                         <i class="fas fa-credit-card"></i>
                                     </a> |
                                     <a class="btn btn-sm btn-outline-primary" title="View Payments" href="javascript:;" data-toggle="modal" data-target="#viewPayMod">
@@ -92,7 +92,7 @@
                                 <td>0.00</td>
                                 <td>0.00</td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-info" title="View" href="#">
+                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/accounting/invoice/payment/view")?>">
                                         <i class="fas fa-search"></i>
                                     </a> |
                                     <a class="btn btn-sm btn-outline-danger" title="Delete" href="#">

@@ -36,6 +36,20 @@ class Accounting extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_account_fee', $p);
     }
+    public function history($act = "")
+    {
+        if (strtolower($act) == "edit") {
+            // $this->edit_invoice();
+        } elseif ($act == "") {
+            $p["title"] = "Payment History";
+            $p["page_mother"] = "Accounting";
+            $p["page"] = "History";
+            $p["page_name"] = "Payment History";
+            $this->load->view('admin/account_history', $p);
+        } else {
+            show_404();
+        }
+    }
     public function invoice($act = "")
     {
         if (strtolower($act) == "add") {
@@ -45,7 +59,9 @@ class Accounting extends CI_Controller
         } elseif ($act == "edit") {
             // $this->edit_invoice();
         } elseif ($act == "payment") {
-            $this->invoice_payment();
+            if (strtolower($this->uri->segment(5)) == "add") $this->add_invoice_payment();
+            if (strtolower($this->uri->segment(5)) == "view") $this->view_invoice_payment();
+            else show_404();
         } elseif ($act == "") {
             $p["title"] = "All Invoices";
             $p["page_mother"] = "Accounting";
@@ -74,7 +90,7 @@ class Accounting extends CI_Controller
         $p["page"] = "View";
         $this->load->view('admin/view_account_invoice', $p);
     }
-    private function invoice_payment()
+    private function add_invoice_payment()
     {
         $p["title"] = "Add Invoice Payment";
         $p["page_mother"] = "Accounting";
@@ -82,5 +98,14 @@ class Accounting extends CI_Controller
         $p["page_inner_name"] = "Invoices";
         $p["page"] = "Payment";
         $this->load->view('admin/add_account_invoice_payment', $p);
+    }
+    private function view_invoice_payment()
+    {
+        $p["title"] = "View Invoice Payment";
+        $p["page_mother"] = "Accounting";
+        $p["page_inner"] = "invoice";
+        $p["page_inner_name"] = "Invoices";
+        $p["page"] = "Payment";
+        $this->load->view('admin/view_account_invoice_payment', $p);
     }
 }

@@ -21,6 +21,10 @@
                     $l = $url[count($url) - 1];
                     if ($l == "add" || $l == "edit" || $l == "view" || $l == "questions" || $l == "payment") {
                         array_pop($url);
+                        $l = $url[count($url) - 1];
+                        if ($l == "add" || $l == "edit" || $l == "view") {
+                            array_pop($url);
+                        }
                         $url = implode("/", $url);
                     } else {
                         $url = $this->uri->uri_string();
