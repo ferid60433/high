@@ -23,7 +23,7 @@ class Library extends CI_Controller
     public function ebooks($act = "")
     {
         if (strtolower($act) == "add") {
-            // $this->add_ebook();
+            $this->add_ebook();
         } elseif ($act == "edit") {
             // $this->edit_ebook();
         } elseif ($act == "view") {
@@ -36,6 +36,15 @@ class Library extends CI_Controller
         } else {
             show_404();
         }
+    }
+    private function add_ebook()
+    {
+        $p["title"] = "Add Ebook";
+        $p["page_mother"] = "Library";
+        $p["page_inner"] = "ebooks";
+        $p["page_inner_name"] = "Ebooks";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_library_ebook', $p);
     }
     public function view_ebook()
     {
