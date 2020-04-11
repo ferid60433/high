@@ -19,10 +19,10 @@
                     $l = $url[count($url) - 1];
                     if (strlen($l) > 30) array_pop($url);
                     $l = $url[count($url) - 1];
-                    if ($l == "add" || $l == "edit" || $l == "view" || $l == "questions" || $l == "payment") {
+                    if ($l == "add" || $l == "edit" || $l == "view" || $l == "questions") {
                         array_pop($url);
                         $l = $url[count($url) - 1];
-                        if ($l == "add" || $l == "edit" || $l == "view") {
+                        if ($l == "add" || $l == "edit" || $l == "view" || $l == "payment") {
                             array_pop($url);
                         }
                         $url = implode("/", $url);
