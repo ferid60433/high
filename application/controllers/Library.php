@@ -20,6 +20,32 @@ class Library extends CI_Controller
         $p["page"] = "Add";
         $this->load->view('admin/add_library_book', $p);
     }
+    public function ebooks($act = "")
+    {
+        if (strtolower($act) == "add") {
+            // $this->add_ebook();
+        } elseif ($act == "edit") {
+            // $this->edit_ebook();
+        } elseif ($act == "view") {
+            $this->view_ebook();
+        } elseif ($act == "") {
+            $p["title"] = "All Ebooks";
+            $p["page_mother"] = "Library";
+            $p["page"] = "E-Books";
+            $this->load->view('admin/library_ebooks', $p);
+        } else {
+            show_404();
+        }
+    }
+    public function view_ebook()
+    {
+        $p["title"] = "View Ebook";
+        $p["page_mother"] = "Library";
+        $p["page_inner"] = "ebooks";
+        $p["page_inner_name"] = "Ebooks";
+        $p["page"] = "View";
+        $this->load->view('admin/view_library_ebook', $p);
+    }
     public function members($act = "")
     {
         if (strtolower($act) == "add") {
@@ -58,7 +84,7 @@ class Library extends CI_Controller
     public function issue($act = "")
     {
         if (strtolower($act) == "add") {
-            // $this->add_book_issue();
+            $this->add_book_issue();
         } elseif ($act == "edit") {
             // $this->edit_book_issue();
         } elseif ($act == "view") {
@@ -76,11 +102,20 @@ class Library extends CI_Controller
     }
     private function view_book_issue()
     {
-        $p["title"] = "View Member";
+        $p["title"] = "View Book Issue";
         $p["page_mother"] = "Library";
-        $p["page_inner"] = "members";
-        $p["page_inner_name"] = "Members";
+        $p["page_inner"] = "issue";
+        $p["page_inner_name"] = "Issue";
         $p["page"] = "View";
         $this->load->view('admin/view_library_book_issue', $p);
+    }
+    public function add_book_issue()
+    {
+        $p["title"] = "Issue Book";
+        $p["page_mother"] = "Library";
+        $p["page_inner"] = "issue";
+        $p["page_inner_name"] = "Issue";
+        $p["page"] = "Add";
+        $this->load->view('admin/add_library_book_issue', $p);
     }
 }

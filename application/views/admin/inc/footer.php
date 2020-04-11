@@ -9,6 +9,7 @@
 <script>
     $(document).ready(function(){
         $("a.active").parents("ul.sub-menu").css({"display":"block"});
+        $("a.active").parents("li.has-sub").addClass("active-page");
         $("a.active").parents("ul.sub-menu").siblings("a").addClass("active");
     })
 </script>

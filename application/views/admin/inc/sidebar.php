@@ -39,7 +39,7 @@
                         </li>
                     <?php else : ?>
                         <li>
-                            <a href="javascript:void(0);" class="<?= (0) ? "active" : "" ?>">
+                            <a href="javascript:void(0);">
                                 <i class="menu-icon <?= $module->iclass ?>"></i><span><?= $module->title ?></span><i class="accordion-icon fa fa-angle-left"></i>
                             </a>
                             <ul>
