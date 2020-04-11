@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/inventory/purchase/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/accounting/invoice/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -28,24 +28,26 @@
                         <tbody>
                             <tr>
                                 <td>1.</td>
-                                <td>202</td>
-                                <td>Ade Ade</td>
-                                <td>01 Dec 2018</td>
-                                <td><span class="badge badge-info"><a href="#">file.pdf</a></span></td>
-                                <td>5000.00</td>
-                                <td>1000.00</td>
-                                <td>4000.00</td>
+                                <td>David King</td>
+                                <td>JSS 1</td>
+                                <td>74,000.00</td>
+                                <td>2,900.00</td>
+                                <td>150.00</td>
+                                <td>0.00</td>
+                                <td>70,950.00</td>
+                                <td><span class="badge badge-warning"><a href="#">Partially Paid</a></span></td>
+                                <td>21 Jan 2020</td>
                                 <td>
-                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/inventory/purchase/view") ?>">
+                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/accounting/invoice/view") ?>">
                                         <i class="fas fa-search"></i>
                                     </a> |
-                                    <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/inventory/purchase/edit") ?>">
+                                    <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/accounting/invoice/edit") ?>">
                                         <i class="fas fa-edit"></i>
                                     </a> |
-                                    <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/inventory/purchase/delete") ?>">
+                                    <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/accounting/invoice/delete") ?>">
                                         <i class="fas fa-trash"></i>
                                     </a> |
-                                    <a class="btn btn-sm btn-outline-success" title="Add Payment" href="javascript:;" data-toggle="modal" data-target="#addPayMod">
+                                    <a class="btn btn-sm btn-outline-success" title="Payment" href="<?= base_url("admin/accounting/invoice/payment/add") ?>">
                                         <i class="fas fa-credit-card"></i>
                                     </a> |
                                     <a class="btn btn-sm btn-outline-primary" title="View Payments" href="javascript:;" data-toggle="modal" data-target="#viewPayMod">
@@ -57,90 +59,6 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="addPayMod" tabindex="-1" role="dialog" aria-labelledby="addPayModLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form method="post">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="addPayModLabel">Add Payment</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-form-label">Date</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-calendar"></i></div>
-                                        </div>
-                                        <input class="form-control date-picker" placeholder="Date" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-form-label">Amount</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
-                                        </div>
-                                        <input class="form-control" placeholder="Amount" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-form-label">File</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-upload"></i></div>
-                                        </div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-form-label">Reference No</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-sort-numeric-down"></i></div>
-                                        </div>
-                                        <input class="form-control date-picker" placeholder="Date" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-form-label">Payment Method</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
-                                        </div>
-                                        <select class="form-control" id="payMethod" name="payMethod">
-                                            <option>Select</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Payment</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
@@ -158,20 +76,25 @@
                             <tr>
                                 <th>S/N</th>
                                 <th>Date</th>
-                                <th>Reference No</th>
-                                <th>Amount</th>
                                 <th>Paid By</th>
+                                <th>Payment Amount</th>
+                                <th>Weaver</th>
+                                <th>Fine</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>20 Mar 2020</td>
-                                <td>1023812</td>
-                                <td>1000.00</td>
+                                <td>24 Mar 2020</td>
                                 <td>Cash</td>
+                                <td>2,050.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
                                 <td>
+                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/accounting/invoice/payment/view")?>">
+                                        <i class="fas fa-search"></i>
+                                    </a> |
                                     <a class="btn btn-sm btn-outline-danger" title="Delete" href="#">
                                         <i class="fas fa-trash"></i>
                                     </a>

@@ -138,7 +138,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="finish float-right btn btn-primary">Add Purchase</button>
+                        <button type="submit" class="finish float-right btn btn-primary">Add Sale</button>
                     </div>
                 </div>
             </div>
