@@ -24,6 +24,11 @@ class Syllabus extends MY_Controller
 			$this->form_validation->set_rules('title', 'Syllabus Title', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('cid', 'class', 'trim|required|xss_clean');
+			if( $this->form_validation->run() == false ){
+				$this->session->set_flashdata('error_msg', validation_errors());
+				$this->load->view('admin/add_syllabus', $p);
+				return;
+			}
 			$data = array(
 				'cid' => $this->input->post('cid'),
 				'sid' => $this->input->post('sid'),
