@@ -71,94 +71,35 @@
         </div>
     </div>
     <div class="col-md-9">
+		<?php $this->load->view('msg_view'); ?>
         <div class="card card-white">
             <div class="card-heading clearfix">
-                <h4 class="card-title">Conversation: <b>PAYMENT DEADLINE</b></h4>
+                <h4 class="card-title">Conversation: <b><?= strtoupper($thread_detail->title)?></b></h4>
             </div>
             <div class="card-body">
                 <div id="message_window">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_r">
-                                <div class="person">
-                                    <b>Mr John</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 12:55:03 PM</small>
-                                </div>
-                                <p class="msg">Hey There</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_s">
-                                <div class="person">
-                                    <b>Me</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 13:55:03 PM</small>
-                                </div>
-                                <p class="msg">Hey There</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_r">
-                                <div class="person">
-                                    <b>Mr John</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 13:59:03 PM</small>
-                                </div>
-                                <p class="msg">
-                                    This is to remind you that you haven't completed the full payment of your levies
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_r">
-                                <div class="person">
-                                    <b>Mr John</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 14:09:03 PM</small>
-                                </div>
-                                <p class="msg">
-                                    Attached is your invoice
-                                </p>
-                                <p class="attach">
-                                    <a href="#">
-                                        <i class="fas fa-paperclip">Payment_Invoice.pdf</i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_r">
-                                <div class="person">
-                                    <b>Mr John</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 14:19:43 PM</small>
-                                </div>
-                                <p class="msg">
-                                    Please all payment should be made latest by monday.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="bubble_s">
-                                <div class="person">
-                                    <b>Me</b>&nbsp;
-                                    <small><i class="fas fa-clock"></i> 25 Feb 2019 15:05:03 PM</small>
-                                </div>
-                                <p class="msg">Noted with thanks sir</p>
-                            </div>
-                        </div>
-                    </div>
+					<?php
+					$uid = $this->session->userdata('logged_id');
+					foreach ( $messages as $message ) : ?>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="<?= ( $message['sender'] == $uid) ? 'bubble_s' : 'bubble_r'; ?>">
+								<div class="person">
+									<b><?= $message['sender_title']; ?></b>&nbsp;
+									<small><i class="fas fa-clock"></i> <?= strtoupper($message['timestamp']);?></small>
+								</div>
+								<p class="msg">
+									<?= $message['message']; ?>
+								</p>
+							</div>
+						</div>
+					</div>
+					<?php endforeach;?>
                 </div>
                 <hr>
-                <form>
+                <?= form_open_multipart(); ?>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
+                        <textarea class="form-control" required name="message" rows="3" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="custom-file">
@@ -168,10 +109,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" value="send" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
+							<input type="hidden" name="thread" value="<?= $thread_detail->id ?>">
+                            <button type="submit" name="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i> Send</button>
                         </div>
                     </div>
-                </form>
+                <?= form_open_multipart(); ?>
             </div>
         </div>
     </div>

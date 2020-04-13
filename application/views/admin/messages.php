@@ -60,37 +60,31 @@
                         <thead>
                             <th>S/N</th>
                             <th>Status</th>
-                            <th>Name</th>
                             <th>Subject</th>
-                            <th>Attachment</th>
-                            <th>Time</th>
-                            <th>Reply</th>
+                            <th>Time Initiated</th>
+                            <th>Last Message</th>
+                            <th>Responds</th>
                         </thead>
-                        <?php if ($msg_view == "Conversations" || $msg_view == "Sent") : ?>
+                        <?php if ($msg_view == "Conversations" || $msg_view == "Sent" || $msg_view == "Drafts") : ?>
                             <tbody>
-                                <tr onclick="window.location='<?= base_url('admin/messages/view') ?>'">
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input checkbox" type="checkbox" id="gc1">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-warning">
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Schoolville High
-                                    </td>
-                                    <td>
-                                        <b>PAYMENT DEADLINE</b>
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-paperclip"></i>
-                                    </td>
-                                    <td>25 Feb 2019 12:47:49 PM</td>
-                                    <td><span class="badge badge-info">2</span></td>
-                                </tr>
+								<?php $x= 1; foreach ( $messages as $message ): ?>
+                                	<tr onclick="window.location='<?= base_url('admin/messages/view/' . simple_crypt($message['id'])) ?>'">
+										<td>
+											<div class="form-check">
+												<input class="form-check-input checkbox" type="checkbox" id="gc1">
+											</div>
+										</td>
+										<td>
+											<?= statusLabel( $message['status']) ; ?>
+										</td>
+										<td>
+											<b><?= ucwords($message['title']);?></b>
+										</td>
+										<td><?= $message['date_created']; ?></td>
+										<td><?= $message['last_sender_name'] . ' - (' .$message['last_message_time'] . ')'; ?></td>
+										<td><?= $message['respond_count']; ?></td>
+									</tr>
+                                <?php endforeach; ?>
                             </tbody>
                         <?php endif; ?>
                     </table>

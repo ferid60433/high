@@ -39,12 +39,13 @@
         <div class="card card-white">
             <div class="card-heading clearfix">
                 <h4 class="card-title">Compose New Message</h4>
+				<?php $this->load->view('msg_view');?>
             </div>
             <div class="card-body">
 				<?= form_open_multipart('', 'id="message_form"'); ?>
                     <div class="form-group ">
-                        <select id="userGroup" class="Group form-control select2" name="userGroup">
-                            <option> -- Select Group --</option>
+                        <select id="userGroup" class="Group form-control select2" name="user_group" required>
+                            <option value=""> -- Select Group --</option>
                             <?php foreach ($user_groups as $g) : ?>
                                 <option value="<?= strtolower($g->user_group); ?>"><?= ucwords($g->user_group) ?></option>
                             <?php endforeach; ?>
@@ -53,7 +54,7 @@
 					<div id="classDiv" style="display: none;">
 						<div class="form-group">
 							<select class="Group form-control select2" id="cid" name="class">
-								<option value="">-- Select Class --</option>
+								<option value=""> -- Select Class -- </option>
 								<?php foreach( $classes as $c ) : ?>
 									<option value="<?= $c->id?>"><?= ucwords($c->name); ?></option>
 								<?php endforeach; ?>
@@ -61,7 +62,7 @@
 						</div>
 						<div class="form-group">
 							<select id="section" class="Group form-control select2" name="section">
-								<option value="">-- Select Section/Arms --</option>
+								<option value=""> -- Select Section/Arms -- </option>
 							</select>
 						</div>
 					</div>
@@ -71,22 +72,22 @@
                         </select>
                     </div>
                     <div id="adminDiv" class="form-group" style="display:none;">
-                        <select id="systemadminID" class="Group form-control select2" name="systemadminID">
+                        <select id="systemadminID" class="Group form-control select2" name="receiver">
                             <option value="">-- Select Admin --</option>
                         </select>
                     </div>
                     <div id="teacherDiv" class="form-group" style="display:none;">
-                        <select id="teacherID" class="Group form-control select2" name="teacherID">
+                        <select id="teacherID" class="Group form-control select2" name="receiver">
                             <option value="">-- Select Teacher -- </option>
                         </select>
                     </div>
                     <div id="parentDiv" class="form-group" style="display:none;">
-                        <select id="parentID" class="Group form-control select2" name="parentID">
+                        <select id="parentID" class="Group form-control select2" name="receiver">
                             <option value="">-- Select Parent --</option>
                         </select>
                     </div>
                     <div id="userDiv" class="form-group">
-                        <select id="userID" class="Group form-control select2" name="userID">
+                        <select id="userID" class="Group form-control select2" name="receiver">
                             <option value="">-- Select User --</option>
                         </select>
                     </div>
@@ -211,7 +212,6 @@
             return true;
 		});
 	});
-
 
 </script>
 <?php $this->load->view("inc/post-script") ?>

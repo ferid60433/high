@@ -131,6 +131,7 @@ if (!function_exists('statusLabel')) {
             case 'process':
             case 'suspended':
             case 'pause':
+            case 'draft':
                 return '<span class="badge badge-warning">' . ucfirst( $status ). '</span>';
                 break;
             case 'approved':
@@ -253,6 +254,21 @@ if(!function_exists('getQuestionType')){
 	}
 
 }
+
+
+// 1- present, 2 - absent, 3 - late, 4 - late with excuse
+if(!function_exists('attendanceRemarks')){
+	function attendanceRemarks(){
+		return array(
+			1 => 'Present',
+			2 => 'Absent',
+			3 => 'Late',
+			4 => 'Late With Excuse'
+		);
+	}
+
+}
+
 
 
 
