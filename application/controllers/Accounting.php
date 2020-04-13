@@ -11,6 +11,14 @@ class Accounting extends CI_Controller
     {
         return redirect("admin/accounting/fee");
     }
+    public function global()
+    {
+        $p["title"] = "Global Payment";
+        $p["page_mother"] = "Accounting";
+        $p["page"] = "Global";
+        $p["page_name"] = "Global Payment";
+        $this->load->view('admin/account_global', $p);
+    }
     public function fee($act = "")
     {
         if (strtolower($act) == "add") {
