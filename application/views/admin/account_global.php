@@ -120,18 +120,17 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1.</td>
-                                        <td></td>
-                                        <td>Brad Pitts</td>
-                                        <td>bp@svl.com</td>
-                                        <td>3</td>
+                                        <td>INV-G-521</td>
+                                        <td>2050</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>2050</td>
+                                        <td>Paid</td>
+                                        <td>28-Mar-2020</td>
                                         <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input checkbox" type="checkbox" id="gc1">
-                                                <label class="form-check-label" for="gc1">
-                                                    Present
-                                                </label>
-                                            </div>
+                                            <a class="btn btn-sm btn-outline-info" title="View" href="javascript:;" data-toggle="modal" data-target="#viewInvoiceMod">
+                                                <i class="fas fa-search"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -145,6 +144,59 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="viewInvoiceMod" tabindex="-1" role="dialog" aria-labelledby="viewInvoiceModLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="viewInvoiceModLabel">View Invoice</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h3><?= SCHOOL_NAME ?></h3>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Date</th>
+                                <th>Paid By</th>
+                                <th>Payment Amount</th>
+                                <th>Weaver</th>
+                                <th>Fine</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>24 Mar 2020</td>
+                                <td>Cash</td>
+                                <td>2,050.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/accounting/invoice/payment/view") ?>">
+                                        <i class="fas fa-search"></i>
+                                    </a> |
+                                    <a class="btn btn-sm btn-outline-danger" title="Delete" href="#">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
