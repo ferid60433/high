@@ -13,7 +13,6 @@
                     <table class="table datatables_init" style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style="display: none;">S/N</th>
                                 <th>S/N</th>
                                 <th>Photo</th>
                                 <th>Name</th>
@@ -26,7 +25,6 @@
                             <?php $x = 1;
                             foreach ($parents as $parent) :  ?>
                                 <tr>
-                                    <td style="display: none;"><?= $x; ?></td>
                                     <td><?= $x; ?></td>
                                     <td>
                                         <img class="img img-thumbnail" width="50" src="<?= ($parent->pic) ?

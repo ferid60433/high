@@ -105,7 +105,7 @@
                 <div class="card card-white">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table" style="width: 100%;">
+                            <table class="table table-bordered" style="width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>Invoice No</th>
@@ -125,7 +125,7 @@
                                         <td>0</td>
                                         <td>0</td>
                                         <td>2050</td>
-                                        <td>Paid</td>
+                                        <td>Partial</td>
                                         <td>28-Mar-2020</td>
                                         <td>
                                             <a class="btn btn-sm btn-outline-info" title="View" href="javascript:;" data-toggle="modal" data-target="#viewInvoiceMod">
@@ -134,6 +134,15 @@
                                         </td>
                                     </tr>
                                 </tbody>
+                                <tfoot style="font-weight:500">
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>2050</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>2050</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -144,6 +153,143 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
+                <form>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>Fees Name</th>
+                                    <th>Fees Amount</th>
+                                    <th>Due</th>
+                                    <th>Paid Amount</th>
+                                    <th>Weaver</th>
+                                    <th>Fine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Tuition</td>
+                                    <td>55100.00</td>
+                                    <td>55100.00</td>
+                                    <td>
+                                        <input type="text" class="form-control itemPaid" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemWeaver" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemFine" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Tuition</td>
+                                    <td>49.00</td>
+                                    <td>49.00</td>
+                                    <td>
+                                        <input type="text" class="form-control itemPaid" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemWeaver" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemFine" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Tuition</td>
+                                    <td>9800.00</td>
+                                    <td>9300.00</td>
+                                    <td>
+                                        <input type="text" class="form-control itemPaid" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemWeaver" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemFine" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ICT</td>
+                                    <td>1485.00</td>
+                                    <td>635.00</td>
+                                    <td>
+                                        <input type="text" class="form-control itemPaid" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemWeaver" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemFine" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Sports</td>
+                                    <td>200.00</td>
+                                    <td>0.00</td>
+                                    <td>
+                                        Paid
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Uniforms</td>
+                                    <td>4704.00</td>
+                                    <td>4204.00</td>
+                                    <td>
+                                        <input type="text" class="form-control itemPaid" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemWeaver" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control itemFine" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td class="f-bold">Total</td>
+                                    <td>71338.00</td>
+                                    <td>69288.00</td>
+                                    <td id="tPaid">0.00</td>
+                                    <td id="tWeaver">0.00</td>
+                                    <td id="tFine">0.00</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Total Collection (Paid+Fine)</td>
+                                    <td id="tPaidFine" colspan="3">0.00</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Payment Type</td>
+                                    <td colspan="2">
+                                        <select class="form-control" id="payType">
+                                            <option value="0">Select</option>
+                                            <option value="Cheque">Cheque</option>
+                                            <option value="Cash">Cash</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-block btn-primary">Submit</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -156,46 +302,70 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h3><?= SCHOOL_NAME ?></h3>
+                <div style="border: #e6e8eb 1px solid; padding:15px;">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3><?= SCHOOL_NAME ?></h3>
+                            <p>Plot 4, Johnson Street, Lekki, Lagos State</p>
+                        </div>
                     </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
+                    <div class="table-responsive">
+                        <table class="table">
                             <tr>
-                                <th>S/N</th>
-                                <th>Date</th>
-                                <th>Paid By</th>
-                                <th>Payment Amount</th>
-                                <th>Weaver</th>
-                                <th>Fine</th>
-                                <th>Action</th>
+                                <td>Invoice Number: INV-G-521</td>
+                                <td>Clearance: PARTIAL</td>
+                                <td>Date: 24-Mar-2020</td>
                             </tr>
-                        </thead>
-                        <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>24 Mar 2020</td>
-                                <td>Cash</td>
-                                <td>2,050.00</td>
-                                <td>0.00</td>
-                                <td>0.00</td>
-                                <td>
-                                    <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/accounting/invoice/payment/view") ?>">
-                                        <i class="fas fa-search"></i>
-                                    </a> |
-                                    <a class="btn btn-sm btn-outline-danger" title="Delete" href="#">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                <td>Name: Tolani Dona</td>
+                                <td>Class: JSS 1, Roll: 7, Section: JSS 1</td>
+                                <td>Group:</td>
+                            </tr>
+                            <tr>
+                                <th colspan="3" class="text-center f-bold">Student Copy</th>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="border-top:unset;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Fees Name</th>
+                                                <th class="text-right">Amount (NGN)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tuition</td>
+                                                <td class="text-right">500</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sports</td>
+                                                <td class="text-right">200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ICT</td>
+                                                <td class="text-right">850</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Uniforms</td>
+                                                <td class="text-right">500</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="text-danger">
+                                            <tr>
+                                                <th class="f-bold">Total</th>
+                                                <th class="text-right f-bold">2050</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Print</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
