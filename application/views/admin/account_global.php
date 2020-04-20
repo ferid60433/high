@@ -174,13 +174,13 @@
                                     <td>55100.00</td>
                                     <td>55100.00</td>
                                     <td>
-                                        <input type="text" class="form-control itemPaid" />
+                                        <input type="text" class="form-control itemPaid" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemWeaver" />
+                                        <input type="text" class="form-control itemWeaver" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemFine" />
+                                        <input type="text" class="form-control itemFine" onkeyup="calcTotal()" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,13 +189,13 @@
                                     <td>49.00</td>
                                     <td>49.00</td>
                                     <td>
-                                        <input type="text" class="form-control itemPaid" />
+                                        <input type="text" class="form-control itemPaid" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemWeaver" />
+                                        <input type="text" class="form-control itemWeaver" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemFine" />
+                                        <input type="text" class="form-control itemFine" onkeyup="calcTotal()" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -204,13 +204,13 @@
                                     <td>9800.00</td>
                                     <td>9300.00</td>
                                     <td>
-                                        <input type="text" class="form-control itemPaid" />
+                                        <input type="text" class="form-control itemPaid" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemWeaver" />
+                                        <input type="text" class="form-control itemWeaver" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemFine" />
+                                        <input type="text" class="form-control itemFine" onkeyup="calcTotal()" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -219,13 +219,13 @@
                                     <td>1485.00</td>
                                     <td>635.00</td>
                                     <td>
-                                        <input type="text" class="form-control itemPaid" />
+                                        <input type="text" class="form-control itemPaid" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemWeaver" />
+                                        <input type="text" class="form-control itemWeaver" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemFine" />
+                                        <input type="text" class="form-control itemFine" onkeyup="calcTotal()" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -247,13 +247,13 @@
                                     <td>4704.00</td>
                                     <td>4204.00</td>
                                     <td>
-                                        <input type="text" class="form-control itemPaid" />
+                                        <input type="text" class="form-control itemPaid" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemWeaver" />
+                                        <input type="text" class="form-control itemWeaver" onkeyup="calcPW(this)" />
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control itemFine" />
+                                        <input type="text" class="form-control itemFine" onkeyup="calcTotal()" />
                                     </td>
                                 </tr>
                             </tbody>
@@ -372,4 +372,45 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
+<script>
+    calcPW = function(e) {
+        let price = parseFloat($(e).parents("tr").find("td:eq(3)").html()) << 0;
+        let pa = parseFloat($(e).parents("tr").find("input.itemPaid").val()) << 0;
+        let w = parseFloat($(e).parents("tr").find("input.itemWeaver").val()) << 0;
+        let t = pa + w;
+        if (t > price) {
+            toastr["error"]("Paid amount and weaver cannot be more than amount due!");
+            if ($(e).hasClass("itemPaid")) {
+                $(e).val(price - w);
+            }else{
+                $(e).val(price - pa);
+            }
+        }
+        calcTotal();
+    }
+    calcTotal = function() {
+        let tFine = $("#tFine");
+        let tWeaver = $("#tWeaver");
+        let tPaidFine = $("#tPaidFine");
+        let tPaid = $("#tPaid");
+        let tf = 0,
+            tw = 0,
+            tpf = 0,
+            tp = 0;
+        for (let i = 0; i < $("input.itemFine").length; i++) {
+            tf += parseInt($("input.itemFine")[i].value) << 0;
+        }
+        for (let i = 0; i < $("input.itemWeaver").length; i++) {
+            tw += parseInt($(`input.itemWeaver:eq(${i})`).val()) << 0;
+        }
+        for (let i = 0; i < $("input.itemPaid").length; i++) {
+            tp += parseInt($(`input.itemPaid:eq(${i})`).val()) << 0;
+        }
+        tpf = tf + tp;
+        tFine.html(tf.toFixed(2));
+        tWeaver.html(tw.toFixed(2));
+        tPaidFine.html(tpf.toFixed(2));
+        tPaid.html(tp.toFixed(2));
+    }
+</script>
 <?php $this->load->view("inc/post-script") ?>

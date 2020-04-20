@@ -133,6 +133,7 @@
     $(".itemPaid").keyup(function() {
         let price = parseFloat($(this).parents("tr").find("label.itemDue").html()) << 0;
         if ($(this).val() > price) {
+            toastr["error"]("Paid amount cannot be more than amount due!");
             $(this).val(price)
         }
         let tPaid = $("#tPaid"),

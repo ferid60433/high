@@ -10,3 +10,4 @@
 <link rel="stylesheet" href="<?= base_url("assets/plugins/bootstrap-datepicker/css/datepicker.css") ?>" />
 <!-- bootstrap-clockpicker plugin -->
 <link rel="stylesheet" href="<?= base_url("assets/plugins/bootstrap-clockpicker/css/bootstrap-clockpicker.min.css")?>" />
+<link href="<?= base_url("assets/plugins/toastr/toastr.min.css")?>" rel="stylesheet" />
