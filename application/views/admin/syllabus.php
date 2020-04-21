@@ -58,7 +58,7 @@
                                 <td>Anger Management</td>
                                 <td>finish ml-auto d-none btn-primary btn-sm</td>
                                 <td>2020-02-26</td>
-                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/syllabus/download")?>">Download</a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/syllabus/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/syllabus/delete")?>"><i class="fas fa-trash"></i></a></td>
+                                <td><a class="btn btn-sm btn-outline-info" title="Download" href="<?=base_url("admin/syllabus/download")?>"><i class="fas fa-download"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/syllabus/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/syllabus/delete")?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
