@@ -186,6 +186,7 @@
     calcPaid = function(e){
         let price = parseFloat($(e).parents("tr").find("label.itemSTotal").html()) << 0;
         if($(e).val() > price){
+            toastr["error"]("Paid amount cannot be more than subtotal!");
             $(e).val(price)
         }
         calcTotal();

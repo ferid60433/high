@@ -2,35 +2,33 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Teachers extends CI_Controller
 {
-    public function __construct(){
-        parent::__construct();
-        if (strtolower($this->uri->segment(1)) == "teachers") show_404();
-    }
-    public function index(){
-        $p["title"] = "All Teachers";
-        $p["page"] = "Teachers";
-        $id = xss_clean( $this->input->get('id'));
-		$id = simple_crypt( $id, 'd');
-		$p['teachers'] = empty($id) ?
-		 	$this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN teachers t ON ( u.id = t.uid) ORDER BY u.id DESC")->result()
-			: $this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN teachers t ON ( u.id = t.uid) WHERE t.id = '" .$id."'")->result() ;
-//		var_dump( $p['teachers'] );exit;
-        $this->load->view('admin/teachers', $p);
-    }
-    public function add(){
-        $p["title"] = "Add New Teacher";
-        $p["page_mother"] = "Teachers";
-        $p["page"] = "Add";
-		if( $this->input->post()){
-			$this->form_validation->set_rules('name', 'Teacher name','trim|required|xss_clean');
-			$this->form_validation->set_rules('email', 'Email Address','trim|required|valid_email|xss_clean');
-			$this->form_validation->set_rules('password', 'Password','trim|required|xss_clean|min_length[6]|max_length[50]');
-			$this->form_validation->set_rules('confirm_password', 'Confirm Password','trim|required|xss_clean|min_length[6]|max_length[50]');
-			if( $this->form_validation->run() == false ){
+	public function __construct()
+	{
+		parent::__construct();
+		if (strtolower($this->uri->segment(1)) == "teachers") show_404();
+	}
+	public function index()
+	{
+		$p["title"] = "All Teachers";
+		$p["page"] = "Teachers";
+		$p['teachers'] = $this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN teachers t ON ( u.id = t.uid) ORDER BY u.id DESC")->result();
+		$this->load->view('admin/teachers', $p);
+	}
+	public function add()
+	{
+		$p["title"] = "Add New Teacher";
+		$p["page_mother"] = "Teachers";
+		$p["page"] = "Add";
+		if ($this->input->post()) {
+			$this->form_validation->set_rules('name', 'Teacher name', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|xss_clean');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
+			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
+			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('error_msg', validation_errors());
 				$this->load->view('admin/add_teacher', $p);
 				return;
-			}else{
+			} else {
 				$data = array(
 					'name' => $this->input->post('name'),
 					'designation' => $this->input->post('designation'),
@@ -54,14 +52,14 @@ class Teachers extends CI_Controller
 				);
 				$this->db->trans_start();
 				$user_id = $this->user->create_account($user_data);
-				if( !is_numeric($user_id) ) {
+				if (!is_numeric($user_id)) {
 					$this->session->set_flashdata('error_msg', "Sorry! There was an error creating the account. " . $user_id);
 					$this->load->view('admin/add_teacher', $p);
 					return;
-				}else{
+				} else {
 					// lets populate the parent table
 					$data['uid'] = $user_id;
-					if( $_FILES['pic'] ){
+					if ($_FILES['pic']) {
 						$config = array(
 							'upload_path' => "./assets/img/",
 							'allowed_types' => "gif|jpg|png|jpeg",
@@ -72,42 +70,41 @@ class Teachers extends CI_Controller
 							'encrypt_name'   => TRUE
 						);
 						$this->load->library('upload', $config);
-						if( $this->upload->do_upload('pic') ){
+						if ($this->upload->do_upload('pic')) {
 							$data['pic'] = $this->upload->data('file_name');
 						}
 					}
 					$parent_id = $this->user->create_account($data, 'teachers');
 					$this->db->trans_complete();
-					if ($this->db->trans_status() === FALSE){
+					if ($this->db->trans_status() === FALSE) {
 						$this->session->set_flashdata('error_msg', "There was an error creating the parent' account.");
 						$this->db->trans_rollback();
-					}else{
+					} else {
 						$this->db->trans_commit();
 						$this->session->set_flashdata('success_msg', "Account created successfully.");
 						redirect('admin/teachers/');
 					}
-
 				}
 			}
-		}else{
+		} else {
 			$this->load->view('admin/add_teacher', $p);
 		}
-    }
+	}
 
-    public function view($id){
-        $p["title"] = "View Teacher";
-        $p["page_mother"] = "Teachers";
-        $p["page"] = "View";
-		$id = (int)simple_crypt($id , 'd');
+	public function view($id)
+	{
+		$p["title"] = "View Teacher";
+		$p["page_mother"] = "Teachers";
+		$p["page"] = "View";
+		$id = (int) simple_crypt($id, 'd');
 		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
- 		FROM users u JOIN teachers p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
-		if( $id && $row ){
+ 		FROM users u JOIN teachers p ON ( u.id = p.uid) WHERE u.id = '" . $id . "' ")->row();
+		if ($id && $row) {
 			$p['teacher'] = $row;
 			$this->load->view('admin/view_teacher', $p);
-		}else{
+		} else {
 			$this->session->set_flashdata('error_msg', "Sorry, the teacher account you're looking for can't be found.");
 			redirect($_SERVER['HTTP_REFERER']);
 		}
-
-    }
+	}
 }

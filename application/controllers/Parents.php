@@ -101,6 +101,7 @@ class Parents extends MY_Controller
  		FROM users u JOIN parents p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
 		if( $id && $row ){
 			$p['parent'] = $row;
+			$p['children'] = $this->site->run_sql("SELECT u.email, u.status, s.* FROM users u JOIN students s ON ( u.id = s.uid) WHERE s.gid = $id ORDER BY u.id DESC")->result();
 			$this->load->view('admin/view_parent', $p);
 		}else{
 			$this->session->set_flashdata('error_msg', "Sorry, the parent account you're looking for can't be found.");

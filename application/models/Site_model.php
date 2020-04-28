@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: phillip
@@ -23,7 +24,7 @@ class Site_model extends CI_Model
                 $number = random_string('nozero', 6);
                 $slug = $slug . '-' . $number;
                 $this->db->where('slug', $slug);
-                $this->db->from( $table);
+                $this->db->from($table);
                 $count = $this->db->count_all_results();
             } else {
                 $count = 0;
@@ -32,28 +33,34 @@ class Site_model extends CI_Model
         return $slug;
     }
 
-    function get_result($table, $select = '', $condition = ''){
-        if( $select != '' ){
+    function get_result($table, $select = '', $condition = '')
+    {
+        if ($select != '') {
             $this->db->select($select);
         }
-        if( $condition != '' ){
-            $this->db->where( $condition );
+        if ($condition != '') {
+            $this->db->where($condition);
         }
-        return $this->db->order_by('id', 'DESC')->get( $table )->result();
+        return $this->db->order_by('id', 'DESC')->get($table)->result();
     }
 
-    function get_row($table = "users", $select = "", $condition = "" ){
-        if( $select != '' ){
+    function get_row($table = "users", $select = "", $condition = "")
+    {
+        if ($select != '') {
             $this->db->select($select);
         }
-        if( $condition != '' ){
-            $this->db->where( $condition );
+        if ($condition != '') {
+            $this->db->where($condition);
         }
-        return $this->db->get( $table )->row();
+        return $this->db->get($table)->row();
+    }
+    function get_user($table = "users", $id = "")
+    {
+        return $this->site->run_sql("SELECT u.email, u.status, s.* FROM users u JOIN $table s ON ( u.id = s.uid) WHERE u.id = $id")->row();
     }
 
 
-        /**
+    /**
      * @param array $data
      * @param string $table_name
      * @return int|string
@@ -74,25 +81,28 @@ class Site_model extends CI_Model
     /*
      * Insert batch
      * */
-    function insert_batch( $table_name = 'plans', $data = array() ){
-        if( !empty($data)) {
+    function insert_batch($table_name = 'plans', $data = array())
+    {
+        if (!empty($data)) {
             try {
                 return $this->db->insert_batch($table_name, $data);
-            } catch (Exception $e ) {
+            } catch (Exception $e) {
                 return $e->getMessage();
             }
         }
     }
 
-    function delete( $table, $where ){
-        $this->db->where( $where );
-        return $this->db->delete( $table );
+    function delete($table, $where)
+    {
+        $this->db->where($where);
+        return $this->db->delete($table);
     }
 
     // Delete service from admin
-    function delete_service( $id ){
-        if( $this->delete(array('sid' => $id), 'plans') ){
-            return $this->delete(array('id' => $id ), 'services' );
+    function delete_service($id)
+    {
+        if ($this->delete(array('sid' => $id), 'plans')) {
+            return $this->delete(array('id' => $id), 'services');
         }
     }
 
@@ -109,25 +119,26 @@ class Site_model extends CI_Model
         return $number;
     }
 
-    function find_username($table = 'contacts', $contact = '' )
+    function find_username($table = 'contacts', $contact = '')
     {
-        if( $this->get_row('contacts', 'id', array('name' => $contact )) ){
+        if ($this->get_row('contacts', 'id', array('name' => $contact))) {
             do {
                 $random = random_string('nozero', 5);
                 $this->db->where($contact, $random);
                 $this->db->from($table);
                 $count = $this->db->count_all_results();
             } while ($count >= 1);
-            return 'PS-'.$random;
-        }else{
+            return 'PS-' . $random;
+        } else {
             return $contact;
         }
     }
 
     // General SQL query
 
-    function run_sql( $query ){
-        return $this->db->query( $query );
+    function run_sql($query)
+    {
+        return $this->db->query($query);
     }
 
 
@@ -135,13 +146,15 @@ class Site_model extends CI_Model
      * Update
      * */
 
-    function update($table = 'users', $data = array(), $condition = array()){
-        $this->db->where( $condition );
+    function update($table = 'users', $data = array(), $condition = array())
+    {
+        $this->db->where($condition);
         return $this->db->update($table, $data);
     }
 
 
-    function set_field( $table, $field, $set, $where ){
+    function set_field($table, $field, $set, $where)
+    {
         $this->db->where($where);
         $this->db->set($field, $set, false);
         return $this->db->update($table);
@@ -149,38 +162,41 @@ class Site_model extends CI_Model
 
     function auto_version($file = '')
     {
-        if (!file_exists($file)):
+        if (!file_exists($file)) :
             return $file;
-        else:
+        else :
             $mtime = filemtime($file);
             return base_url() . $file . '?' . $mtime;
         endif;
     }
 
 
-    function count_row( $table, $where = ''){
-    	if(!empty( $where)){ $this->db->where( $where ); }
-        $this->db->from( $table );
+    function count_row($table, $where = '')
+    {
+        if (!empty($where)) {
+            $this->db->where($where);
+        }
+        $this->db->from($table);
         return $this->db->count_all_results();
     }
 
-	function pagination_result($array = array() , $table = 'sms'){
+    function pagination_result($array = array(), $table = 'sms')
+    {
 
-		$this->db->select('*');
-		$this->db->from($table);
-		if( isset($array['where']) ){
-			foreach ( $array['where'] as $key => $value ){
-				$this->db->where( $key , $value);
-			}
-		}
-		if( isset( $array['group_by']) ){
-			$this->db->group_by( $array['group_by']);
-		}
-		$this->db->order_by('id', 'ASC');
-		if( isset( $array['limit'])) {
-			$this->db->limit($array['limit'],  $array['offset']);
-		}
-		return $this->db->get()->result();
-	}
-
+        $this->db->select('*');
+        $this->db->from($table);
+        if (isset($array['where'])) {
+            foreach ($array['where'] as $key => $value) {
+                $this->db->where($key, $value);
+            }
+        }
+        if (isset($array['group_by'])) {
+            $this->db->group_by($array['group_by']);
+        }
+        $this->db->order_by('id', 'ASC');
+        if (isset($array['limit'])) {
+            $this->db->limit($array['limit'],  $array['offset']);
+        }
+        return $this->db->get()->result();
+    }
 }

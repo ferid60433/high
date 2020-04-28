@@ -14,7 +14,7 @@ class Students extends MY_Controller
 		$p['students'] = $this->site->run_sql("SELECT u.email, u.status, s.* FROM users u JOIN students s ON ( u.id = s.uid) ORDER BY u.id DESC")->result();
 		$p['classes'] = $this->site->run_sql("SELECT c.id, c.name, s.name section FROM classes c JOIN sections s ON (s.cid = c.id) ORDER BY c.id DESC")->result();
 		$this->load->view('admin/students', $p);
-    }
+	}
 
 	/*
      * Add student to the student
@@ -40,8 +40,8 @@ class Students extends MY_Controller
 				$this->session->set_flashdata('error_msg', validation_errors());
 				$this->load->view('admin/add_student', $p);
 				return;
-			}else{
-//				@TODO: Work on the Admission Number
+			} else {
+				//				@TODO: Work on the Admission Number
 				$data = array(
 					'gid' => $this->input->post('guardian'),
 					'name' => $this->input->post('name'),
@@ -115,11 +115,20 @@ class Students extends MY_Controller
 		}
 	}
 
-	public function view()
+	public function view($id)
 	{
 		$p["title"] = "View Student";
 		$p["page_mother"] = "Students";
 		$p["page"] = "View";
-		$this->load->view('admin/view_student', $p);
+		$id = (int)simple_crypt($id , 'd');
+		$row = $this->site->run_sql("SELECT u.email, u.status, p.*
+ 		FROM users u JOIN students p ON ( u.id = p.uid) WHERE u.id = '".$id."' ")->row();
+		if( $id && $row ){
+			$p['student'] = $row;
+			$this->load->view('admin/view_student', $p);
+		}else{
+			$this->session->set_flashdata('error_msg', "Sorry, the student account you're looking for can't be found.");
+			redirect($_SERVER['HTTP_REFERER']);
+		}
 	}
 }

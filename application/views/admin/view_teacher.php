@@ -10,21 +10,23 @@
     <div class="col-md-3">
         <div class="card card-white">
             <div class="card-body user-profile-card">
-                <img src="<?= base_url("assets/img/avatars/profile.jpg") ?>" class="user-profile-image rounded-circle" alt="" />
-                <h4 class="text-center m-t-lg">Mrs Chinenye</h4>
+                <img src="<?= ($teacher->pic) ?
+                                base_url('assets/img/' . $teacher->pic) :
+                                base_url('assets/img/avatars/profile.jpg') ?>" class="user-profile-image rounded-circle" alt="<?= $teacher->name; ?>" />
+                <h4 class="text-center m-t-lg"><?= $teacher->name ?></h4>
                 <p class="text-center">Teacher</p>
                 <table class="table table-bordered">
                     <tr>
                         <td class="text-left">Gender </td>
-                        <td> Female</td>
+                        <td class="text-capitalize"> <?= $teacher->gender ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Date of Birth </td>
-                        <td> 01 Feb 2000</td>
+                        <td><?= neatDate($teacher->dob) ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Phone</td>
-                        <td> 09023251661</td>
+                        <td> <?= $teacher->phone ?></td>
                     </tr>
                 </table>
             </div>
@@ -56,15 +58,15 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-md-6">Join Date: 02 Feb 2015</div>
-                            <div class="col-md-6">Religion: Christianity</div>
+                            <div class="col-md-6">Join Date: <?= neatDate($teacher->joined) ?></div>
+                            <div class="col-md-6 text-capitalize">Religion: <?= $teacher->religion ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Email: teacher@svl.com</div>
-                            <div class="col-md-6">Address: Schoolville ltd.</div>
+                            <div class="col-md-6">Email: <?= $teacher->email ?></div>
+                            <div class="col-md-6">Address: <?= $teacher->address ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Username: teachu</div>
+                            <div class="col-md-6">Username: <?= $teacher->email ?></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="routine" role="tabpanel" aria-labelledby="routine-tab">

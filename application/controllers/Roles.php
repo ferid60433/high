@@ -11,6 +11,7 @@ class Roles extends CI_Controller
     {
         $p["title"] = "User Roles";
         $p["page"] = "Roles";
+        $p['roles'] = $this->db->get("roles")->result();
         $this->load->view('admin/user_roles', $p);
     }
     public function add()

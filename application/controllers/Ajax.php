@@ -112,8 +112,8 @@ class Ajax extends CI_Controller
 					$res['description'] = $s->description;
 					$res['syllabus'] = $s->syllabus;
 					$res['time_uploaded'] = neatDate($s->time_uploaded) . ' ' . neatTime($s->time_uploaded);
-					$res['actions'] = '<a class="btn btn-outline-info" href="' .base_url('admin/syllabus/download/'). '">Download</a> |
-<a class="btn btn-outline-primary" href="' .base_url('admin/syllabus/edit/' . simple_crypt($s->id)). '">Edit</a> ';
+					$res['actions'] = '<a class="btn btn-outline-info" title="Download" href="' .base_url('admin/syllabus/download/'). '"><i class="fas fa-download"></i></a> |
+<a class="btn btn-outline-primary" title="Edit" href="' .base_url('admin/syllabus/edit/' . simple_crypt($s->id)). '"><i class="fas fa-edit"></i></a> ';
 					array_push( $resarray, $res );
 					$x++;
 				}
@@ -155,9 +155,9 @@ class Ajax extends CI_Controller
 					$res['deadline'] = neatDate($s->deadline) . ' ' . neatTime($s->deadline);
 					$res['class'] = strtoupper($s->class . ' ' . $section );
 					$res['file'] ='file URL';
-					$res['actions'] = '<a class="btn btn-sm btn-outline-info" href="' .base_url('admin/assignments/download/'). '">Download</a> |
-<a class="btn btn-sm btn-outline-primary" href="' .base_url('admin/assignments/edit/' . simple_crypt($s->id)). '">Edit</a> | 
-<a class="btn btn-sm btn-outline-danger" href="' .base_url('admin/assignments/delete/' . simple_crypt($s->id)). '">Delete</a>
+					$res['actions'] = '<a class="btn btn-sm btn-outline-info" title="Download" href="' .base_url('admin/assignments/download/'). '"><i class="fas fa-download"></i></a> |
+<a class="btn btn-sm btn-outline-primary" title="Edit" href="' .base_url('admin/assignments/edit/' . simple_crypt($s->id)). '"><i class="fas fa-edit"></i></a> | 
+<a class="btn btn-sm btn-outline-danger" title="Delete" href="' .base_url('admin/assignments/delete/' . simple_crypt($s->id)). '"><i class="fas fa-trash"></i></a>
  ';
 					array_push( $resarray, $res );
 					$x++;

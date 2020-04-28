@@ -37,7 +37,7 @@
                                     <td><?= statusLabel($parent->status); ?></td>
                                     <td>
                                         <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/parents/view/" . simple_crypt($parent->uid) . '/') ?>"><i class="fas fa-search"></i></a> |
-                                        <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/parents/edit/" . simple_crypt($parent->uid . '/')) ?>"><i class="fas fa-edit"></i></a> |
+                                        <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/parents/edit/" . simple_crypt($parent->uid) . '/') ?>"><i class="fas fa-edit"></i></a> |
                                         <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/parents/delete/") ?>"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>

@@ -60,3 +60,4 @@
     <link href="<?= base_url("assets/plugins/icheck/square/_all.css") ?>" rel="stylesheet">
     <script src="<?= base_url("assets/plugins/icheck/icheck.js") ?>"></script>
 <?php endif; ?>
+<script src="<?= base_url("assets/plugins/toastr/toastr.min.js")?>"></script>
