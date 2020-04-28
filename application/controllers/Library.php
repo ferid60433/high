@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Library extends CI_Controller
+class Library extends MY_Controller
 {
     public function __construct()
     {

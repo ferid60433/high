@@ -67,7 +67,7 @@ class Sections extends MY_Controller
 					$this->session->set_flashdata('success_msg', "The Section (" . $name . ") has been added successfully. ");
 					($on_page === "on") ?
 						$this->load->view('admin/add_section', $p) :
-						redirect($user_group . '/add_section');
+						redirect($user_group . '/section');
 				}
 			}
 		} else {

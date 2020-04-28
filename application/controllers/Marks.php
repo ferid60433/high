@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Marks extends CI_Controller
+class Marks extends MY_Controller
 {
     public function __construct()
     {

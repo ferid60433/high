@@ -19,6 +19,7 @@ class Users extends MY_Controller
         $p["title"] = "Add New User";
         $p["page_mother"] = "Users";
         $p["page"] = "Add";
+        $p["roles"] = $this->db->get("roles")->result();
         $this->load->view('admin/add_user', $p);
     }
     public function view($id)
