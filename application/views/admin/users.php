@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-heading clearfix mb-3">
-                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/users/add')?>'"><i class="fas fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/users/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -22,15 +22,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td></td>
-                                <td>Mr Chidubem</td>
-                                <td>chidu@svl.com</td>
-                                <td>Accountant</td>
-                                <td><span class="badge badge-info">active</span></td>
-                                <td><a class="btn btn-sm btn-outline-info" title="View" href="<?=base_url("admin/users/view")?>"><i class="fas fa-search"></i></a> | <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?=base_url("admin/users/edit")?>"><i class="fas fa-edit"></i></a> | <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?=base_url("admin/users/delete")?>"><i class="fas fa-trash"></i></a></td>
-                            </tr>
+                            <?php $x = 1;
+                            foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= "$x." ?></td>
+                                    <td>
+                                        <img class="img img-thumbnail" width="50" src="<?= ($user->pic) ?
+                                                                                            base_url('assets/img/' . $user->pic) :
+                                                                                            base_url('assets/img/avatars/profile.jpg') ?>" />
+                                    </td>
+                                    <td><?= $user->name ?></td>
+                                    <td><?= $user->email ?></td>
+                                    <td><?= $this->site->get_row("roles", "*", "id = $user->role")->title ?></td>
+                                    <td><?= statusLabel($user->status) ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-info" title="View" href="<?= base_url("admin/users/view/" . simple_crypt($user->uid) . '/') ?>">
+                                            <i class="fas fa-search"></i>
+                                        </a> |
+                                        <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/users/edit/" . simple_crypt($user->uid) . '/') ?>">
+                                            <i class="fas fa-edit"></i>
+                                        </a> |
+                                        <a class="btn btn-sm btn-outline-danger" title="Delete" href="<?= base_url("admin/users/delete") ?>">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php $x++;
+                            endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -39,4 +57,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

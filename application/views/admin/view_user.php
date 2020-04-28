@@ -10,21 +10,23 @@
     <div class="col-md-3">
         <div class="card card-white">
             <div class="card-body user-profile-card">
-                <img src="<?= base_url("assets/img/avatars/profile.jpg") ?>" class="user-profile-image rounded-circle" alt="" />
-                <h4 class="text-center m-t-lg">Mr Chidubem</h4>
-                <p class="text-center">Accountant</p>
+                <img src="<?= ($user->pic) ?
+                                base_url('assets/img/' . $user->pic) :
+                                base_url('assets/img/avatars/profile.jpg') ?>" class="user-profile-image rounded-circle" alt="<?= $user->name; ?>" />
+                <h4 class="text-center m-t-lg"><?= $user->name ?></h4>
+                <p class="text-center text-capitalize"><?= $this->site->get_row("roles", "*", "id = $user->role")->title ?></p>
                 <table class="table table-bordered">
                     <tr>
                         <td class="text-left">Gender </td>
-                        <td> Male</td>
+                        <td class="text-capitalize"><?= $user->gender ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Date of Birth </td>
-                        <td> 01 Feb 2000</td>
+                        <td><?= neatDate($user->dob) ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Phone</td>
-                        <td> 09023251661</td>
+                        <td> <?= $user->phone ?></td>
                     </tr>
                 </table>
             </div>
@@ -47,15 +49,15 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-md-6">Join Date: 02 Feb 2015</div>
-                            <div class="col-md-6">Religion: Christianity</div>
+                            <div class="col-md-6">Join Date: <?= neatDate($user->joined) ?></div>
+                            <div class="col-md-6 text-capitalize">Religion: <?= $user->religion ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Email: teacher@svl.com</div>
-                            <div class="col-md-6">Address: Schoolville ltd.</div>
+                            <div class="col-md-6">Email: <?= $user->email ?></div>
+                            <div class="col-md-6">Address: <?= $user->address ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Username: teachu</div>
+                            <div class="col-md-6">Username: <?= $user->email ?></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="attendance" role="tabpanel" aria-labelledby="attendance-tab">
@@ -539,9 +541,9 @@
                                                             <div class="input-group-text"><i class="fas fa-upload"></i></div>
                                                         </div>
                                                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -586,4 +588,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

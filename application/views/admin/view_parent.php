@@ -10,22 +10,20 @@
     <div class="col-md-3">
         <div class="card card-white">
             <div class="card-body user-profile-card">
-                <img
-					src="<?= ( $parent->pic) ?
-						base_url('assets/img/' . $parent->pic) :
-						base_url('assets/img/avatars/profile.jpg')?>"
-					class="user-profile-image rounded-circle" alt="<?= $parent->guardian_name; ?>" />
+                <img src="<?= ($parent->pic) ?
+                                base_url('assets/img/' . $parent->pic) :
+                                base_url('assets/img/avatars/profile.jpg') ?>" class="user-profile-image rounded-circle" alt="<?= $parent->guardian_name; ?>" />
                 <h4 class="text-center m-t-lg">
-					<?= ( !empty( $parent->guardian_name)) ?
-						ucwords($parent->guardian_name) :
-						ucwords( $parent->father_name) ?>
-				</h4>
+                    <?= (!empty($parent->guardian_name)) ?
+                        ucwords($parent->guardian_name) :
+                        ucwords($parent->father_name) ?>
+                </h4>
                 <p class="text-center">Parent</p>
 
                 <table class="table table-bordered">
                     <tr>
                         <td class="text-left">Phone </td>
-                        <td><a href="tel:<?= $parent->phone;?>"><?= $parent->phone?></a></td>
+                        <td><a href="tel:<?= $parent->phone; ?>"><?= $parent->phone ?></a></td>
                     </tr>
                 </table>
             </div>
@@ -48,16 +46,16 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-md-6">Father's Name: <?= ucwords( $parent->father_name); ?></div>
-                            <div class="col-md-6">Father's Profession: <?= ucwords($parent->father_prof)?></div>
+                            <div class="col-md-6">Father's Name: <?= ucwords($parent->father_name); ?></div>
+                            <div class="col-md-6">Father's Profession: <?= ucwords($parent->father_prof) ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Mother's Name: <?= ucwords($parent->mother_name ) ;?></div>
-                            <div class="col-md-6">Mother's Profession: <?= ucwords($parent->mother_prof)?></div>
+                            <div class="col-md-6">Mother's Name: <?= ucwords($parent->mother_name); ?></div>
+                            <div class="col-md-6">Mother's Profession: <?= ucwords($parent->mother_prof) ?></div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">Email: <?= $parent->email; ?></div>
-                            <div class="col-md-6">Phone: <?= $parent->phone;?></div>
+                            <div class="col-md-6">Phone: <?= $parent->phone; ?></div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">Address: <?= ucwords($parent->address); ?></div>
@@ -89,34 +87,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-									<?php $x=1; foreach ( $children as $child ): ?>
-                                    <tr>
-                                        <td>
-                                            <?= $x;?>
-                                        </td>
-                                        <td>
-                                            <img
-												src="<?= (isset( $child->pic)) ?
-													base_url('assets/img/' . $child->pic) :
-													base_url("assets/img/avatars/user-dropdown.jpg");
-												?>"
-												alt="<?= $child->name; ?>"
-												class="rounded-circle">
-                                        </td>
-                                        <td>
-                                            <?= ucwords($child->name); ?>
-                                        </td>
-                                        <td>
-                                            <?= $child->roll;?>
-                                        </td>
-                                        <td>
-                                            <?= $child->class; ?>
-                                        </td>
-                                        <td>
-											<?= $child->section; ?>
-                                        </td>
-                                    </tr>
-									<?php endforeach;?>
+                                    <?php $x = 1;
+                                    foreach ($children as $child) : ?>
+                                        <tr>
+                                            <td>
+                                                <?= $x; ?>
+                                            </td>
+                                            <td>
+                                                <img src="<?= (isset($child->pic)) ?
+                                                                base_url('assets/img/' . $child->pic) :
+                                                                base_url("assets/img/avatars/user-dropdown.jpg");
+                                                            ?>" alt="<?= $child->name; ?>" class="rounded-circle" style="width:50px;height:50px;">
+                                            </td>
+                                            <td>
+                                                <?= ucwords($child->name); ?>
+                                            </td>
+                                            <td>
+                                                <?= $child->roll; ?>
+                                            </td>
+                                            <td class="text-uppercase">
+                                                <?= $this->site->get_row("classes", "*", "id = $child->cid")->name ?>
+                                            </td>
+                                            <td class="text-capitalize">
+                                                <?= $this->site->get_row("sections", "*", "id = $child->sid")->name ?>
+                                            </td>
+                                        </tr>
+                                    <?php $x++;
+                                    endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -151,9 +148,9 @@
                                                             <div class="input-group-text"><i class="fas fa-upload"></i></div>
                                                         </div>
                                                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,4 +195,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

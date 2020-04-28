@@ -10,25 +10,27 @@
     <div class="col-md-3">
         <div class="card card-white">
             <div class="card-body user-profile-card">
-                <img src="<?= base_url("assets/img/avatars/profile.jpg") ?>" class="user-profile-image rounded-circle" alt="" />
-                <h4 class="text-center m-t-lg">Brad Pitts</h4>
+                <img src="<?= ($student->pic) ?
+                                base_url('assets/img/' . $student->pic) :
+                                base_url('assets/img/avatars/profile.jpg') ?>" class="user-profile-image rounded-circle" alt="<?= $student->name; ?>" />
+                <h4 class="text-center m-t-lg"><?= $student->name ?></h4>
                 <p class="text-center">Student</p>
                 <table class="table table-bordered">
                     <tr>
                         <td class="text-left">Admission No </td>
-                        <td> 001</td>
+                        <td> <?= $student->adm_no ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Roll</td>
-                        <td> 2</td>
+                        <td> <?= $student->roll ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Class</td>
-                        <td> JSS1</td>
+                        <td style="text-transform: uppercase;"> <?= $this->site->get_row("classes", "*", "id = $student->cid")->name ?></td>
                     </tr>
                     <tr>
                         <td class="text-left">Arm/Section</td>
-                        <td> -</td>
+                        <td style="text-transform: uppercase;"> <?= $this->site->get_row("sections", "*", "id = $student->sid")->name ?></td>
                     </tr>
                 </table>
             </div>
@@ -77,49 +79,50 @@
                             <div class="col-md-6">Optional Subjects: </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Date of Birth: 04 Apr 2001</div>
-                            <div class="col-md-6">Gender: Male</div>
+                            <div class="col-md-6">Date of Birth: <?= neatDate($student->dob) ?></div>
+                            <div class="col-md-6 text-capitalize">Gender: <?= $student->gender ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Blood Group: A+</div>
-                            <div class="col-md-6">Religion: Christianity</div>
+                            <div class="col-md-6">Blood Group: <?= $student->blood_group ?></div>
+                            <div class="col-md-6 text-capitalize">Religion: <?= $student->religion ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Email: bp@svl.com</div>
-                            <div class="col-md-6">Phone: 08012345678</div>
+                            <div class="col-md-6">Email: <?= $student->email ?></div>
+                            <div class="col-md-6">Phone: <?= $student->phone ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">State: Lagos</div>
-                            <div class="col-md-6">Country: Nigeria</div>
+                            <div class="col-md-6 text-capitalize">State: <?= $student->state ?></div>
+                            <div class="col-md-6 text-capitalize">Country: <?= $student->country ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Remarks: Very attentive</div>
-                            <div class="col-md-6">Username: bpitts</div>
+                            <div class="col-md-6">Remarks: <?= $student->remarks ?></div>
+                            <div class="col-md-6">Username: <?= $student->email ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Address: Schoolville ltd.</div>
-                            <div class="col-md-6">Extra Curricular Activities: </div>
+                            <div class="col-md-6">Address: <?= $student->address ?></div>
+                            <div class="col-md-6">Extra Curricular Activities: <?= $student->activities ?></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="parents" role="tabpanel" aria-labelledby="parents-tab">
+                        <?php $g = $this->site->get_user("parents", "$student->gid"); ?>
                         <div class="row">
-                            <div class="col-md-6">Guardian: Mr & Mrs Pitts</div>
-                            <div class="col-md-6">Father's Name: Mr Pitts</div>
+                            <div class="col-md-6">Guardian: <?= $g->guardian_name ?></div>
+                            <div class="col-md-6">Father's Name: <?= $g->father_name ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Mother's Name: Mrs Pitts</div>
-                            <div class="col-md-6">Father's Profession: Engineer</div>
+                            <div class="col-md-6">Mother's Name: <?= $g->mother_name ?></div>
+                            <div class="col-md-6 text-capitalize">Father's Profession: <?= $g->father_prof ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Mother's Profession: Teacher</div>
-                            <div class="col-md-6">Email: pitts@aol.com</div>
+                            <div class="col-md-6 text-capitalize">Mother's Profession: <?= $g->mother_prof ?></div>
+                            <div class="col-md-6">Email: <?= $g->email ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">Phone: 08012345678</div>
-                            <div class="col-md-6">Username: boomboom</div>
+                            <div class="col-md-6">Phone: <?= $g->guardian_name ?></div>
+                            <div class="col-md-6">Username: <?= $g->email ?></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">Address: Schoolville ltd. Schoolville ltd.</div>
+                            <div class="col-md-12">Address: <?= $g->address ?></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="routine" role="tabpanel" aria-labelledby="routine-tab">
@@ -1050,9 +1053,9 @@
                                                             <div class="input-group-text"><i class="fas fa-upload"></i></div>
                                                         </div>
                                                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1221,4 +1224,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>
