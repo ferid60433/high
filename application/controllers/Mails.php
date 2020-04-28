@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Mails extends CI_Controller
+class Mails extends MY_Controller
 {
     public function __construct()
     {

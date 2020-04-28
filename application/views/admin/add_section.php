@@ -90,8 +90,7 @@
 									<div class="input-group-prepend">
 										<div class="input-group-text"><i class="fas fa-book"></i></div>
 									</div>
-									<textarea type="text" class="form-control" placeholder="Note" id="note" name="note">
-									</textarea>
+									<textarea type="text" class="form-control" placeholder="Note" id="note" name="note"></textarea>
 								</div>
 							</div>
 						</div>

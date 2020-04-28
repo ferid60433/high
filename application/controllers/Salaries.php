@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Salaries extends CI_Controller
+class Salaries extends MY_Controller
 {
     public function __construct()
     {

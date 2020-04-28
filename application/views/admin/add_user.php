@@ -52,11 +52,11 @@
                                                     </div>
                                                     <select class="form-control" id="role" name="role">
                                                         <option>Select</option>
-                                                        <option value="bus assistant">Bus Assistant</option>
-                                                        <option value="moderator">Moderator</option>
-                                                        <option value="receptionist">Receptionist</option>
-                                                        <option value="librarian">Librarian</option>
-                                                        <option value="accountant">Accountant</option>
+                                                        <?php foreach ($roles as $role) : ?>
+                                                            <option value="<?= $role->id; ?>">
+                                                                <?= ucwords($role->title); ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -95,9 +95,9 @@
                                                         <div class="input-group-text"><i class="fas fa-camera"></i></div>
                                                     </div>
                                                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
+                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -217,4 +217,4 @@
     </div>
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class EAttendance extends CI_Controller
+class EAttendance extends MY_Controller
 {
     public function __construct()
     {

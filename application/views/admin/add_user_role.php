@@ -11,8 +11,9 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
+                <?php $this->load->view('msg_view'); ?>
                 <div id="rootWizardStudent">
-                    <form id="wizardFormStudent">
+                    <form id="wizardFormStudent" method="post">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="subject" role="tabpanel">
                                 <div class="row m-b-lg">
@@ -24,7 +25,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text"><i class="fas fa-user-check"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="User Role">
+                                                    <input type="text" class="form-control" placeholder="User Role" name="title">
                                                 </div>
                                             </div>
                                         </div>
@@ -37,7 +38,7 @@
                                                             <div class="form-check">
                                                                 <div class="checker" id="uniform-<?= $m->title ?>">
                                                                     <span>
-                                                                        <input class="form-check-input" type="checkbox" id="<?= $m->title ?>" <?=($m->url == "messages")?"checked":""?>>
+                                                                        <input name="roles[]" class="form-check-input" value="<?= $m->title ?>" type="checkbox" id="<?= $m->title ?>" <?= ($m->url == "messages") ? "checked" : "" ?>>
                                                                     </span>
                                                                 </div>
                                                                 <label class="form-check-label" for="<?= $m->title ?>">
@@ -50,13 +51,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Note</label>
+                                            <label class="col-sm-2 col-form-label">Stay On Page</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i class="fas fa-list"></i></div>
-                                                    </div>
-                                                    <textarea type="text" class="form-control" placeholder="Note" id="note" name="note"></textarea>
+                                                    <input type="checkbox" class="form-control" name="on_page">
+                                                    <span class="help-block">Stay on this page after adding?</span>
                                                 </div>
                                             </div>
                                         </div>

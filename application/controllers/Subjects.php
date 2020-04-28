@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Subjects extends CI_Controller
+class Subjects extends MY_Controller
 {
     public function __construct()
     {
@@ -52,7 +52,7 @@ class Subjects extends CI_Controller
 				}else{
 					$on_page = $this->input->post('on_page');
 					$this->db->trans_commit();
-					$this->session->set_flashdata('success_msg', "The Subject (" .$this->input->post('name'). ") has been added successfully. " );
+					$this->session->set_flashdata('success_msg', "The Subject has been added successfully. " );
 					( $on_page === "on" ) ?
 						$this->load->view('admin/add_subject', $p) :
 						redirect($user_group.'/subjects/add/');
