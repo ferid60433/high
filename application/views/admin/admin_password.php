@@ -11,6 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
+				<?php $this->load->view('msg_view'); ?>
                 <div id="rootWizardStudent">
                     <form id="wizardFormStudent">
                         <div class="tab-content" id="myTabContent">
@@ -25,7 +26,7 @@
                                                         <div class="input-group-text"><i class="fas fa-users"></i></div>
                                                     </div>
                                                     <select class="form-control" id="class" name="cid" required>
-                                                        <option>-- Select Role --</option>
+                                                        <option>Select Role</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -38,7 +39,7 @@
                                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                                     </div>
                                                     <select class="form-control" id="class" name="cid" required>
-                                                        <option>-- Select User --</option>
+                                                        <option>Select User</option>
                                                     </select>
                                                 </div>
                                             </div>

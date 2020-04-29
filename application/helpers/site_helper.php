@@ -222,7 +222,7 @@ if(!function_exists('load_select')){
 	function load_select($name = '', $extra = array() ){
 		$required = ( !empty( $array) && 	$extra['required'] ) ? 'required' : null;
 		$return = '<select class="form-control" '.$required.' name="' .$name . '">
-			<option value="" selected>-- Select an option --</option>';
+			<option value="" selected> Select an option </option>';
 		$options = explode('|', lang($name));
 		if( $options ) {
 			foreach ( $options as $option ) :

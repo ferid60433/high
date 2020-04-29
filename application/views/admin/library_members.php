@@ -19,7 +19,7 @@
                                         <div class="input-group-text"><i class="fas fa-school"></i></div>
                                     </div>
                                     <select class="form-control" id="gender" name="class">
-                                        <option value="" selected>-- Select-- </option>
+                                        <option value="" selected> Select-- </option>
                                     </select>
                                 </div>
                             </div>

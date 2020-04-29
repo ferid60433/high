@@ -60,7 +60,7 @@
                                                         <div class="input-group-text"><i class="fas fa-user-friends"></i></div>
                                                     </div>
                                                     <select class="form-control" id="guardian" required name="guardian">
-														<option value="" selected>-- Select Guardian --</option>
+														<option value="" selected> Select Guardian </option>
 														<?php foreach( $guardians as $g ): ?>
                                                         <option
 															<?= set_select('guardian')?>
@@ -217,7 +217,7 @@
                                                         <div class="input-group-text"><i class="fas fa-building"></i></div>
                                                     </div>
                                                     <select class="form-control" id="class" name="cid" required>
-                                                        <option value="">-- Select Class --</option>
+                                                        <option value=""> Select Class </option>
 														<?php foreach ( $classes as $class ):?>
 															<option value="<?= $class->id; ?>"><?= ucwords($class->name); ?></option>
 														<?php endforeach; ?>
@@ -233,7 +233,7 @@
                                                         <div class="input-group-text"><i class="fas fa-puzzle-piece"></i></div>
                                                     </div>
                                                     <select class="form-control" id="section" name="sid" required>
-                                                        <option value="">-- Select Section/Arm</option>
+                                                        <option value=""> Select Section/Arm</option>
 														<?php foreach( $sections as $section) : ?>
 															<option value="<?= $section->id; ?>"><?= ucwords($section->name); ?></option>
 														<?php endforeach; ?>

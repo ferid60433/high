@@ -25,7 +25,19 @@ class Administration extends MY_Controller
         $p["page_mother"] = "Administration";
         $p["page"] = "password";
         $p["page_name"] = "Reset Password";
-        $this->load->view('admin/admin_password', $p);
+        $o = array(
+            array("id" => "parent", "title" => "Parent"),
+            array("id" => "student", "title" => "Student"),
+            array("id" => "teacher", "title" => "Teacher")
+        );
+        $r = $this->db->get('roles')->result();
+        $p['roles'] = array_merge($o, $r);
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[6]|max_length[15]');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[15]|matches["password"]');
+        } else {
+            $this->load->view('admin/admin_password', $p);
+        }
     }
     public function sgroup()
     {

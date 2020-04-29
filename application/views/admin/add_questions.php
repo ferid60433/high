@@ -50,99 +50,98 @@
                         <h4 class="card-title">Question Bank</h4>
                     </div>
                     <div class="card-body">
-						<?php $this->load->view('msg_view'); ?>
-						<?= form_open('', 'class="form-inline row" id="question_filter_form"'); ?>
-							<input type="hidden" name="post_type" value="filter_form">
-                            <div class="form-group row col-md-6">
-                                <label class="col-sm-12 col-form-label">Difficulty Level</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
-                                        </div>
-										<select class="form-control" id="level" name="level">
-											<option value="">-- Select level of question --</option>
-											<?php foreach( $levels as $l ) : ?>
-                                            	<option value="<?= $l->id; ?>"
-													<?php if( isset($level) && $level == $l->id){echo 'selected';} ?>
-												>
-													<?= ucwords($l->title); ?>
-												</option>
-											<?php endforeach;?>
-                                        </select>
+                        <?php $this->load->view('msg_view'); ?>
+                        <?= form_open('', 'class="form-inline row" id="question_filter_form"'); ?>
+                        <input type="hidden" name="post_type" value="filter_form">
+                        <div class="form-group row col-md-6">
+                            <label class="col-sm-12 col-form-label">Difficulty Level</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-graduation-cap"></i></div>
                                     </div>
+                                    <select class="form-control" id="level" name="level">
+                                        <option value=""> Select level of question </option>
+                                        <?php foreach ($levels as $l) : ?>
+                                            <option value="<?= $l->id; ?>" <?php if (isset($level) && $level == $l->id) {
+                                                                                echo 'selected';
+                                                                            } ?>>
+                                                <?= ucwords($l->title); ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group row col-md-6">
-                                <label class="col-sm-12 col-form-label">Question Group</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-book"></i></div>
-                                        </div>
-                                        <select class="form-control" id="group" name="group">
-											<option value="">-- Select group question --</option>
-											<?php foreach( $groups as $g ) : ?>
-												<option value="<?= $g->id?>"
-													<?php if( isset($group) && $group == $g->id){echo 'selected';} ?>
-												>
-													<?= ucwords($g->title); ?>
-												</option>
-											<?php endforeach;?>
-                                        </select>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label class="col-sm-12 col-form-label">Question Group</label>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-book"></i></div>
                                     </div>
+                                    <select class="form-control" id="group" name="group">
+                                        <option value=""> Select group question </option>
+                                        <?php foreach ($groups as $g) : ?>
+                                            <option value="<?= $g->id ?>" <?php if (isset($group) && $group == $g->id) {
+                                                                                echo 'selected';
+                                                                            } ?>>
+                                                <?= ucwords($g->title); ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
-						<?= form_close()?>
+                        </div>
+                        <?= form_close() ?>
                         <div class="table-responsive">
                             <table class="table">
-                            	<?php if( isset($questions)) :?>
-                                <thead>
-                                    <tr>
-                                        <th>S/N</th>
-                                        <th>Question</th>
-                                        <th>Question Type</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-									<?php if( count( $questions )) : $x =1; foreach( $questions as $q ) : ?>
-										<tr>
-											<td><?= $x;?>.</td>
-											<td><?= $q->question;?></td>
-											<td><?= getQuestionType($q->question_type);?></td>
-											<td>
-												<?= form_open(); ?>
-													<input type="hidden" name="question_id" value="<?= $q->id; ?>">
-													<input type="hidden" name="exam_id" value="<?= $exam->id; ?>">
-													<input type="hidden" name="post_type" value="add_question">
-													<button type="submit" class="btn btn-primary float-right" title="Add Question">
-														<i class="fas fa-plus"></i>
-													</button>
-												<?= form_close(); ?>
-											</td>
-										</tr>
-									<?php $x++; endforeach; else :?>
-										<tr>
-											<td colspan="4">No question in the selected filter</td>
-										</tr>
-									<?php endif; ?>
-                                </tbody>
-                                <tfoot>
-									<?php if( count( $questions )) :?>
-                                    <tr>
-                                        <td colspan="4">
-											<button
-												data-level="<?= $level; ?>"
-												data-group="<?= $group?>"
-												data-exam_id="<?= $exam->id; ?>"
-												class="btn btn-primary float-right all-question" title="Add All Question">
-												<i class="fas fa-plus"></i> Add All Questions</button>
-										</td>
-                                    </tr>
-									<?php endif; ?>
-                                </tfoot>
-								<?php endif; ?>
+                                <?php if (isset($questions)) : ?>
+                                    <thead>
+                                        <tr>
+                                            <th>S/N</th>
+                                            <th>Question</th>
+                                            <th>Question Type</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($questions)) : $x = 1;
+                                            foreach ($questions as $q) : ?>
+                                                <tr>
+                                                    <td><?= $x; ?>.</td>
+                                                    <td><?= $q->question; ?></td>
+                                                    <td><?= getQuestionType($q->question_type); ?></td>
+                                                    <td>
+                                                        <?= form_open(); ?>
+                                                        <input type="hidden" name="question_id" value="<?= $q->id; ?>">
+                                                        <input type="hidden" name="exam_id" value="<?= $exam->id; ?>">
+                                                        <input type="hidden" name="post_type" value="add_question">
+                                                        <button type="submit" class="btn btn-primary float-right" title="Add Question">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                        <?= form_close(); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php $x++;
+                                            endforeach;
+                                        else : ?>
+                                            <tr>
+                                                <td colspan="4">No question in the selected filter</td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                    <tfoot>
+                                        <?php if (count($questions)) : ?>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <button data-level="<?= $level; ?>" data-group="<?= $group ?>" data-exam_id="<?= $exam->id; ?>" class="btn btn-primary float-right all-question" title="Add All Question">
+                                                        <i class="fas fa-plus"></i> Add All Questions</button>
+                                                </td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tfoot>
+                                <?php endif; ?>
                             </table>
                         </div>
                     </div>
@@ -155,50 +154,55 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-							<?php $x = 1; foreach( $aquestions as $q ) :?>
-								<div class="col-md-12 row qr">
-									<h4 class="col-md-1"><?= $x;?>.</h4>
-									<div class="col-md-11" style="margin-top:-5px;">
-										<div class="card-heading clearfix row">
-											<h5 class="col-md-7"><?= $q['question']; ?></h5>
-											<span class="col-md-5 text-right" style="font-weight:500"><?= $q['mark']; ?> Mark</span>
-										</div>
-										<div class="card-body">
-											<div class="row">
-												<?php
-													$out_explode = explode('---', $q['options']);
-													foreach( $out_explode as $out ) :
-														$in_explode = explode( '||', $out);
-												?>
-													<?php if($q['question_type'] == '3') :?>
-														<div class="col-sm-1">
-															<div class="qNum"><?= ucwords($in_explode[0]); ?></div>
-														</div>
-														<div class="col-sm-11">
-															<h5 class="qPhrase"><?= $in_explode[1]; ?></h5>
-														</div>
-													<?php else : ?>
-														<div class="col-sm-6">
-															<input type="<?= ($q['question_type'] == '1') ? 'radio' : 'checkbox'; ?>" name="<?= $in_explode[0]; ?>" <?= ($in_explode[1] ==1) ? 'checked' : null; ?> disabled> <?= ucwords($in_explode[0]); ?>
-														</div>
-													<?php endif; ?>
-												<?php endforeach;?>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<?= form_open(); ?>
-											<input type="hidden" name="post_type" value="remove_question" />
-											<input type="hidden" name="question_id" value="<?=$q['id']; ?>" />
-											<button type="submit"
-													class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i>
-												Remove Question #<?=$x;?>
-											</button>
-										<?= form_close(); ?>
-									</div>
-								</div>
+                            <?php $x = 1;
+                            $totalMarks = 0;
+                            foreach ($aquestions as $q) : $totalMarks += (int) $q['mark']; ?>
+                                <div class="col-md-12 row qr">
+                                    <h4 class="col-md-1"><?= $x; ?>.</h4>
+                                    <div class="col-md-11" style="margin-top:-5px;">
+                                        <div class="card-heading clearfix row">
+                                            <h5 class="col-md-7"><?= $q['question']; ?></h5>
+                                            <span class="col-md-5 text-right" style="font-weight:500"><?= $q['mark']; ?> Mark</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <?php
+                                                $out_explode = explode('---', $q['options']);
+                                                foreach ($out_explode as $out) :
+                                                    $in_explode = explode('||', $out);
+                                                ?>
+                                                    <?php if ($q['question_type'] == '3') : ?>
+                                                        <div class="col-sm-1">
+                                                            <div class="qNum"><?= ucwords($in_explode[0]); ?></div>
+                                                        </div>
+                                                        <div class="col-sm-11">
+                                                            <h5 class="qPhrase"><?= $in_explode[1]; ?></h5>
+                                                        </div>
+                                                    <?php else : ?>
+                                                        <div class="col-sm-6 mt-1">
+                                                            <input type="<?= ($q['question_type'] == '1') ? 'radio' : 'checkbox'; ?>" name="<?= $in_explode[0]; ?>" <?= ($in_explode[1] == 1) ? 'checked' : null; ?> disabled> <?= ucwords($in_explode[0]); ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <?= form_open(); ?>
+                                        <input type="hidden" name="post_type" value="remove_question" />
+                                        <input type="hidden" name="question_id" value="<?= $q['id']; ?>" />
+                                        <button type="submit" class="btn btn-danger btn-sm float-right"><i class="fas fa-trash"></i>
+                                            Remove Question #<?= $x; ?>
+                                        </button>
+                                        <?= form_close(); ?>
+                                    </div>
+                                </div>
 
-							<?php $x++; endforeach; ?>
+                            <?php $x++;
+                            endforeach; ?>
+                        </div>
+                        <div class="row">
+                            <h4 class="col-md-12" style="font-weight: 600;">Total Marks: <?= ($exam->mark_type == "percentage") ? "100%" : $totalMarks ?></h4>
                         </div>
                     </div>
                 </div>
@@ -217,27 +221,27 @@
                             <table class="table">
                                 <tr>
                                     <th>Exam Title:</th>
-                                    <td><?= ucwords($exam->title);?></td>
+                                    <td><?= ucwords($exam->title); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Exam Type:</th>
-                                    <td><?= ucwords($exam->exam_type)?></td>
+                                    <td><?= ucwords($exam->exam_type) ?></td>
                                 </tr>
                                 <tr>
                                     <th>Date:</th>
-                                    <td><?= date('Y-m-d', strtotime( $exam->start_date)); ?></td>
+                                    <td><?= date('Y-m-d', strtotime($exam->start_date)); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Time From:</th>
                                     <td><?= date('H:i:s', strtotime($exam->start_time)); ?></td>
                                 </tr>
-								<tr>
-									<th>Time To:</th>
-									<td><?= date('H:i:s', strtotime($exam->end_time)); ?></td>
-								</tr>
+                                <tr>
+                                    <th>Time To:</th>
+                                    <td><?= date('H:i:s', strtotime($exam->end_time)); ?></td>
+                                </tr>
                                 <tr>
                                     <th>Duration:</th>
-                                    <td><?= $exam->duration?> Minutes</td>
+                                    <td><?= $exam->duration ?> Minutes</td>
                                 </tr>
                                 <tr>
                                     <th>Description:</th>
@@ -245,7 +249,7 @@
                                 </tr>
                                 <tr>
                                     <th>Random:</th>
-                                    <td><?= ( $exam->random == '1') ? 'Yes' : 'No'; ?></td>
+                                    <td><?= ($exam->random == '1') ? 'Yes' : 'No'; ?></td>
                                 </tr>
                                 <tr>
                                     <th>Mark Type:</th>
@@ -253,7 +257,7 @@
                                 </tr>
                                 <tr>
                                     <th>Pass Mark:</th>
-                                    <td><?= $exam->pass_mark?></td>
+                                    <td><?= $exam->pass_mark ?></td>
                                 </tr>
                                 <tr>
                                     <th>Negative Mark:</th>
@@ -265,63 +269,16 @@
                                 </tr>
                                 <tr>
                                     <th>Class:</th>
-                                    <td><?= strtoupper( $exam->class_name); ?></td>
+                                    <td><?= strtoupper($exam->class_name); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Section:</th>
-                                    <td><?= strtoupper( $exam->section_name); ?></td>
+                                    <td><?= strtoupper($exam->section_name); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Subject:</th>
                                     <td><?= ucwords($exam->subject); ?></td>
                                 </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card card-white">
-                    <div class="card-heading clearfix">
-                        <h4 class="card-title">Question Summary</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>S/N</th>
-                                        <th>Question</th>
-                                        <th>Mark</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>What is 2 + 2?</td>
-                                        <td>1</td>
-                                        <td><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Who killed James?</td>
-                                        <td>1</td>
-                                        <td><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>What is Biology?</td>
-                                        <td>5</td>
-                                        <td><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2"><b>Total Marks</b></td>
-                                        <td colspan="2"><b>7</b></td>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -361,12 +318,12 @@
     });
 </script>
 <script>
-	$(document).ready(() =>{
-		$('#group, #level').change( () => {
-			let group_id = $('#group').val();
-			let level_id = $('#level').val();
-			$('#question_filter_form').submit();
-		})
-	});
+    $(document).ready(() => {
+        $('#group, #level').change(() => {
+            let group_id = $('#group').val();
+            let level_id = $('#level').val();
+            $('#question_filter_form').submit();
+        })
+    });
 </script>
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

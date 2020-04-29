@@ -45,7 +45,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="class" name="cid">
-										<option>-- Select Class --</option>
+										<option> Select Class </option>
 										<?php foreach ( $classes as $class ):?>
 											<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 										<?php endforeach; ?>
@@ -61,7 +61,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="section" name="sid">
-										<option>-- Select Section / Arms --</option>
+										<option> Select Section / Arms </option>
 									</select>
 								</div>
 							</div>
@@ -74,7 +74,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="subject" name="subject">
-										<option>-- Select Subject --</option>
+										<option> Select Subject </option>
 									</select>
 								</div>
 							</div>
@@ -177,7 +177,7 @@
 										<div class="input-group-text"><i class="fas fa-check"></i></div>
 									</div>
 									<select class="form-control" id="mark_type" name="mark_type">
-										<option value="">-- Select Mark Type --</option>
+										<option value=""> Select Mark Type </option>
 										<option value="percentage">Percentage</option>
 										<option value="fixed">Fixed</option>
 									</select>
@@ -229,7 +229,7 @@
 										<div class="input-group-text"><i class="fas fa-globe"></i></div>
 									</div>
 									<select class="form-control" id="poublished" name="published" required>
-										<option value="">-- Select Status -- </option>
+										<option value=""> Select Status</option>
 										<option value="active">Make Active</option>
 										<option value="suspend">Suspend</option>
 									</select>
@@ -264,7 +264,7 @@
 					data: {class_id},
 					success : response => {
 						if(response.status){
-							let data_list = '<option value="">-- Select Section/Arms --</option>';
+							let data_list = '<option value=""> Select Section/Arms </option>';
 							if( Array.isArray(response.message)) {
 								$.each(response.message, (key, value) => {
 									data_list += `<option value="${value.id}">${value.name}</option>`;
@@ -294,7 +294,7 @@
 					}
 				});
 			}else{
-				$('#section').append('<option value="0">-- All Section/Arms --</option>')
+				$('#section').append('<option value="0"> All Section/Arms </option>')
 			}
 		});
 	})

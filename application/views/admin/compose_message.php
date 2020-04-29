@@ -45,7 +45,7 @@
 				<?= form_open_multipart('', 'id="message_form"'); ?>
                     <div class="form-group ">
                         <select id="userGroup" class="Group form-control select2" name="user_group" required>
-                            <option value=""> -- Select Group --</option>
+                            <option value="">Select Group </option>
                             <?php foreach ($user_groups as $g) : ?>
                                 <option value="<?= strtolower($g->user_group); ?>"><?= ucwords($g->user_group) ?></option>
                             <?php endforeach; ?>
@@ -54,7 +54,7 @@
 					<div id="classDiv" style="display: none;">
 						<div class="form-group">
 							<select class="Group form-control select2" id="cid" name="class">
-								<option value=""> -- Select Class -- </option>
+								<option value="">Select Class</option>
 								<?php foreach( $classes as $c ) : ?>
 									<option value="<?= $c->id?>"><?= ucwords($c->name); ?></option>
 								<?php endforeach; ?>
@@ -62,33 +62,33 @@
 						</div>
 						<div class="form-group">
 							<select id="section" class="Group form-control select2" name="section">
-								<option value=""> -- Select Section/Arms -- </option>
+								<option value="">Select Section/Arms</option>
 							</select>
 						</div>
 					</div>
                     <div id="stdDiv" class="form-group" style="display:none;">
                         <select id="studentID" class="Group form-control select2" name="studentID">
-                            <option value="">-- Select Student --</option>
+                            <option value=""> Select Student </option>
                         </select>
                     </div>
                     <div id="adminDiv" class="form-group" style="display:none;">
                         <select id="systemadminID" class="Group form-control select2" name="receiver">
-                            <option value="">-- Select Admin --</option>
+                            <option value=""> Select Admin </option>
                         </select>
                     </div>
                     <div id="teacherDiv" class="form-group" style="display:none;">
                         <select id="teacherID" class="Group form-control select2" name="receiver">
-                            <option value="">-- Select Teacher -- </option>
+                            <option value=""> Select Teacher</option>
                         </select>
                     </div>
                     <div id="parentDiv" class="form-group" style="display:none;">
                         <select id="parentID" class="Group form-control select2" name="receiver">
-                            <option value="">-- Select Parent --</option>
+                            <option value=""> Select Parent </option>
                         </select>
                     </div>
                     <div id="userDiv" class="form-group">
                         <select id="userID" class="Group form-control select2" name="receiver">
-                            <option value="">-- Select User --</option>
+                            <option value=""> Select User </option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -134,7 +134,7 @@
 				if ($(this).val() == 'admin') {
 					// admin
 					$('#systemadminID').empty();
-					$('#systemadminID').append('<option>-- Select Admin --</option>');
+					$('#systemadminID').append('<option> Select Admin </option>');
 					$('#classDiv, #stdDiv, #teacherDiv, #parentDiv, #userDiv').hide();
 					$("#adminDiv").show();
 					$('#systemadminID').append(global_options);
@@ -142,7 +142,7 @@
 				} else if ($(this).val() == 'teacher') {
 					// teacher
 					$('#teacherID').empty();
-					$('#teacherID').append('<option>-- Select Teacher --</option>');
+					$('#teacherID').append('<option> Select Teacher </option>');
 					$('#classDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
 					$("#teacherDiv").show();
 					$('#teacherID').append(global_options);
@@ -150,20 +150,20 @@
 				} else if ($(this).val() == 'student') {
 					// student
 					$('#studentID').empty();
-					$('#studentID').append('<option>-- Select Student --</option>');
+					$('#studentID').append('<option> Select Student </option>');
 					$('#teacherDiv, #stdDiv, #adminDiv, #parentDiv, #userDiv').hide();
 					$("#classDiv").show();
 					$('#studentID').append(global_options);
 				} else if ($(this).val() == 'parent') {
 					// Parent
 					$('#parentID').empty();
-					$('#parentID').append('<option>-- Select parent --</option>');
+					$('#parentID').append('<option> Select parent </option>');
 					$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #userDiv').hide();
 					$("#parentDiv").show();
 					$('#parentID').append(global_options);
 				} else {
 					$('#userID').empty();
-					$('#userID').append('<option>-- Select user --</option>');
+					$('#userID').append('<option> Select user </option>');
 					$('#teacherDiv, #stdDiv, #adminDiv, #classDiv, #parentDiv').hide();
 					$("#userDiv").show();
 					$('#userID').append(global_options);
@@ -184,7 +184,7 @@
 					data: {class_id},
 					success : response => {
 						if(response.status){
-							let data_list = '<option value="">-- Select Section/Arms --</option>';
+							let data_list = '<option value=""> Select Section/Arms </option>';
 							if( Array.isArray(response.message)) {
 								$.each(response.message, (key, value) => {
 									data_list += `<option value="${value.id}">${value.name}</option>`;
@@ -203,7 +203,7 @@
 					}
 				});
 			}else{
-				$('#section').append('<option value="0">-- All Section/Arms --</option>')
+				$('#section').append('<option value="0"> All Section/Arms </option>')
 			}
 		});
 
