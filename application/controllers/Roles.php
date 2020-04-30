@@ -41,7 +41,7 @@ class Roles extends MY_Controller
                     $this->session->set_flashdata('success_msg', "Role created successfully.");
                     ($on_page === "on") ?
                         $this->load->view('admin/add_subject', $p) :
-                        redirect('admin/roles/add/');
+                        redirect('admin/roles');
                 }
             }
         } else {

@@ -54,7 +54,7 @@ class Timetable extends MY_Controller
                     $this->session->set_flashdata('success_msg', "The Subject has been added successfully. ");
                     ($on_page === "on") ?
                         $this->load->view('admin/add_timetable', $p) :
-                        redirect('admin/timetable/add/');
+                        redirect('admin/timetable');
                 }
             }
         } else {

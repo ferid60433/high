@@ -14,7 +14,7 @@
 				<?= form_open(''); ?>
 				<div class="row m-b-lg">
 					<div class="col-md-12">
-						<?php $this->load->view('msg_view'); ?>
+						
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Section Name</label>
 							<div class="col-sm-10">
@@ -59,7 +59,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="class" name="class">
-										<option>-- Select Class--</option>
+										<option> Select Class</option>
 										<?php foreach ( $classes as $class ) :?>
 											<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 										<?php endforeach; ?>
@@ -75,7 +75,7 @@
 										<div class="input-group-text"><i class="fas fa-user-plus"></i></div>
 									</div>
 									<select class="form-control" id="teacher" name="teacher">
-										<option>-- Select Teacher for this Section/Arm--</option>
+										<option> Select Teacher for this Section/Arm</option>
 										<?php foreach ( $teachers as $teacher ) :?>
 											<option value="<?= $teacher->id; ?>"><?= ucwords( $teacher->name); ?></option>
 										<?php endforeach; ?>

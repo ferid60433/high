@@ -47,7 +47,7 @@
                                                         <div class="input-group-text"><i class="fas fa-school"></i></div>
                                                     </div>
                                                     <select class="form-control" id="class" name="cid" required>
-                                                        <option>-- Select Class --</option>
+                                                        <option> Select Class </option>
                                                     </select>
                                                 </div>
                                             </div>

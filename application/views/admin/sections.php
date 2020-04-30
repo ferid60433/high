@@ -19,7 +19,7 @@
                                             <div class="input-group-text"><i class="fas fa-school"></i></div>
                                         </div>
                                         <select class="form-control" id="class" name="class">
-                                            <option>-- Select --</option>
+                                            <option> Select </option>
 											<?php foreach ( $classes as $class ) : ?>
 												<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 											<?php endforeach; ?>

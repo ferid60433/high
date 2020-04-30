@@ -7,7 +7,7 @@
         <div class="card card-white">
             <div class="card-heading clearfix">
                 <div class="row">
-					<?php $this->load->view('msg_view'); ?>
+					
                     <div class="col-md-6">
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/subjects/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
                     </div>
@@ -21,7 +21,7 @@
                                             <div class="input-group-text"><i class="fas fa-school"></i></div>
                                         </div>
                                         <select class="form-control" id="class" name="class">
-											<option>-- Select --</option>
+											<option> Select </option>
 											<?php foreach ( $classes as $class ) : ?>
 												<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 											<?php endforeach; ?>

@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?= form_open_multipart(); ?>
 				<div class="row m-b-lg">
 					<div class="col-md-12">
@@ -45,7 +45,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="class" name="cid" required>
-										<option value="">-- Select Class --</option>
+										<option value=""> Select Class </option>
 										<?php foreach ( $classes as $class ):?>
 											<option value="<?= $class->id; ?>"><?= strtoupper($class->name); ?></option>
 										<?php endforeach; ?>
@@ -61,7 +61,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="section" name="sid">
-										<option value="">-- Select Section/Arm --</option>
+										<option value=""> Select Section/Arm </option>
 									</select>
 								</div>
 							</div>
@@ -107,7 +107,7 @@
 					data: {class_id},
 					success : response => {
 						if(response.status){
-							let data_list = '<option value="">-- Select Section/Arms --</option>';
+							let data_list = '<option value=""> Select Section/Arms </option>';
 							if( Array.isArray(response.message)) {
 								$.each(response.message, (key, value) => {
 									data_list += `<option value="${value.id}">${value.name}</option>`;
@@ -126,7 +126,7 @@
 					}
 				});
 			}else{
-				$('#section').append('<option value="0">-- All Section/Arms --</option>')
+				$('#section').append('<option value="0"> All Section/Arms </option>')
 			}
 		});
 

@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
                 <div id="rootWizardStudent">
                     <ul class="nav mb-4  nav-pills nav-fill" role="tablist">
                         <li class="nav-item">

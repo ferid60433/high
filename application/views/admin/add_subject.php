@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?= form_open(''); ?>
 				<div class="row m-b-lg">
 					<div class="col-md-12">
@@ -23,7 +23,7 @@
 										<div class="input-group-text"><i class="fas fa-school"></i></div>
 									</div>
 									<select class="form-control" id="class" name="class" required>
-										<option value="">-- Select class --</option>
+										<option value=""> Select class </option>
 										<?php foreach ( $classes as $class ) : ?>
 											<option value="<?= $class->id; ?>">
 												<?= strtoupper($class->name); ?>
@@ -41,7 +41,7 @@
 										<div class="input-group-text"><i class="fas fa-user-plus"></i></div>
 									</div>
 									<select class="form-control" id="teacher" name="teacher" required>
-										<option value="">-- Select class teacher --</option>
+										<option value=""> Select class teacher </option>
 										<?php foreach ( $teachers as $teacher ) : ?>
 											<option value="<?= $teacher->id; ?>">
 												<?= strtoupper($teacher->name); ?>

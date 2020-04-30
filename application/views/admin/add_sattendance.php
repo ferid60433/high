@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?= form_open('', 'class="form-inline row"')?>
                     <div class="col-md-10 row">
                         <div class="form-group col-md-4">
@@ -25,7 +25,7 @@
                                         <div class="input-group-text"><i class="fas fa-school"></i></div>
                                     </div>
                                     <select class="form-control" id="class" name="class">
-                                        <option value="">-- Select --</option>
+                                        <option value=""> Select </option>
 										<?php foreach( $classes as $c ) : ?>
                                         	<option value="<?= $c->id;?>"
 													<?= (isset($class) && $class == $c->id ) ? 'selected' : null;?> >
@@ -144,7 +144,7 @@
 					data: {class_id},
 					success : response => {
 						if(response.status){
-							let data_list = '<option value="">-- Select Section/Arms --</option>';
+							let data_list = '<option value=""> Select Section/Arms </option>';
 							if( Array.isArray(response.message)) {
 								$.each(response.message, (key, value) => {
 									data_list += `<option value="${value.id}">${value.name}</option>`;
@@ -163,7 +163,7 @@
 					}
 				});
 			}else{
-				$('#section').append('<option value="0">-- All Section/Arms --</option>')
+				$('#section').append('<option value="0"> All Section/Arms </option>')
 			}
 		});
 

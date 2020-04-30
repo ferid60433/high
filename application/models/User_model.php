@@ -1,5 +1,5 @@
 <?php
-Class User_model extends CI_Model
+class User_model extends CI_Model
 {
 
     /**
@@ -7,7 +7,8 @@ Class User_model extends CI_Model
      * @param string $table
      * @return mixed
      */
-    function get_profile($id = '', $table = 'users'){
+    function get_profile($id = '', $table = 'users')
+    {
         $this->db->where('id', $id);
         $this->db->or_where('email', $id);
         $this->db->or_where('phone', $id);
@@ -19,24 +20,25 @@ Class User_model extends CI_Model
      * @param string $table_name
      * @return bool|mixed
      */
-    function login($data = array(), $table_name = 'users' ){
-    	$uid = ( isset($data['uid']) ) ? $data['uid'] : $data['email'];
-		$this->db->where('email', $uid);
-		$this->db->or_where('id', $uid);
-		$row = $this->db->get($table_name)->row();
-		if( $row ){
-			$salt = $row->salt;
-			$password = shaPassword( $data['password'], $salt);
-			$result = $this->db->query("SELECT * FROM users WHERE (email = '" .$uid. "' OR id = '".$uid."') AND password = '".$password."' LIMIT 1")->row();
-			if( !$result ) return array('status' => false, 'string' => 'password_mismatch');
-			$c_update = array('last_login' => get_now(), 'ip' => $_SERVER['REMOTE_ADDR']);
-			$this->db->where('email', $uid);
-			$this->db->or_where('id', $uid);
-			$this->db->update($table_name, $c_update);
-			return array('status' => true, 'string' => $result );
-		}else{
-			return array('status' => false, 'string' => 'email_not_found');
-		}
+    function login($data = array(), $table_name = 'users')
+    {
+        $uid = (isset($data['uid'])) ? $data['uid'] : $data['email'];
+        $this->db->where('email', $uid);
+        $this->db->or_where('id', $uid);
+        $row = $this->db->get($table_name)->row();
+        if ($row) {
+            $salt = $row->salt;
+            $password = shaPassword($data['password'], $salt);
+            $result = $this->db->query("SELECT * FROM users WHERE (email = '" . $uid . "' OR id = '" . $uid . "') AND password = '" . $password . "' LIMIT 1")->row();
+            if (!$result) return array('status' => false, 'string' => 'password_mismatch');
+            $c_update = array('last_login' => get_now(), 'ip' => $_SERVER['REMOTE_ADDR']);
+            $this->db->where('email', $uid);
+            $this->db->or_where('id', $uid);
+            $this->db->update($table_name, $c_update);
+            return array('status' => true, 'string' => $result);
+        } else {
+            return array('status' => false, 'string' => 'email_not_found');
+        }
     }
 
 
@@ -48,6 +50,10 @@ Class User_model extends CI_Model
     function create_account($data = array(), $table_name = 'users')
     {
         $result = '';
+        if ($table_name == "users") {
+            $row = $this->db->where("email", $data["email"])->get("users")->row();
+            if ($row) return "Error Duplicate Email";
+        }
         if (!empty($data)) {
             try {
                 $this->db->insert($table_name, $data);
@@ -174,7 +180,7 @@ Class User_model extends CI_Model
     function generate_user_code($table = 'users')
     {
         do {
-            $number = random_string('nozero',6);
+            $number = random_string('nozero', 6);
             $this->db->where('user_code', $number);
             $this->db->from($table);
             $count = $this->db->count_all_results();
@@ -204,7 +210,8 @@ Class User_model extends CI_Model
         return $this->db->get('billing_address')->result_array();
     }
 
-    function get_pickup_address(){
+    function get_pickup_address()
+    {
         $this->db->where('enable', 1);
         return $this->db->get('pickup_address')->result();
     }
@@ -280,17 +287,16 @@ Class User_model extends CI_Model
         foreach ($array as $arr) {
             $output .= $arr . ", ";
         }
-        return (array)substr($output, 0, -2);
+        return (array) substr($output, 0, -2);
     }
 
     function auto_version($file = '')
     {
-        if (!file_exists($file)):
+        if (!file_exists($file)) :
             return $file;
-        else:
+        else :
             $mtime = filemtime($file);
             return base_url() . $file . '?' . $mtime;
         endif;
     }
-
 }

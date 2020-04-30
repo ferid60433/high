@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-                <?php $this->load->view('msg_view'); ?>
+
                 <div id="rootWizardStudent">
                     <form id="wizardFormStudent" method="post">
                         <div class="tab-content" id="myTabContent">
@@ -38,10 +38,10 @@
                                                             <div class="form-check">
                                                                 <div class="checker" id="uniform-<?= $m->title ?>">
                                                                     <span>
-                                                                        <input name="roles[]" class="form-check-input" value="<?= $m->title ?>" type="checkbox" id="<?= $m->title ?>" <?= ($m->url == "messages") ? "checked" : "" ?>>
+                                                                        <input name="roles[]" class="form-check-input" value="<?= $m->id ?>" type="checkbox" id="<?= $m->title . "-" . $m->id ?>" <?= ($m->url == "messages") ? "checked" : "" ?>>
                                                                     </span>
                                                                 </div>
-                                                                <label class="form-check-label" for="<?= $m->title ?>">
+                                                                <label class="form-check-label" for="<?= $m->title . "-" . $m->id ?>">
                                                                     <?= $m->title ?>
                                                                 </label>
                                                             </div>

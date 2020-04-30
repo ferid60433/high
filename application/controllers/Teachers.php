@@ -23,7 +23,7 @@ class Teachers extends MY_Controller
 			$this->form_validation->set_rules('name', 'Teacher name', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|xss_clean');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
-			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
+			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[50]|matches[password]');
 			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('error_msg', validation_errors());
 				$this->load->view('admin/add_teacher', $p);

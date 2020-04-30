@@ -3,13 +3,13 @@
 <!-- start page container -->
 <div class="page-container" style="height:100vh !important">
     <!-- start page inner -->
-    <div class="page-inner login-page" style="margin-top: -1px;">
+    <div class="page-inner login-page" style="margin-top: -1px;background:url(<?=base_url("assets/img/main.jpg")?>)">
         <div id="main-wrapper" class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 login-box">
                     <h4 class="login-title">Sign in to your account</h4>
                     <?php $this->load->view('msg_view'); ?>
-                    <?= form_open('auth'); ?>
+                    <?= form_open(''); ?>
                     <div class="form-group">
                         <label for="login">Email address</label>
                         <input type="email" name="email" value="<?= set_value('email', ''); ?>" class="form-control" id="login">
@@ -22,7 +22,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                     <!-- <a href="register.html" class="btn btn-sm btn-outline-primary">Register</a> -->
-                    <a href="<?= base_url('auth/forgot/') ?>" class="forgot-link">Forgot password?</a>
+                    <a href="<?= base_url('forgot') ?>" class="forgot-link">Forgot password?</a>
                     <?= form_close(); ?>
                 </div>
             </div>

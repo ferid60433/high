@@ -14,7 +14,7 @@
 				<?= form_open(''); ?>
 				<div class="row m-b-lg">
 					<div class="col-md-12">
-						<?php $this->load->view('msg_view'); ?>
+						
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Class Name</label>
 							<div class="col-sm-10">

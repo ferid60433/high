@@ -25,9 +25,9 @@
 									<td><?= ucwords($exam->title); ?></td>
 									<td><?= statusLabel($exam->published); ?></td>
 									<td>
-										<a class="btn btn-outline-info" href="<?=base_url("admin/oexams/questions/" .simple_crypt($exam->id))?>">Add Questions</a> |
-										<a class="btn btn-outline-warning" href="<?=base_url("admin/oexams/edit/" . simple_crypt($exam->id))?>">Edit</a> |
-										<a class="btn btn-outline-danger" href="<?=base_url("admin/oexams/delete")?>">Delete</a>
+										<a class="btn btn-outline-info" title="Add Questions" href="<?=base_url("admin/oexams/questions/" .simple_crypt($exam->id))?>"><i class="fas fa-plus"></i></a> |
+										<a class="btn btn-outline-warning" title="Edit" href="<?=base_url("admin/oexams/edit/" . simple_crypt($exam->id))?>"><i class="fas fa-edit"></i></a> |
+										<a class="btn btn-outline-danger" title="Delete" href="<?=base_url("admin/oexams/delete")?>"><i class="fas fa-trash"></i></a>
 									</td>
 								</tr>
 							<?php $x++; endforeach;?>

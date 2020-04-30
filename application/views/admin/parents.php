@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-white">
-            <?php $this->load->view('msg_view'); ?>
+            
             <div class="card-heading clearfix mb-3">
                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?= base_url('admin/parents/add') ?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>

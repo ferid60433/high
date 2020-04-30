@@ -8,7 +8,7 @@
                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='<?=base_url('admin/teachers/add')?>'"><i class="fas fa-plus"></i> Add New</button>
             </div>
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
                 <div class="table-responsive">
                     <table class="table datatables_init" style="width: 100%;">
                         <thead>
