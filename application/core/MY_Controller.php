@@ -13,6 +13,20 @@ class MY_Controller extends CI_Controller
 			// which controller are you accessing?
 			$controller = $this->uri->segment(1);
 			$url = $this->uri->uri_string();
+			$url = explode("/", strtolower($url));
+			$l = $url[count($url) - 1];
+			if (strlen($l) > 30) array_pop($url);
+			$l = $url[count($url) - 1];
+			if ($l == "add" || $l == "edit" || $l == "view" || $l == "questions") {
+				array_pop($url);
+				$l = $url[count($url) - 1];
+				if ($l == "add" || $l == "edit" || $l == "view" || $l == "payment") {
+					array_pop($url);
+				}
+				$url = implode("/", $url);
+			} else {
+				$url = $this->uri->uri_string();
+			}
 			// var_dump($controller);exit;
 			if ($role < 2) {
 				if ($controller !== $user_group) {
