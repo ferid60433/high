@@ -17,7 +17,7 @@
                     <div class="navbar-header">
                         <div class="logo-sm">
                             <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
-                            <a class="logo-box" href="<?= base_url() ?>"><span><?= SCHOOL_NAME ?></span></a>
+                            <a class="logo-box" href="<?= base_url() ?>"><span><?= $this->settings->general()->school_name ?></span></a>
                         </div>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                             <i class="fa fa-angle-down"></i>
@@ -38,26 +38,8 @@
                                         <ul class="list-unstyled dropdown-oc">
                                             <li>
                                                 <a href="#"><span class="notification-badge bg-primary"><i class="fa fa-photo"></i></span>
-                                                    <span class="notification-info">Finished uploading photos to gallery <b>"South Africa"</b>.
+                                                    <span class="notification-info">Finished uploading website.
                                                         <small class="notification-date">20:00</small>
-                                                    </span></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><span class="notification-badge bg-primary"><i class="fa fa-at"></i></span>
-                                                    <span class="notification-info"><b>John Doe</b> mentioned you in a post "Update v1.5".
-                                                        <small class="notification-date">06:07</small>
-                                                    </span></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><span class="notification-badge bg-danger"><i class="fa fa-bolt"></i></span>
-                                                    <span class="notification-info">4 new special offers from the apps you follow!
-                                                        <small class="notification-date">Yesterday</small>
-                                                    </span></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><span class="notification-badge bg-success"><i class="fa fa-bullhorn"></i></span>
-                                                    <span class="notification-info">There is a meeting with <b>Ethan</b> in 15 minutes!
-                                                        <small class="notification-date">Yesterday</small>
                                                     </span></a>
                                             </li>
                                         </ul>
@@ -69,11 +51,16 @@
                                     <img src="<?= base_url("assets/img/avatars/user-dropdown.jpg") ?>" alt="" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#"><span class="badge float-right badge-danger">42</span>Messages</a></li>
+                                    <li><a href="<?=base_url("admin/profile")?>">Profile</a></li>
+                                    <li>
+                                        <a href="<?=base_url("admin/messages")?>">
+                                            <!-- <span class="badge float-right badge-danger">42</span> -->
+                                            Messages
+                                        </a>
+                                    </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Account Settings</a></li>
-                                    <li><a href="#">Log Out</a></li>
+                                    <li><a href="<?=base_url("admin/profile/reset")?>">Reset Password</a></li>
+                                    <li><a href="<?=base_url("logout")?>">Log Out</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -305,8 +305,8 @@
                 <div style="border: #e6e8eb 1px solid; padding:15px;">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h3><?= SCHOOL_NAME ?></h3>
-                            <p>Plot 4, Johnson Street, Lekki, Lagos State</p>
+                            <h3><?= $this->settings->general()->school_name ?></h3>
+                            <p><?= $this->settings->general()->address ?></p>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -382,7 +382,7 @@
             toastr["error"]("Paid amount and weaver cannot be more than amount due!");
             if ($(e).hasClass("itemPaid")) {
                 $(e).val(price - w);
-            }else{
+            } else {
                 $(e).val(price - pa);
             }
         }

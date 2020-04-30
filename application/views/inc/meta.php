@@ -11,7 +11,7 @@
     <meta name="description" content="Schoolville High" />
 
     <!-- title  -->
-    <title> <?= isset($title) ? $title : "Portal" ?> :: <?= SCHOOL_NAME ?></title>
+    <title> <?= isset($title) ? $title : "Portal" ?> :: <?= $this->settings->general()->school_name ?></title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="img/logos/favicon.png">

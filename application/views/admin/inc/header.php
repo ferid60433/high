@@ -4,7 +4,12 @@
     .dt-buttons {
         margin-bottom: 5px !important;
     }
-    .card{
+
+    .card {
         border-top: 5px solid #d0cba6 !important;
+    }
+
+    .select2-container--default .select2-selection {
+        height: 36px !important;
     }
 </style>

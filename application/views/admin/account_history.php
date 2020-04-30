@@ -29,7 +29,7 @@
                                 <td>Cash</td>
                                 <td>150.00</td>
                                 <td>21 Jan 2020</td>
-                                <td><?= SCHOOL_NAME ?></td>
+                                <td><?= $this->settings->general()->school_name ?></td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/accounting/invoice/edit") ?>">
                                         <i class="fas fa-edit"></i>

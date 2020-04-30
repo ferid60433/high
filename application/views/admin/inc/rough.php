@@ -12,7 +12,7 @@
     <meta name="description" content="Schoolville High" />
 
     <!-- title  -->
-    <title> <?= isset($title) ? $title : "Portal" ?> :: <?= SCHOOL_NAME ?></title>
+    <title> <?= isset($title) ? $title : "Portal" ?> :: <?= $this->settings->general()->school_name ?></title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="img/logos/favicon.png">
@@ -91,7 +91,7 @@
                         <div class="navbar-header">
                             <div class="logo-sm">
                                 <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
-                                <a class="logo-box" href="<?= base_url() ?>"><span><?= SCHOOL_NAME ?></span></a>
+                                <a class="logo-box" href="<?= base_url() ?>"><span><?= $this->settings->general()->school_name ?></span></a>
                             </div>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <i class="fa fa-angle-down"></i>
@@ -166,7 +166,7 @@
             </div>
         </div>
         <div class="page-footer text-right">
-            <p>Copyright &copy; <?= date("Y") . " " . SCHOOL_NAME ?> All rights reserved.</p>
+            <p>Copyright &copy; <?= date("Y") . " " . $this->settings->general()->school_name ?> All rights reserved.</p>
         </div>
     </div>
     <script src="<?= base_url("assets/plugins/jquery/jquery-3.1.0.min.js") ?>"></script>
