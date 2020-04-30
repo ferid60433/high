@@ -7,6 +7,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (strtolower($this->uri->segment(1)) == "auth") show_404();
 		if ($this->session->userdata('logged_in')) {
 			$from = cleanit($this->session->userdata('from'));
 			if (!empty($from)) {
@@ -36,6 +37,7 @@ class Auth extends CI_Controller
 			);
 			$response = $this->user->login($data);
 			$this->login_switch($response);
+			$this->load->view('accounts/login', $p);
 		}
 	}
 	protected function login_switch($res)
@@ -49,8 +51,6 @@ class Auth extends CI_Controller
 					$this->session->set_flashdata('error_msg', 'Email address can not be found.');
 					break;
 			}
-			var_dump( $this->session->flashdata('error_msg'));exit;
-			// return redirect('login');
 		} else {
 			// switch the user module
 			$this->session->set_flashdata('success_msg', 'Logged in successfully.');
@@ -94,7 +94,7 @@ class Auth extends CI_Controller
 				$this->load->view('accounts/login', $p);
 			} else {
 				$this->session->set_flashdata('success_msg', "Account created successfully.");
-				redirect('auth');
+				redirect('login');
 			}
 		} else {
 			$this->load->view('accounts/create', $p);
