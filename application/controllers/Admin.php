@@ -11,7 +11,6 @@ class Admin extends MY_Controller
     {
         $p["active"] = "dashboard";
         $p["title"] = "Admin Dashboard";
-        $count = $this->site->count_row('users');
         $this->load->view('admin/index', $p);
     }
 }

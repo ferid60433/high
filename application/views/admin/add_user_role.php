@@ -38,7 +38,7 @@
                                                             <div class="form-check">
                                                                 <div class="checker" id="uniform-<?= $m->title ?>">
                                                                     <span>
-                                                                        <input name="roles[]" class="form-check-input" value="<?= $m->id ?>" type="checkbox" id="<?= $m->title . "-" . $m->id ?>" <?= ($m->url == "messages") ? "checked" : "" ?>>
+                                                                        <input name="roles[]" class="form-check-input" value="<?= $m->id ?>" type="checkbox" id="<?= $m->title . "-" . $m->id ?>" <?= ($m->url == "messages") ? "checked disabled" : "" ?>>
                                                                     </span>
                                                                 </div>
                                                                 <label class="form-check-label" for="<?= $m->title . "-" . $m->id ?>">

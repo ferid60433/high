@@ -6,8 +6,8 @@
         <div class="card card-white stats-widget">
             <div class="card-body">
                 <div class="float-left">
-                    <span class="stats-number">25</span>
-                    <p class="stats-info"><a href="<?=base_url("admin/students")?>">Students</a></p>
+                    <span class="stats-number"><?= $this->site->count_row("students") ?></span>
+                    <p class="stats-info"><a href="<?= base_url("admin/students") ?>">Students</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-user-graduate text-primary stats-icon primary"></i>
@@ -19,8 +19,8 @@
         <div class="card card-white stats-widget">
             <div class="card-body">
                 <div class="float-left">
-                    <span class="stats-number">12</span>
-                    <p class="stats-info"><a href="<?=base_url("admin/parents")?>">Parents</a></p>
+                    <span class="stats-number"><?= $this->site->count_row("parents") ?></span>
+                    <p class="stats-info"><a href="<?= base_url("admin/parents") ?>">Parents</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-user-plus stats-icon text-danger danger"></i>
@@ -32,8 +32,8 @@
         <div class="card card-white stats-widget">
             <div class="card-body">
                 <div class="float-left">
-                    <span class="stats-number">23</span>
-                    <p class="stats-info"><a href="<?=base_url("admin/teachers")?>">Teachers</a></p>
+                    <span class="stats-number"><?= $this->site->count_row("teachers") ?></span>
+                    <p class="stats-info"><a href="<?= base_url("admin/teachers") ?>">Teachers</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-chalkboard-teacher stats-icon text-warning warning"></i>
@@ -45,8 +45,8 @@
         <div class="card card-white stats-widget">
             <div class="card-body">
                 <div class="float-left">
-                    <span class="stats-number">8</span>
-                    <p class="stats-info"><a href="<?=base_url("admin/classes")?>">Classes</a></p>
+                    <span class="stats-number"><?= $this->site->count_row("classes") ?></span>
+                    <p class="stats-info"><a href="<?= base_url("admin/classes") ?>">Classes</a></p>
                 </div>
                 <div class="float-right">
                     <i class="fas fa-tasks stats-icon text-success success"></i>
@@ -111,4 +111,4 @@
 </div>
 <?php $this->load->view("admin/inc/footer") ?>
 
-<?php $this->load->view("inc/post-script")?>
+<?php $this->load->view("inc/post-script") ?>

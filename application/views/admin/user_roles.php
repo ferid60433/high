@@ -24,7 +24,18 @@
                                 <tr>
                                     <td><?= "$x." ?></td>
                                     <td><?= $role->title ?></td>
-                                    <td><?= $role->roles ?></td>
+                                    <td>
+                                        <?php if ($role->id != 1) :
+                                            $roles_actions = [];
+                                            $role_roles = explode(",", $role->roles);
+                                            foreach ($role_roles as $id) {
+                                                $t = $this->site->get_row("modules", "*", "id = $id")->title;
+                                                array_push($roles_actions, "<span class='badge badge-info'>$t</span>");
+                                            }
+                                            $roles_actions = implode(", ", $roles_actions);
+                                            echo $roles_actions;
+                                        endif; ?>
+                                    </td>
                                     <td>
                                         <?php if ($role->id != 1) : ?>
                                             <a class="btn btn-sm btn-outline-warning" title="Edit" href="<?= base_url("admin/roles/edit/" . simple_crypt($role->id) . '/') ?>">

@@ -1,7 +1,7 @@
 <!-- start page sidebar -->
 <div class="page-sidebar">
     <a class="logo-box" href="<?= base_url() ?>">
-        <span><?= SCHOOL_NAME ?></span>
+        <span style="font-size:12px;"><?= $this->settings->general()->school_name ?></span>
         <!-- <i class="icon-school" title="Pin Menu" id="fixed-sidebar-toggle-button"></i> -->
         <i class="icon-close" id="sidebar-toggle-button-close"></i>
     </a>
