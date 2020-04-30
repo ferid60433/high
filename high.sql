@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 29, 2020 at 11:29 AM
+-- Generation Time: Apr 30, 2020 at 04:17 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -92,6 +92,41 @@ CREATE TABLE IF NOT EXISTS `classes` (
 INSERT INTO `classes` (`id`, `name`, `tid`, `class_numeric`, `note`) VALUES
 (6, 'jss 1', 1, '123', 'jss1'),
 (7, 'jss 2', 1, '2', 'Good');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `general_settings`
+--
+
+DROP TABLE IF EXISTS `general_settings`;
+CREATE TABLE IF NOT EXISTS `general_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `school_name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` text NOT NULL,
+  `currency` varchar(5) NOT NULL,
+  `language` int(11) NOT NULL,
+  `default_academic_year` int(11) NOT NULL,
+  `default_attendance` varchar(20) NOT NULL COMMENT 'per_day or per_subject',
+  `weekends` varchar(500) NOT NULL,
+  `google_analytics` text NOT NULL,
+  `entry_class` int(11) NOT NULL,
+  `logo` varchar(100) NOT NULL,
+  `times_school_open` int(5) NOT NULL,
+  `next_term_begins` datetime NOT NULL,
+  `show_class_position` tinyint(1) NOT NULL,
+  `show_subject_position` tinyint(1) NOT NULL,
+  `chs_on_report` tinyint(1) NOT NULL COMMENT 'cumulative high score',
+  `cas_on_report` tinyint(1) NOT NULL COMMENT 'cumulative average score',
+  `cls_on_report` tinyint(1) NOT NULL COMMENT 'cumulative low score',
+  `marks_guide` varchar(100) NOT NULL,
+  `captcha` tinyint(1) NOT NULL,
+  `attendance_notification` varchar(10) NOT NULL COMMENT 'email or sms',
+  `theme` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -188,7 +223,7 @@ INSERT INTO `modules` (`id`, `title`, `iclass`, `url`) VALUES
 (16, 'Inventory', 'icon-briefcase', ''),
 (17, 'Leave Application', 'icon-airplane', ''),
 (18, 'Child', 'icon-spell-check', ''),
-(19, 'Library', 'icon-books', ''),
+(19, 'E-Library', 'icon-books', ''),
 (20, 'Transport', 'icon-truck', ''),
 (21, 'Hostel', 'icon-home3', ''),
 (22, 'Accounting', 'icon-calculator', ''),
@@ -417,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `title` varchar(20) NOT NULL,
   `roles` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roles`
@@ -425,7 +460,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `title`, `roles`) VALUES
 (1, 'Admin', ''),
-(2, 'Librarian', 'Messages,Library');
+(2, 'Librarian', '10,19'),
+(4, 'Accountant', '10,14,15,16,22');
 
 -- --------------------------------------------------------
 
@@ -473,14 +509,15 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `joined` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `uid`, `name`, `pic`, `phone`, `dob`, `gender`, `religion`, `joined`, `address`) VALUES
-(1, 8, 'Admin Staff', '', '08199227788', '2020-03-16 00:00:00', 'male', 'muslim', '2020/03/02', '540 a Aina Akingbala Street');
+(1, 8, 'Admin Staff', '', '08199227788', '2020-03-16 00:00:00', 'male', 'muslim', '2020/03/02', '540 a Aina Akingbala Street'),
+(2, 12, 'Adekoniye Adedoyin', '9ab8c77486e38f37826ebdc31e9cbdec.PNG', '08159277099', '1985-07-11 00:00:00', 'male', 'christian', '2020/04/30', '17babs street');
 
 -- --------------------------------------------------------
 
@@ -562,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `submodules` (
   `iclass` varchar(20) DEFAULT NULL,
   `url` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `submodules`
@@ -715,14 +752,15 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   `joined` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `teachers`
 --
 
 INSERT INTO `teachers` (`id`, `uid`, `name`, `pic`, `phone`, `dob`, `designation`, `gender`, `religion`, `joined`, `address`) VALUES
-(1, 6, 'Mr Teacher', '', '08199227788', '2020-03-16 00:00:00', 'Main Teacher', 'male', 'muslim', '2020/03/02', '540 a Aina Akingbala Street');
+(1, 6, 'Mr Teacher', '', '08199227788', '2020-03-16 00:00:00', 'Main Teacher', 'male', 'muslim', '2020/03/02', '540 a Aina Akingbala Street'),
+(2, 9, 'Adekoniye Adedoyin', 'd32c4a494bc4bcdc1726af05184d1d0c.jpg', '08159277099', '1995-02-07 00:00:00', 'Class Teacher', 'male', 'christian', '2020/04/30', '17babs street');
 
 -- --------------------------------------------------------
 
@@ -767,18 +805,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` varchar(20) NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `title`, `email`, `password`, `salt`, `user_group`, `auth_code`, `ip`, `role`, `date_registered`, `last_login`, `status`) VALUES
-(1, 'Phil', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '::1', 1, '2020-03-11 09:00:52', '2020-04-29 11:25:07', 'active'),
-(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'student', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
+(1, 'Phil', 'admin@gmail.com', '44e9b3c00790da33cd804ebc631a8a811d1a0d1ff8e2f93d10d9538cded31697', '0C7I8ll#GFpR!HOZ2twB67*@GKD=9y0?75szh(xwVNA3oQ#|tn', 'admin', '', '::1', 1, '2020-03-11 09:00:52', '2020-04-30 15:29:59', 'active'),
+(4, '', 'parent@gmail.com', '9dca2f50b7e80f50f3de8af8b0d89131409e8f73dae4b1e861d99e18f7ae483d', '1$:jqM*E|h3cMkmuIW_)?LEIQbPDYHkyb@:ft$DPDO>@E64VNV', 'parent', '', '::1', 0, '2020-03-11 13:29:31', '2020-03-11 13:29:31', 'active'),
 (6, '', 'teacher@gmail.com', '6f2f1faf9b98c090fb6e1a831412eb1c1b52f8292caac1f2f7f437cd507ada3d', 'Z7+k?!e;%LlhAhGFKmCfj;&N+MnF8q%J(Le_#5D78.L@|H9prF', 'teacher', '', '::1', 0, '2020-03-11 16:27:51', '2020-03-11 16:27:51', 'active'),
 (7, 'Student', 'student@gmail.com', 'a1fec3e9c14f2e792fb71d63fb41a47709df1721990ba35dc265171288d6d521', 'UJe3VQuc>,7,gJDATk-_9xV)6ONgH8_6dSnp1iSmJ72JtsgTum', 'student', '', '::1', 0, '2020-03-23 12:55:42', '2020-03-23 12:55:42', 'active'),
-(8, '', 'staff@gmail.com', '6f2f1faf9b98c090fb6e1a831412eb1c1b52f8292caac1f2f7f437cd507ada3d', 'Z7+k?!e;%LlhAhGFKmCfj;&N+MnF8q%J(Le_#5D78.L@|H9prF', 'admin', '', '::1', 2, '2020-03-11 16:27:51', '2020-03-11 16:27:51', 'active');
+(8, '', 'staff@gmail.com', '8ee46e66695f2b6eb35dfb181cb5053569f87624dc64e9eeee9d0be6bc0c188d', 'o.=TTHH=T-=X6sYD!3QRT1,=lV9O0<%Q$^(G0jnMd+R8UPtJ;u', 'admin', '', '::1', 2, '2020-03-11 16:27:51', '2020-04-30 08:49:01', 'active'),
+(9, '', 'michaeladekoniye@gmail.com', '6945e7101bf8b13af3e8037fc5a42d13edb5f5ca8d348571cd2eae84f08fa432', '_b:abOPNAb<Ae-&(>?un<2>8k4W0yZQsDYtmH:Ci=FQLwPWKgF', 'teacher', '', '::1', 0, '2020-04-30 08:09:44', '2020-04-30 08:09:44', 'active'),
+(12, '', 'acc001@gmail.com', '49249ae1b35860c3fdfd79473d18e28ad4abe3509c53dc0128d6ebf96ce7e21a', '9(0QCGSk=1YBKPi:a>LD;gYCrMQd>mRz3UU+haf3;3JIm6LlZc', 'admin', '', '::1', 4, '2020-04-30 08:43:57', '2020-04-30 15:25:22', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
