@@ -56,8 +56,10 @@
 <script src="<?= base_url("assets/plugins/bootstrap-clockpicker/js/bootstrap-clockpicker.min.js") ?>"></script>
 <script src="<?= base_url("assets/js/pages/form-wizard.js") ?>"></script>
 <script src="<?= base_url("assets/js/pages/form-elements.js") ?>"></script>
+<link href="<?= base_url("assets/plugins/select2/select2.min.css") ?>" rel="stylesheet">
+<script src="<?= base_url("assets/plugins/select2/select2.min.js") ?>"></script>
 <?php if (isset($page_mother) && $page_mother == "OExams") : ?>
     <link href="<?= base_url("assets/plugins/icheck/square/_all.css") ?>" rel="stylesheet">
     <script src="<?= base_url("assets/plugins/icheck/icheck.js") ?>"></script>
 <?php endif; ?>
-<script src="<?= base_url("assets/plugins/toastr/toastr.min.js")?>"></script>
+<script src="<?= base_url("assets/plugins/toastr/toastr.min.js") ?>"></script>

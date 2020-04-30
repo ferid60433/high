@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?= form_open('', 'class="form-inline row"')?>
                     <div class="col-md-10 row">
                         <div class="form-group col-md-4">

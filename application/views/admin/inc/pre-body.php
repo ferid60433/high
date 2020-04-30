@@ -84,4 +84,5 @@
         <div class="page-inner">
             <?php if (isset($active) && $active == "dashboard");
             else $this->load->view("admin/inc/breadcrumb") ?>
+            <?php $this->load->view("msg_view") ?>
             <div id="main-wrapper">

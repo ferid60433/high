@@ -26,7 +26,7 @@
 				</div>
 			<?php endif; ?>
 			<div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?php if ($page_action == 'add') : ?>
 					<?= form_open(); ?>
 					<div class="form-group row">

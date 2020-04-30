@@ -50,7 +50,7 @@
                         <h4 class="card-title">Question Bank</h4>
                     </div>
                     <div class="card-body">
-                        <?php $this->load->view('msg_view'); ?>
+                        
                         <?= form_open('', 'class="form-inline row" id="question_filter_form"'); ?>
                         <input type="hidden" name="post_type" value="filter_form">
                         <div class="form-group row col-md-6">

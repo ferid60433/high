@@ -49,6 +49,8 @@ class Auth extends CI_Controller
 					$this->session->set_flashdata('error_msg', 'Email address can not be found.');
 					break;
 			}
+			var_dump( $this->session->flashdata('error_msg'));exit;
+			// return redirect('login');
 		} else {
 			// switch the user module
 			$this->session->set_flashdata('success_msg', 'Logged in successfully.');

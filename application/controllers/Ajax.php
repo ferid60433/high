@@ -54,8 +54,40 @@ class Ajax extends CI_Controller
 			}
 		}
 	}
-
-
+	function get_users_by_role()
+	{
+		if (!$this->input->is_ajax_request()) {
+			redirect(base_url());
+		}
+		header('Content-type: text/json');
+		header('Content-type: application/json');
+		$response['status'] = false;
+		$cond = $this->input->post('cond');
+		$table = $this->input->post('table');
+		if (!empty($cond)) {
+			$users = $this->site->run_sql("SELECT u.email, u.status, t.* FROM users u JOIN $table t ON ( u.id = t.uid) WHERE $cond ORDER BY u.id DESC")->result();
+			$resarray = array();
+			$x = 1;
+			$response['status'] = true;
+			if ($users) {
+				foreach ($users as $s) {
+					$res['id'] = $s->uid;
+					if ($table == "parents") {
+						$res['name'] = strtoupper($s->guardian_name);
+					} else {
+						$res['name'] = strtoupper($s->name);
+					}
+					array_push($resarray, $res);
+					$x++;
+				}
+				$response['message'] = $resarray;
+				echo json_encode($response);
+				exit;
+			} else {
+				$response['message'] = "Select User";
+			}
+		}
+	}
 	function get_section_by_class()
 	{
 		if (!$this->input->is_ajax_request()) {

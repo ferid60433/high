@@ -71,7 +71,7 @@
         </div>
     </div>
     <div class="col-md-9">
-		<?php $this->load->view('msg_view'); ?>
+		
         <div class="card card-white">
             <div class="card-heading clearfix">
                 <h4 class="card-title">Conversation: <b><?= strtoupper($thread_detail->title)?></b></h4>

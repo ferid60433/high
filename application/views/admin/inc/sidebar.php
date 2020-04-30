@@ -5,6 +5,11 @@
         <!-- <i class="icon-school" title="Pin Menu" id="fixed-sidebar-toggle-button"></i> -->
         <i class="icon-close" id="sidebar-toggle-button-close"></i>
     </a>
+    <?php
+    $ug = $this->session->userdata("role");
+    $role = $this->site->get_row("roles", "*", "id = $ug");
+    $actions = explode(",", $role->roles);
+    ?>
     <div class="page-sidebar-inner">
         <div class="page-sidebar-menu">
             <ul class="accordion-menu">
@@ -29,30 +34,32 @@
                     } else {
                         $url = $this->uri->uri_string();
                     }
-                    $submodules = $this->menu->submodules($module->id);
-                    if (count($submodules) < 1) :
+                    if (in_array($module->id, $actions) || $ug == 1) :
+                        $submodules = $this->menu->submodules($module->id);
+                        if (count($submodules) < 1) :
                     ?>
-                        <li>
-                            <a href="<?= base_url("admin/$module->url") ?>" class="<?= ($url == "admin/$module->url") ? "active" : "" ?>">
-                                <i class="menu-icon <?= $module->iclass ?>"></i><span><?= $module->title ?></span>
-                            </a>
-                        </li>
-                    <?php else : ?>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <i class="menu-icon <?= $module->iclass ?>"></i><span><?= $module->title ?></span><i class="accordion-icon fa fa-angle-left"></i>
-                            </a>
-                            <ul>
-                                <?php foreach ($submodules as $submodule) : ?>
-                                    <li>
-                                        <a href="<?= base_url("admin/$submodule->url") ?>" class="<?= ($url == "admin/$submodule->url") ? "active" : "" ?>">
-                                            <?= $submodule->title ?>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                    <?php endif; ?>
+                            <li>
+                                <a href="<?= base_url("admin/$module->url") ?>" class="<?= ($url == "admin/$module->url") ? "active" : "" ?>">
+                                    <i class="menu-icon <?= $module->iclass ?>"></i><span><?= $module->title ?></span>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <i class="menu-icon <?= $module->iclass ?>"></i><span><?= $module->title ?></span><i class="accordion-icon fa fa-angle-left"></i>
+                                </a>
+                                <ul>
+                                    <?php foreach ($submodules as $submodule) : ?>
+                                        <li>
+                                            <a href="<?= base_url("admin/$submodule->url") ?>" class="<?= ($url == "admin/$submodule->url") ? "active" : "" ?>">
+                                                <?= $submodule->title ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
+                    <?php endif;
+                    endif; ?>
                 <?php endforeach; ?>
                 <li class="menu-divider"></li>
                 <li>

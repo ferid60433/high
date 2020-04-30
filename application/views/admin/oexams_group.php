@@ -10,7 +10,7 @@
 				</div>
 			<?php endif; ?>
 			<div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?php if ($action_type == 'add') : ?>
 					<div class="col-md-12">
 						<?= form_open(); ?>

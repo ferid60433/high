@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="card card-white">
             <div class="card-body">
-				<?php $this->load->view('msg_view'); ?>
+				
 				<?= form_open(''); ?>
 				<div class="row m-b-lg">
 					<div class="col-md-12">

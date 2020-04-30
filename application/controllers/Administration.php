@@ -26,15 +26,32 @@ class Administration extends MY_Controller
         $p["page"] = "password";
         $p["page_name"] = "Reset Password";
         $o = array(
-            array("id" => "parent", "title" => "Parent"),
-            array("id" => "student", "title" => "Student"),
-            array("id" => "teacher", "title" => "Teacher")
+            (object) array("id" => "parent", "title" => "Parent"),
+            (object) array("id" => "student", "title" => "Student"),
+            (object) array("id" => "teacher", "title" => "Teacher")
         );
         $r = $this->db->get('roles')->result();
         $p['roles'] = array_merge($o, $r);
         if ($this->input->post()) {
+            $this->form_validation->set_rules('user', 'User', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[6]|max_length[15]');
-            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[15]|matches["password"]');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[15]|matches[password]');
+            if ($this->form_validation->run() == false) {
+                $this->session->set_flashdata('error_msg', validation_errors());
+                $this->load->view('admin/admin_password', $p);
+                return;
+            } else {
+                $uid = $this->input->post('user', true);
+                $password = $this->input->post('password', true);
+                $response = $this->user->change_password($password, $uid);
+                if (!$response) {
+                    $this->session->set_flashdata('error_msg', "Sorry! There was an error resetting the password. ");
+                    $this->load->view('admin/admin_password', $p);
+                } else {
+                    $this->session->set_flashdata('success_msg', "Account password reset successfully.");
+                    redirect('admin/administration/password');
+                }
+            }
         } else {
             $this->load->view('admin/admin_password', $p);
         }

@@ -34,7 +34,7 @@ class Students extends MY_Controller
 			$this->form_validation->set_rules('cid', 'Class', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('gender', 'Gender', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
-			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[50]');
+			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[6]|max_length[50]|matches[password]');
 
 			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('error_msg', validation_errors());
